@@ -1,0 +1,27 @@
+Hva trenger et program for aa lage timeplan?
+
+All teachers, subjects rooom and availability.
+
+
+
+
+Domeneregler:
+
+Avoid program-collisjons, teacher, student, class.
+
+Studentgroups.
+
+liste over prioriteter
+
+
+Programmet:
+
+
+
+Klasser:
+
+inputhandler
+
+
+
+
