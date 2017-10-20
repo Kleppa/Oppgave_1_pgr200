@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - pgr200_Innlevering_db@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="pgr200_Innlevering_db">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="database"/>
+    <schema id="3" name="flyReservasjon"/>
+    <schema id="4" name="information_schema"/>
+    <schema id="5" name="innlevering_db"/>
+    <schema id="6" name="mysql"/>
+    <schema id="7" name="performance_schema"/>
+    <schema id="8" name="skole"/>
+    <schema id="9" name="Skole_Hint"/>
+    <schema id="10" name="sys"/>
+  </database-model>
+</dataSource>

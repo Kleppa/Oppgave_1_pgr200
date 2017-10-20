@@ -24,8 +24,8 @@ import java.util.Scanner;
 public class DBHandler {
     private ArrayList<DatabaseContent> contentArrayList;
 
-    public StringBuilder getSb() {
-        return sb;
+    public String getSb() {
+        return sb.toString();
     }
 
     public void setSb(StringBuilder sb) {
@@ -258,52 +258,46 @@ public class DBHandler {
 
         String tableNameWithAddedPrefix = "Westerdals_Schedual_Maker.";
         tableNameWithAddedPrefix += tableName;
-        try (
-                Connection con = dbCon.getNewConnection()) {
-            try (
-                    PreparedStatement ps = con.prepareStatement("SELECT " + sql.trim() + " FROM " + tableNameWithAddedPrefix.trim() + " WHERE " + coloumnToIdentifyRowWith + "  = " + "?" + " ;")) {
+
+        try (Connection con = dbCon.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT " + sql.trim() + " FROM " + tableNameWithAddedPrefix.trim() + " WHERE " + coloumnToIdentifyRowWith + "  = " + "?" + " ;")) {
 
 
-                ps.setString(1, identifier.trim());
+            ps.setString(1, identifier.trim());
 
-                if (sql.toLowerCase().contains("drop") || sql.toLowerCase().contains(";--") || tableNameWithAddedPrefix.toLowerCase().contains("drop") || tableNameWithAddedPrefix.toLowerCase().contains(";--")) {
-                    System.out.println("wtf are you doing");
-                } else {
+            if (sql.toLowerCase().contains("drop") || sql.toLowerCase().contains(";--") || tableNameWithAddedPrefix.toLowerCase().contains("drop") || tableNameWithAddedPrefix.toLowerCase().contains(";--")) {
+                System.out.println("wtf are you doing");
+            } else {
 
 
-                    try (ResultSet rs = ps.executeQuery()) {
+                try (ResultSet rs = ps.executeQuery()) {
 
-                        ResultSetMetaData rsmd = rs.getMetaData();
-                        int columnCount = rsmd.getColumnCount();
-                        if (columnCount == 1) {
+                    ResultSetMetaData rsmd = rs.getMetaData();
+                    int columnCount = rsmd.getColumnCount();
+                    if (columnCount == 1) {
+                        String row = "";
+                        if (rs.next()) {
+                            for (int i = 1; i <= columnCount; i++) {
+                                row += rsmd.getColumnName(i) + " : " + rs.getString(i) + ", ";
+                            }
+                            System.out.println(row);
+                        }
+                    } else {
+
+
+                        while (rs.next()) {
                             String row = "";
-                            if (rs.next()){
-                                for (int i = 1; i <= columnCount; i++) {
-                                    row += rsmd.getColumnName(i) + " : " + rs.getString(i) + ", ";
-                                }
-                                System.out.println(row);
+                            for (int i = 1; i <= columnCount; i++) {
+                                row += rsmd.getColumnName(i) + " : " + rs.getString(i) + ", ";
                             }
-                        } else {
-
-
-                            while (rs.next()) {
-                                String row = "";
-                                for (int i = 1; i <= columnCount; i++) {
-                                    row += rsmd.getColumnName(i) + " : " + rs.getString(i) + ", ";
-                                }
-                                System.out.println(row);
-                            }
+                            System.out.println(row);
                         }
                     }
-
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
+
             }
-        } catch (Exception e) {
-
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
     }
 
 
@@ -366,7 +360,7 @@ public class DBHandler {
 
                     if (i > 1) System.out.print(",  ");
                     String columnValue = rs.getString(i);
-                    sb.append(rs.getString(i));
+                    sb.append(rsmd.getColumnName(i) + " : " + columnValue+"\n");
 
                     System.out.print(rsmd.getColumnName(i) + " : " + columnValue);
 

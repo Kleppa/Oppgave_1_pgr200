@@ -76,26 +76,33 @@ public class SocketClientThread implements Runnable {
             switch (msg) {
 
                 case "1":
+                    System.out.println("This is making no sense.");
+
                     output.println("Which table do you want to get info from ? ");
+
+
                     try {
 
-                        System.out.println("adding answer to query");
-                        table += input.readLine().toString();
-                        System.out.println(table);
-
+                        table = input.readLine().toString();
                         output.println("What coloumn are you interested in?");
+
 
                         sql += input.readLine() + " ";
                         dbhand.get(table, sql);
-                        output.println(table + " " + sql);
+                        //gets String builder from dbhandler, with lengts also.
+                        output.println(dbhand.getSb().length());
+                        output.println(dbhand.getSb());
                         table = "";
                         sql = "";
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    msg="";
                     break;
 
                 case "2":
+
                     try {
                         output.println("Which table do you want to get info from ? ");
 
@@ -109,6 +116,9 @@ public class SocketClientThread implements Runnable {
                         identifier += input.readLine();
                         //// TODO: 14/10/2017 use config to set database name
                         dbhand.get(table, sql, col, identifier);
+                        output.println(dbhand.getSb().length());
+                        output.println(dbhand.getSb());
+
                         table = "";
                         sql = "";
                         col = "";
