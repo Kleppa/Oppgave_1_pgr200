@@ -12,10 +12,10 @@ public class Client {
     }
 
     public Client() {
-        connectToServerAndDoWork();
+        setupStreamConnections();
     }
 
-    public void connectToServerAndDoWork() {
+    public void setupStreamConnections() {
         //We set up the scanner to receive user input
         Scanner scanner = new Scanner(System.in);
         try {
@@ -38,13 +38,11 @@ public class Client {
                 //Now we write it to the server
                 output.println(userInput);
                 System.out.println("Waiting");
-                String msg = input.readLine();
 
 
 
                 if (userInput.equals("1")) {
                     sendAndRetrieve(2, output, input);
-
                 } else if (userInput.equals("2")) {
                     sendAndRetrieve(4, output, input);
 
@@ -65,13 +63,13 @@ public class Client {
         Scanner scanner = new Scanner(System.in);
 
         for (int i = 0; i < amountOfQuestions; i++) {
-            System.out.println("prepping answers : " + (i + 1) + " out of " + amountOfQuestions + " before complete");
-
-            output.println(scanner.nextLine());
-            output.flush();
-
             try {
                 System.out.println(input.readLine());
+                System.out.println("prepping answers : " + (i + 1) + " out of " + amountOfQuestions + " before complete");
+                output.println(scanner.nextLine());
+
+
+
             } catch (IOException e1) {
                 e1.printStackTrace();
             }

@@ -27,17 +27,9 @@ public class Server {
                 Socket socket = sSocket.accept();
                 executor.submit(new SocketClientThread(socket, count));
                 System.out.println("Server started at: " + new Date());
-
-
                 count++;
 
 
-                if ("close".equals("test")) {
-
-                }
-//                if (input.readLine().equals("1")) {
-//
-//                }
             }
         } catch (IOException e) {
             e.printStackTrace();

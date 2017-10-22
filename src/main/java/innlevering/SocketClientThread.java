@@ -29,6 +29,10 @@ public class SocketClientThread implements Runnable {
     }
 
     // TODO: 16/10/2017 Bruke ORM TIL AA vise forskjeller og ULEMPER
+
+    /**
+     * Opens stream connection with the client, takes in a input from user and handle the input.
+     */
     @Override
     public void run() {
         //All this should look familiar
@@ -48,9 +52,7 @@ public class SocketClientThread implements Runnable {
                     System.out.println("Message from client :  " + msg);
                     String answer = sendToUser(handleRequest(msg, input, output));
                     output.println(answer);
-                    userCanRequest = false;
 
-                    serverRespons = false;
                 }
             }
         } catch (IOException exception) {
@@ -59,6 +61,14 @@ public class SocketClientThread implements Runnable {
             exception.printStackTrace();
         }
     }
+
+    /**
+     * @param msg String from user
+     * @param input Bufferedreader to stream from client
+     * @param output Printwriter to stream info to client.
+     * @return returns a string that will be sent to user with the result from the query.
+     * Methode is not complete
+     */
 
     private String handleRequest(String msg, BufferedReader input, PrintWriter output) {
 
@@ -72,12 +82,11 @@ public class SocketClientThread implements Runnable {
 
         while (whileLock) {
 
+            System.out.println("before switch");
 
             switch (msg) {
 
                 case "1":
-                    System.out.println("This is making no sense.");
-
                     output.println("Which table do you want to get info from ? ");
 
 
@@ -94,6 +103,7 @@ public class SocketClientThread implements Runnable {
                         output.println(dbhand.getSb());
                         table = "";
                         sql = "";
+
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -150,22 +160,21 @@ public class SocketClientThread implements Runnable {
         return sendToUser(dbhand.getSb().toString());
     }
 
+    /**
+     *  temporary method, big chance it will be removed.
+     * @param s
+     * @return
+     */
+
     private String sendToUser(String s) {
 
         return s;
     }
 
-    private boolean inputStreamIsAvailable() {
-        try {
-
-            if (input.ready())
-                return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
+    /**
+     *  Method returns the menu, method will be improved later.
+     * @return a string with the meny
+     */
     public static String menu() {
         String stringMenu = "----- MENU ----- //1 - Get a coloumn from table// 2 - get a specific row from table// 3 - exit";
 
