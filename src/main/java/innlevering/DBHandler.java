@@ -246,6 +246,7 @@ public class DBHandler {
      * @param sql                      String sql statement to send with the query
      * @param coloumnToIdentifyRowWith String sql coloumns u want
      * @param identifier               String for identifying specific rows.
+     *                                 sql injection vulnerability
      */
 
     public void get(String tableName, String sql, String coloumnToIdentifyRowWith, String identifier) {
@@ -255,8 +256,8 @@ public class DBHandler {
             // TODO: 10/10/2017 FIX SPECIFIC GET METHOD
         }
 
-
-        String tableNameWithAddedPrefix = "Westerdals_Schedual_Maker.";
+        Properties prop = new Properties();
+        String tableNameWithAddedPrefix = prop.getProperty("databasename");
         tableNameWithAddedPrefix += tableName;
 
         try (Connection con = dbCon.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT " + sql.trim() + " FROM " + tableNameWithAddedPrefix.trim() + " WHERE " + coloumnToIdentifyRowWith + "  = " + "?" + " ;")) {
@@ -278,7 +279,9 @@ public class DBHandler {
                         if (rs.next()) {
                             for (int i = 1; i <= columnCount; i++) {
                                 row += rsmd.getColumnName(i) + " : " + rs.getString(i) + ", ";
+
                             }
+                            sb.append(row);
                             System.out.println(row);
                         }
                     } else {
@@ -288,10 +291,14 @@ public class DBHandler {
                             String row = "";
                             for (int i = 1; i <= columnCount; i++) {
                                 row += rsmd.getColumnName(i) + " : " + rs.getString(i) + ", ";
+
                             }
+                            sb.append(row);
                             System.out.println(row);
                         }
+
                     }
+
                 }
 
             }

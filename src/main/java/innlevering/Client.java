@@ -67,9 +67,6 @@ public class Client {
                 System.out.println(input.readLine());
                 System.out.println("prepping answers : " + (i + 1) + " out of " + amountOfQuestions + " before complete");
                 output.println(scanner.nextLine());
-
-
-
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -77,7 +74,6 @@ public class Client {
         int sbSize = 0;
         try {
             sbSize = Integer.parseInt(input.readLine());
-
             for (int i = 0; i < sbSize; i++) {
                 System.out.println(input.readLine());
             }

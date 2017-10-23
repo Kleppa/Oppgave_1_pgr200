@@ -36,7 +36,7 @@ public class SocketClientThread implements Runnable {
     @Override
     public void run() {
         //All this should look familiar
-        System.out.println("RUN METHOD");
+
         try {
             PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -88,16 +88,14 @@ public class SocketClientThread implements Runnable {
 
                 case "1":
                     output.println("Which table do you want to get info from ? ");
-
-
                     try {
 
                         table = input.readLine().toString();
                         output.println("What coloumn are you interested in?");
-
-
                         sql += input.readLine() + " ";
+
                         dbhand.get(table, sql);
+
                         //gets String builder from dbhandler, with lengts also.
                         output.println(dbhand.getSb().length());
                         output.println(dbhand.getSb());
@@ -112,10 +110,8 @@ public class SocketClientThread implements Runnable {
                     break;
 
                 case "2":
-
                     try {
                         output.println("Which table do you want to get info from ? ");
-
                         table += input.readLine();
 
                         output.println("What are you interested in?");
@@ -126,6 +122,7 @@ public class SocketClientThread implements Runnable {
                         identifier += input.readLine();
                         //// TODO: 14/10/2017 use config to set database name
                         dbhand.get(table, sql, col, identifier);
+
                         output.println(dbhand.getSb().length());
                         output.println(dbhand.getSb());
 

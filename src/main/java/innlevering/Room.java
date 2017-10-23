@@ -1,17 +1,25 @@
 package innlevering;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 /**
  * Created by Kleppa on 04/09/2017.
  */
+@DatabaseTable(tableName="Room")
+
 public class Room implements DatabaseContent {
+    @DatabaseField
     private String roomCode;
+    @DatabaseField
     private String facilitiesSupports;
+    @DatabaseField
     private int maxCapasity;
 
     public void setColsAndDataTypes(String colsAndDataTypes) {
         this.colsAndDataTypes = colsAndDataTypes;
     }
-
+    @DatabaseField
     private String colsAndDataTypes;
     @Override
     public String getColsAndDataTypes() {
