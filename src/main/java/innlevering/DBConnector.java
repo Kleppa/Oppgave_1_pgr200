@@ -1,5 +1,8 @@
 package innlevering;
 
+
+import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.support.ConnectionSource;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import java.io.FileInputStream;
@@ -61,5 +64,19 @@ public class DBConnector {
         System.out.println("Did not manage to open a connection");
         return null;
 
+    }
+
+    public ConnectionSource getNewOrmConnection() {
+
+        String databaseUrl = "jdbc:mysql://localhost/roomdatabase";
+// create a connection source to our database
+
+
+        try {
+            return new JdbcConnectionSource(databaseUrl);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

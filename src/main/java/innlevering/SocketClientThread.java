@@ -47,6 +47,7 @@ public class SocketClientThread implements Runnable {
 
                 if (!userCanRequest) {
                     output.println(menu());
+                    System.out.println("Why does this not work");
                     String msg = input.readLine();
 
                     System.out.println("Message from client :  " + msg);
@@ -80,7 +81,7 @@ public class SocketClientThread implements Runnable {
         String identifier = "";
         boolean whileLock = true;
 
-        while (whileLock) {
+
 
             System.out.println("before switch");
 
@@ -130,6 +131,7 @@ public class SocketClientThread implements Runnable {
                         sql = "";
                         col = "";
                         identifier = "";
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -151,7 +153,7 @@ public class SocketClientThread implements Runnable {
                     break;
 
             }
-        }
+
 
 
         return sendToUser(dbhand.getSb().toString());

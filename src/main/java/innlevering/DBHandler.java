@@ -65,6 +65,7 @@ public class DBHandler {
         createTables();
         addColoumns();
         fillTablesWithRowContent();
+        //Room.OrmUsage();
     }
 
     public void createTables() {
@@ -104,6 +105,10 @@ public class DBHandler {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Creates coloumns from contentArrayList
+     */
 
     public void addColoumns() {
         try (Connection con = dbCon.getNewConnection()) {

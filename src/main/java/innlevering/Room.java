@@ -1,26 +1,41 @@
 package innlevering;
 
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.DatabaseTable;
+import com.j256.ormlite.table.TableUtils;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * Created by Kleppa on 04/09/2017.
  */
-@DatabaseTable(tableName="Room")
+@DatabaseTable(tableName = "Room")
 
 public class Room implements DatabaseContent {
+    public Room(){
+
+    }
+
     @DatabaseField
     private String roomCode;
     @DatabaseField
     private String facilitiesSupports;
     @DatabaseField
     private int maxCapasity;
+    @DatabaseField(generatedId = true)
+    private int id;
 
     public void setColsAndDataTypes(String colsAndDataTypes) {
         this.colsAndDataTypes = colsAndDataTypes;
     }
+
     @DatabaseField
     private String colsAndDataTypes;
+
     @Override
     public String getColsAndDataTypes() {
         return colsAndDataTypes;
@@ -29,10 +44,10 @@ public class Room implements DatabaseContent {
     @Override
     public String toString() {
         return "Room{" +
-                "\"roomCode\":" + "\""+roomCode + "\""+
-                ", \"facilitiesSupports\":" + "\""+ facilitiesSupports + "\""+
-                ", \"maxCapasity\":" + "\""+ maxCapasity + "\""+
-                ", \"roomSize\":" + "\""+roomSize + "\""+
+                "\"roomCode\":" + "\"" + roomCode + "\"" +
+                ", \"facilitiesSupports\":" + "\"" + facilitiesSupports + "\"" +
+                ", \"maxCapasity\":" + "\"" + maxCapasity + "\"" +
+                ", \"roomSize\":" + "\"" + roomSize + "\"" +
                 '}';
     }
 
@@ -70,6 +85,26 @@ public class Room implements DatabaseContent {
         this.roomSize = roomSize;
     }
 
+    public static void OrmUsage() {
+        DBConnector dbcon = new DBConnector();
+        try {
+            ConnectionSource con =  dbcon.getNewOrmConnection();
+
+            Dao<Room, Integer> roomDao = DaoManager.createDao(con, Room.class);
+            TableUtils.createTableIfNotExists(con,Room.class);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

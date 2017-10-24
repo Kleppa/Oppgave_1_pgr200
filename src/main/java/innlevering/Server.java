@@ -24,7 +24,9 @@ public class Server {
         try (ServerSocket sSocket = new ServerSocket(4444)) {
             //Loop that runs server functions
             while (true) {
+
                 Socket socket = sSocket.accept();
+
                 executor.submit(new SocketClientThread(socket, count));
                 System.out.println("Server started at: " + new Date());
                 count++;
