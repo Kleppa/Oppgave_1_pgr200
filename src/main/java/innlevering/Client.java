@@ -23,23 +23,22 @@ public class Client {
             PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            //This will wait for the server to send the string to the client saying a connection
-            //has been made.
 
-
-            //Again, here is the code that will run the client, this will continue looking for
-            //input from the user then it will send that info to the server.
-
-            System.out.println(input.readLine());
             while (true) {
 
-                //Here we look for input from the user
+               //gets menu from ThreadClass
+                System.out.println("before menu");
+
+                System.out.println(input.readLine());
+                System.out.println("before userinput");
                 String userInput = scanner.nextLine();
                 //Now we write it to the server
+
+                System.out.println("Before Menu print");
+
                 output.println(userInput);
+
                 System.out.println("Waiting");
-
-
 
                 if (userInput.equals("1")) {
                     sendAndRetrieve(2, output, input);
@@ -52,6 +51,7 @@ public class Client {
 
                 }
                 // System.out.println(input.readLine());
+                System.out.println("while loop iteration");
             }
         } catch (IOException exception) {
             System.out.println("Error: " + exception);
@@ -74,9 +74,18 @@ public class Client {
         int sbSize = 0;
         try {
             sbSize = Integer.parseInt(input.readLine());
-            for (int i = 0; i < sbSize; i++) {
-                System.out.println(input.readLine());
+            System.out.println(sbSize);
+            // TODO: 25/10/2017 FIx for loop
+            String inputString = null;
+            while((inputString=input.readLine())!=null){
+                if (inputString.contains("draft")) {
+                    System.out.println("We BROKE BOIS");
+                    break;
+                }
+                System.out.println(inputString);
+
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

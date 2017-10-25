@@ -15,8 +15,7 @@ public class Server {
     }
 
     public static void server() {
-        BufferedReader input = null;
-        PrintWriter output = null;
+
         //We need a try-catch because lots of errors can be thrown
         //Wait for a client to connect
 

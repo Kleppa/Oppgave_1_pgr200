@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class SocketClientThread implements Runnable {
     //This constructor will be passed the socket
-    private boolean activiateUser=false;
+    private boolean activiateUser = false;
     private DBHandler dbhand = new DBHandler();
     private Socket socket;
     private int id;
@@ -46,13 +46,16 @@ public class SocketClientThread implements Runnable {
                 //This will wait until a line of text has been sent
 
                 if (!userCanRequest) {
-                    output.println(menu());
                     System.out.println("Why does this not work");
+                    output.println(menu());
+                    System.out.println("After menu");
+                    System.out.println("Before msg");
                     String msg = input.readLine();
+                    System.out.println("after msg");
 
                     System.out.println("Message from client :  " + msg);
-                    String answer = sendToUser(handleRequest(msg, input, output));
-                    output.println(answer);
+                    handleRequest(msg, input, output);
+
 
                 }
             }
@@ -64,14 +67,14 @@ public class SocketClientThread implements Runnable {
     }
 
     /**
-     * @param msg String from user
-     * @param input Bufferedreader to stream from client
+     * @param msg    String from user
+     * @param input  Bufferedreader to stream from client
      * @param output Printwriter to stream info to client.
      * @return returns a string that will be sent to user with the result from the query.
      * Methode is not complete
      */
 
-    private String handleRequest(String msg, BufferedReader input, PrintWriter output) {
+    private void handleRequest(String msg, BufferedReader input, PrintWriter output) {
 
         Scanner sc = new Scanner(System.in);
 
@@ -82,96 +85,81 @@ public class SocketClientThread implements Runnable {
         boolean whileLock = true;
 
 
+        System.out.println("before switch");
 
-            System.out.println("before switch");
+        switch (msg) {
 
-            switch (msg) {
+            case "1":
+                output.println("Which table do you want to get info from ? ");
+                try {
+                    table = input.readLine().toString();
+                    output.println("What coloumn are you interested in?");
+                    sql += input.readLine() + " ";
 
-                case "1":
+                    dbhand.get(table, sql);
+
+                    //gets String builder from dbhandler, with lengts also.
+                    output.println(dbhand.getSb().length());
+                    output.println(dbhand.getSb());
+                    table = "";
+                    sql = "";
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                msg = "";
+                break;
+
+            case "2":
+                try {
                     output.println("Which table do you want to get info from ? ");
-                    try {
+                    table += input.readLine();
 
-                        table = input.readLine().toString();
-                        output.println("What coloumn are you interested in?");
-                        sql += input.readLine() + " ";
+                    output.println("What are you interested in?");
+                    sql += input.readLine();
+                    output.println("Where X =? What is your x");
+                    col += input.readLine();
+                    output.println("What do you want X to be equal to?");
+                    identifier += input.readLine();
+                    //// TODO: 14/10/2017 use config to set database name
 
-                        dbhand.get(table, sql);
+                    dbhand.get(table, sql, col, identifier);
 
-                        //gets String builder from dbhandler, with lengts also.
-                        output.println(dbhand.getSb().length());
-                        output.println(dbhand.getSb());
-                        table = "";
-                        sql = "";
+                    output.println(dbhand.getSb().length());
+                    output.println(dbhand.getSb());
 
+                    table = "";
+                    sql = "";
+                    col = "";
+                    identifier = "";
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    msg="";
-                    break;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "3":
+                break;
+            case "4":
+                dbhand.dropFromDatabase();
+                break;
+            case "5":
+                dbhand.dropTable();
+                break;
 
-                case "2":
-                    try {
-                        output.println("Which table do you want to get info from ? ");
-                        table += input.readLine();
+            case "0":
+                whileLock = false;
+                break;
 
-                        output.println("What are you interested in?");
-                        sql += input.readLine();
-                        output.println("Where X =? What is your x");
-                        col += input.readLine();
-                        output.println("What do you want X to be equal to?");
-                        identifier += input.readLine();
-                        //// TODO: 14/10/2017 use config to set database name
-                        dbhand.get(table, sql, col, identifier);
+            default:
+                break;
 
-                        output.println(dbhand.getSb().length());
-                        output.println(dbhand.getSb());
-
-                        table = "";
-                        sql = "";
-                        col = "";
-                        identifier = "";
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case "3":
-                    break;
-                case "4":
-                    dbhand.dropFromDatabase();
-                    break;
-                case "5":
-                    dbhand.dropTable();
-                    break;
-
-                case "0":
-                    whileLock = false;
-                    break;
-
-                default:
-                    break;
-
-            }
-
-
-
-        return sendToUser(dbhand.getSb().toString());
+        }
     }
 
     /**
-     *  temporary method, big chance it will be removed.
-     * @param s
-     * @return
-     */
-
-    private String sendToUser(String s) {
-
-        return s;
-    }
-
-    /**
-     *  Method returns the menu, method will be improved later.
+     * Method returns the menu, method will be improved later.
+     *
      * @return a string with the meny
      */
     public static String menu() {

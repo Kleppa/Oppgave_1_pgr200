@@ -22,6 +22,11 @@ import java.util.Scanner;
  * Handles interaction with database
  */
 public class DBHandler {
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    private int rowCount=0;
     private ArrayList<DatabaseContent> contentArrayList;
 
     public String getSb() {
@@ -261,8 +266,8 @@ public class DBHandler {
             // TODO: 10/10/2017 FIX SPECIFIC GET METHOD
         }
 
-        Properties prop = new Properties();
-        String tableNameWithAddedPrefix = prop.getProperty("databasename");
+
+        String tableNameWithAddedPrefix = newProp.getProperty("databasename")+".";
         tableNameWithAddedPrefix += tableName;
 
         try (Connection con = dbCon.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT " + sql.trim() + " FROM " + tableNameWithAddedPrefix.trim() + " WHERE " + coloumnToIdentifyRowWith + "  = " + "?" + " ;")) {
@@ -287,6 +292,7 @@ public class DBHandler {
 
                             }
                             sb.append(row);
+                            rowCount++;
                             System.out.println(row);
                         }
                     } else {
@@ -298,6 +304,7 @@ public class DBHandler {
                                 row += rsmd.getColumnName(i) + " : " + rs.getString(i) + ", ";
 
                             }
+                            rowCount++;
                             sb.append(row);
                             System.out.println(row);
                         }

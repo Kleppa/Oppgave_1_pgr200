@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a61963bf-35fa-4a5a-995a-27bf49883c6a" name="Default" comment="Adding ormlite and Dao functionality">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_j256_ormlite_ormlite_core_5_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_j256_ormlite_ormlite_core_4_48.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_j256_ormlite_ormlite_jdbc_5_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_39.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_0_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/DBConnector.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/DBConnector.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/Client.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/Client.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/Room.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/Room.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/Server.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/Server.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/SocketClientThread.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/SocketClientThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/innlevering_Jarand.iml" afterPath="$PROJECT_DIR$/innlevering_Jarand.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/DBConnector.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/DBConnector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/Client.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/Client.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/Room.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/Room.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/Server.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/Server.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/SocketClientThread.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/SocketClientThread.java" />
     </list>
@@ -59,8 +54,8 @@
       <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+            <state relative-caret-position="105">
+              <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -69,8 +64,69 @@
       <file leaf-file-name="SocketClientThread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/SocketClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="49" column="62" lean-forward="false" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
+            <state relative-caret-position="829">
+              <caret line="161" column="6" lean-forward="true" selection-start-line="161" selection-start-column="6" selection-end-line="161" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+              <folding>
+                <element signature="e#593#594#0" expanded="true" />
+                <element signature="e#624#625#0" expanded="true" />
+                <element signature="e#775#776#0" expanded="true" />
+                <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
+                <element signature="method#addColoumns#0;class#DBHandler#0" expanded="false" />
+                <element signature="method#fillTablesWithRowContent#0;class#DBHandler#0" expanded="false" />
+                <marker date="1508930239000" expanded="true" signature="2686:2791" ph="CREATE TABLE... missingValue" />
+                <marker date="1508930239000" expanded="true" signature="3982:4119" ph="SELECT COUNT... COLUMNS" />
+                <marker date="1508930239000" expanded="true" signature="3982:4236" ph="SELECT COUNT... COLUMNS" />
+                <marker date="1508930239000" expanded="true" signature="3982:4254" ph="SELECT COUNT... COLUMNS" />
+                <marker date="1508930239000" expanded="true" signature="4660:4672" ph="ALTER TABLE missingValue... " />
+                <marker date="1508930239000" expanded="true" signature="4660:4694" ph="ALTER TABLE missingValue... " />
+                <marker date="1508930239000" expanded="true" signature="4660:4749" ph="ALTER TABLE missingValue... " />
+                <marker date="1508930239000" expanded="true" signature="7618:7630" ph="INSERT INTO missingValue... " />
+                <marker date="1508930239000" expanded="true" signature="7618:7648" ph="INSERT INTO missingValue... " />
+                <marker date="1508930239000" expanded="true" signature="7618:7670" ph="INSERT INTO missingValue... " />
+                <marker date="1508930239000" expanded="true" signature="7618:7679" ph="INSERT INTO missingValue... " />
+                <marker date="1508930239000" expanded="true" signature="7618:7698" ph="INSERT INTO missingValue... " />
+                <marker date="1508930239000" expanded="true" signature="7618:7701" ph="INSERT INTO missingValue... " />
+                <marker date="1508930239000" expanded="true" signature="9018:9049" ph="SELECT missi... " />
+                <marker date="1508930239000" expanded="true" signature="9018:9094" ph="SELECT missi... missingValue" />
+                <marker date="1508930239000" expanded="true" signature="9018:9128" ph="SELECT missi... missingValue" />
+                <marker date="1508930239000" expanded="true" signature="9018:9131" ph="SELECT missi... " />
+                <marker date="1508930239000" expanded="true" signature="9018:9134" ph="SELECT missi... " />
+                <marker date="1508930239000" expanded="true" signature="9018:9137" ph="SELECT missi... " />
+                <marker date="1508930239000" expanded="true" signature="11373:11396" ph="SELECT missi... " />
+                <marker date="1508930239000" expanded="true" signature="11373:11397" ph="SELECT missi... missingValue" />
+                <marker date="1508930239000" expanded="true" signature="11686:11773" ph="SELECT missi... missingValue" />
+                <marker date="1508930239000" expanded="true" signature="13512:13554" ph="SELECT table... information_schema." />
+                <marker date="1508930239000" expanded="true" signature="13512:13608" ph="SELECT table... tables" />
+                <marker date="1508930239000" expanded="true" signature="13706:13808" ph="SELECT count... tables" />
+                <marker date="1508930239000" expanded="true" signature="15265:15309" ph="DELETE FROM " />
+                <marker date="1508930239000" expanded="true" signature="15265:15340" ph="DELETE FROM " />
+                <marker date="1508930239000" expanded="true" signature="15265:15341" ph="DELETE FROM " />
+                <marker date="1508930239000" expanded="true" signature="15265:15364" ph="DELETE FROM " />
+                <marker date="1508930239000" expanded="true" signature="15265:15365" ph="DELETE FROM " />
+                <marker date="1508930239000" expanded="true" signature="15265:15389" ph="DELETE FROM " />
+                <marker date="1508930239000" expanded="true" signature="16112:16123" ph="DROP TABLE m... " />
+                <marker date="1508930239000" expanded="true" signature="16112:16125" ph="DROP TABLE m... " />
+                <marker date="1508930239000" expanded="true" signature="16794:16807" ph="CREATE TABLE... missingValue" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="conf.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -88,9 +144,23 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get</find>
       <find>proper</find>
       <find>room</find>
+      <find>properties</find>
+      <find>getprop</find>
+      <find>prop</find>
+      <find>sb.append</find>
+      <find>menu</find>
+      <find>get</find>
+      <find>get(</find>
+      <find>sb</find>
+      <find>sendandre</find>
+      <find>get(String</find>
+      <find>getsb</find>
+      <find>sendto</find>
+      <find>send</find>
+      <find>done</find>
+      <find>sendtouser</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,16 +191,16 @@
         <option value="$PROJECT_DIR$/src/main/java/database/info/conf.properties" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/InputHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/Main.java" />
-        <option value="$PROJECT_DIR$/conf.properties" />
         <option value="$PROJECT_DIR$/src/test/java/innlevering/DBHandlerTest.java" />
         <option value="$PROJECT_DIR$/README_OPPGAVE2.md" />
-        <option value="$PROJECT_DIR$/src/main/java/innlevering/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/DaoStuff.java" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/Room.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/DBConnector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/Server.java" />
+        <option value="$PROJECT_DIR$/conf.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/innlevering/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/SocketClientThread.java" />
       </list>
     </option>
@@ -187,9 +257,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -236,6 +304,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -848,7 +918,9 @@
       <workItem from="1508747651843" duration="2399000" />
       <workItem from="1508751417235" duration="4458000" />
       <workItem from="1508756715176" duration="4019000" />
-      <workItem from="1508847678783" duration="945000" />
+      <workItem from="1508847678783" duration="3958000" />
+      <workItem from="1508917798062" duration="818000" />
+      <workItem from="1508920452961" duration="8216000" />
     </task>
     <task id="LOCAL-00001" summary="sass">
       <created>1508249369229</created>
@@ -878,30 +950,39 @@
       <option name="project" value="LOCAL" />
       <updated>1508755261500</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding ormlite and Dao functionality">
+      <created>1508849352299</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1508849352300</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228519000" />
+    <option name="totallyTimeSpent" value="240566000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25549915" sideWeight="0.4838449" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25549915" sideWeight="0.4838449" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33501685" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21163167" sideWeight="0.46275395" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5972927" sideWeight="0.48303714" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282572" sideWeight="0.51373184" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2180937" sideWeight="0.46275395" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282572" sideWeight="0.48626816" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21489002" sideWeight="0.4822294" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20516963" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13974153" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3248731" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -917,7 +998,6 @@
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20840065" sideWeight="0.53724605" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32491583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -980,12 +1060,30 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/innlevering/Client.java</url>
-          <line>43</line>
+          <line>33</line>
           <properties />
-          <option name="timeStamp" value="117" />
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/innlevering/Client.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/innlevering/SocketClientThread.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/innlevering/SocketClientThread.java</url>
+          <line>156</line>
+          <properties />
+          <option name="timeStamp" value="125" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="121" />
+      <option name="time" value="127" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1063,7 +1161,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1093,13 +1190,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
           <caret line="76" column="70" lean-forward="false" selection-start-line="76" selection-start-column="55" selection-end-line="76" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1353,10 +1443,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#toString#0;class#Room#0" expanded="false" />
-            <element signature="e#2479#2480#0" expanded="true" />
-            <element signature="e#2504#2505#0" expanded="true" />
-            <element signature="e#2537#2538#0" expanded="true" />
-            <element signature="e#2565#2566#0" expanded="true" />
+            <element signature="e#2479#2480#0" expanded="false" />
+            <element signature="e#2504#2505#0" expanded="false" />
+            <element signature="e#2537#2538#0" expanded="false" />
+            <element signature="e#2565#2566#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1371,70 +1461,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
+    <entry file="file://$PROJECT_DIR$/conf.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="109" column="45" lean-forward="false" selection-start-line="109" selection-start-column="45" selection-end-line="109" selection-end-column="45" />
-          <folding>
-            <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
-            <marker date="1508769709000" expanded="true" signature="2595:2700" ph="CREATE TABLE... missingValue" />
-            <marker date="1508769709000" expanded="true" signature="3891:4028" ph="SELECT COUNT... COLUMNS" />
-            <marker date="1508769709000" expanded="true" signature="3891:4145" ph="SELECT COUNT... COLUMNS" />
-            <marker date="1508769709000" expanded="true" signature="3891:4163" ph="SELECT COUNT... COLUMNS" />
-            <marker date="1508769709000" expanded="true" signature="4569:4581" ph="ALTER TABLE missingValue... " />
-            <marker date="1508769709000" expanded="true" signature="4569:4603" ph="ALTER TABLE missingValue... " />
-            <marker date="1508769709000" expanded="true" signature="4569:4658" ph="ALTER TABLE missingValue... " />
-            <marker date="1508769709000" expanded="true" signature="7527:7539" ph="INSERT INTO missingValue... " />
-            <marker date="1508769709000" expanded="true" signature="7527:7557" ph="INSERT INTO missingValue... " />
-            <marker date="1508769709000" expanded="true" signature="7527:7579" ph="INSERT INTO missingValue... " />
-            <marker date="1508769709000" expanded="true" signature="7527:7588" ph="INSERT INTO missingValue... " />
-            <marker date="1508769709000" expanded="true" signature="7527:7607" ph="INSERT INTO missingValue... " />
-            <marker date="1508769709000" expanded="true" signature="7527:7610" ph="INSERT INTO missingValue... " />
-            <marker date="1508769709000" expanded="true" signature="8963:8994" ph="SELECT missi... " />
-            <marker date="1508769709000" expanded="true" signature="8963:9039" ph="SELECT missi... missingValue" />
-            <marker date="1508769709000" expanded="true" signature="8963:9073" ph="SELECT missi... missingValue" />
-            <marker date="1508769709000" expanded="true" signature="8963:9076" ph="SELECT missi... " />
-            <marker date="1508769709000" expanded="true" signature="8963:9079" ph="SELECT missi... " />
-            <marker date="1508769709000" expanded="true" signature="8963:9082" ph="SELECT missi... " />
-            <marker date="1508769709000" expanded="true" signature="11238:11261" ph="SELECT missi... " />
-            <marker date="1508769709000" expanded="true" signature="11238:11262" ph="SELECT missi... missingValue" />
-            <marker date="1508769709000" expanded="true" signature="11551:11638" ph="SELECT missi... missingValue" />
-            <marker date="1508769709000" expanded="true" signature="13377:13419" ph="SELECT table... information_schema." />
-            <marker date="1508769709000" expanded="true" signature="13377:13473" ph="SELECT table... tables" />
-            <marker date="1508769709000" expanded="true" signature="13571:13673" ph="SELECT count... tables" />
-            <marker date="1508769709000" expanded="true" signature="15130:15174" ph="DELETE FROM " />
-            <marker date="1508769709000" expanded="true" signature="15130:15205" ph="DELETE FROM " />
-            <marker date="1508769709000" expanded="true" signature="15130:15206" ph="DELETE FROM " />
-            <marker date="1508769709000" expanded="true" signature="15130:15229" ph="DELETE FROM " />
-            <marker date="1508769709000" expanded="true" signature="15130:15230" ph="DELETE FROM " />
-            <marker date="1508769709000" expanded="true" signature="15130:15254" ph="DELETE FROM " />
-            <marker date="1508769709000" expanded="true" signature="15977:15988" ph="DROP TABLE m... " />
-            <marker date="1508769709000" expanded="true" signature="15977:15990" ph="DROP TABLE m... " />
-            <marker date="1508769709000" expanded="true" signature="16659:16672" ph="CREATE TABLE... missingValue" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+        <state relative-caret-position="60">
+          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+        <state relative-caret-position="229">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding>
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
+            <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
+            <element signature="method#addColoumns#0;class#DBHandler#0" expanded="false" />
+            <element signature="method#fillTablesWithRowContent#0;class#DBHandler#0" expanded="false" />
+            <marker date="1508930239000" expanded="true" signature="2686:2791" ph="CREATE TABLE... missingValue" />
+            <marker date="1508930239000" expanded="true" signature="3982:4119" ph="SELECT COUNT... COLUMNS" />
+            <marker date="1508930239000" expanded="true" signature="3982:4236" ph="SELECT COUNT... COLUMNS" />
+            <marker date="1508930239000" expanded="true" signature="3982:4254" ph="SELECT COUNT... COLUMNS" />
+            <marker date="1508930239000" expanded="true" signature="4660:4672" ph="ALTER TABLE missingValue... " />
+            <marker date="1508930239000" expanded="true" signature="4660:4694" ph="ALTER TABLE missingValue... " />
+            <marker date="1508930239000" expanded="true" signature="4660:4749" ph="ALTER TABLE missingValue... " />
+            <marker date="1508930239000" expanded="true" signature="7618:7630" ph="INSERT INTO missingValue... " />
+            <marker date="1508930239000" expanded="true" signature="7618:7648" ph="INSERT INTO missingValue... " />
+            <marker date="1508930239000" expanded="true" signature="7618:7670" ph="INSERT INTO missingValue... " />
+            <marker date="1508930239000" expanded="true" signature="7618:7679" ph="INSERT INTO missingValue... " />
+            <marker date="1508930239000" expanded="true" signature="7618:7698" ph="INSERT INTO missingValue... " />
+            <marker date="1508930239000" expanded="true" signature="7618:7701" ph="INSERT INTO missingValue... " />
+            <marker date="1508930239000" expanded="true" signature="9018:9049" ph="SELECT missi... " />
+            <marker date="1508930239000" expanded="true" signature="9018:9094" ph="SELECT missi... missingValue" />
+            <marker date="1508930239000" expanded="true" signature="9018:9128" ph="SELECT missi... missingValue" />
+            <marker date="1508930239000" expanded="true" signature="9018:9131" ph="SELECT missi... " />
+            <marker date="1508930239000" expanded="true" signature="9018:9134" ph="SELECT missi... " />
+            <marker date="1508930239000" expanded="true" signature="9018:9137" ph="SELECT missi... " />
+            <marker date="1508930239000" expanded="true" signature="11373:11396" ph="SELECT missi... " />
+            <marker date="1508930239000" expanded="true" signature="11373:11397" ph="SELECT missi... missingValue" />
+            <marker date="1508930239000" expanded="true" signature="11686:11773" ph="SELECT missi... missingValue" />
+            <marker date="1508930239000" expanded="true" signature="13512:13554" ph="SELECT table... information_schema." />
+            <marker date="1508930239000" expanded="true" signature="13512:13608" ph="SELECT table... tables" />
+            <marker date="1508930239000" expanded="true" signature="13706:13808" ph="SELECT count... tables" />
+            <marker date="1508930239000" expanded="true" signature="15265:15309" ph="DELETE FROM " />
+            <marker date="1508930239000" expanded="true" signature="15265:15340" ph="DELETE FROM " />
+            <marker date="1508930239000" expanded="true" signature="15265:15341" ph="DELETE FROM " />
+            <marker date="1508930239000" expanded="true" signature="15265:15364" ph="DELETE FROM " />
+            <marker date="1508930239000" expanded="true" signature="15265:15365" ph="DELETE FROM " />
+            <marker date="1508930239000" expanded="true" signature="15265:15389" ph="DELETE FROM " />
+            <marker date="1508930239000" expanded="true" signature="16112:16123" ph="DROP TABLE m... " />
+            <marker date="1508930239000" expanded="true" signature="16112:16125" ph="DROP TABLE m... " />
+            <marker date="1508930239000" expanded="true" signature="16794:16807" ph="CREATE TABLE... missingValue" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/SocketClientThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="49" column="62" lean-forward="false" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
+        <state relative-caret-position="829">
+          <caret line="161" column="6" lean-forward="true" selection-start-line="161" selection-start-column="6" selection-end-line="161" selection-end-column="6" />
           <folding />
         </state>
       </provider>
