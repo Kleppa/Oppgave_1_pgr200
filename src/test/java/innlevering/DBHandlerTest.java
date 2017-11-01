@@ -39,7 +39,7 @@ public class DBHandlerTest {
     public void getSbTest(){
         String testVariable=null;
         assertNull(testVariable);
-        testVariable=newDbHandler.getSb();
+        testVariable=newDbHandler.getStringBuilder();
         assertTrue(!(testVariable==null));
     }
 

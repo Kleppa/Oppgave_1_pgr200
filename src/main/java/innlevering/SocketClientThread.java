@@ -103,8 +103,8 @@ public class SocketClientThread implements Runnable {
                     dbhand.get(table, sql);
 
                     //gets String builder from dbhandler, with lengts also.
-                    output.println(dbhand.getSb().length());
-                    output.println(dbhand.getSb());
+                    output.println(dbhand.getStringBuilder().length());
+                    output.println(dbhand.getStringBuilder());
                     table = "";
                     sql = "";
 
@@ -130,8 +130,8 @@ public class SocketClientThread implements Runnable {
 
                     dbhand.get(table, sql, col, identifier);
 
-                    output.println(dbhand.getSb().length());
-                    output.println(dbhand.getSb());
+                    output.println(dbhand.getStringBuilder().length());
+                    output.println(dbhand.getStringBuilder());
                     output.println("done");
                     dbhand.setSbNull();
 

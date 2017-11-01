@@ -21,10 +21,10 @@ public class InputHandlerTest {
     }
 
     @Test
-    public void readContent() throws Exception {
+    public void readContent(){
 
         //Relative path does not work.
-        newip.readContent("/Users/Kleppa/Documents/Oppgave_1_pgr200/src/test/java/innlevering/testFile.json");
+        newip.readContent("src/main/java/database/info/info.json");
         assertTrue(newip.getObjArrRoom().length()>0);
         assertTrue(newip.getObjArrTeacher().length()>0);
         assertTrue(newip.getObjArrStudentGroups().length()>0);

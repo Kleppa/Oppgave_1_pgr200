@@ -11,16 +11,9 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         dbHandler = new DBHandler();
-
-
-
-       menuChoices();
+        menuChoices();
         //Server server=new Server();
-         //Client client= new Client();
-
-
-
-
+        //Client client= new Client();
 
     }
 
@@ -28,6 +21,7 @@ public class Main {
         System.out.println("----- MENU -----");
         System.out.println("1 -Get an entire coloumn");
         System.out.println("2 - Get a row from a table");
+        System.out.println("3 - Create a table");
         System.out.println("4 - Drop a specific element from a table");
         System.out.println("5 - Drop a table from the schema");
         System.out.println("0 - exit");
@@ -41,45 +35,56 @@ public class Main {
 
         String table = "";
         String sql = "";
-        String col="";
+        String col = "";
         String identifier = "";
         boolean whileLock = true;
-        menu();
+
         while (whileLock) {
 
-
+            menu();
             switch (sc.nextLine()) {
 
                 case "1":
-                    System.out.println("Which table do you want to get info from ? ");
+                    System.out.println("\t\t\t\t Tables: \n");
+                    dbHandler.getTableNames().forEach(t->System.out.print("| "+t+" | "));
+
+                    System.out.println("\n\nWhich table do you want to get info from ? \n");
+
                     table += sc.nextLine();
-                    System.out.println("What coloumn are you interested in?");
+
+                    dbHandler.getColoumns(table).forEach(c->System.out.print("| "+c+"| "));
+                    System.out.println("\nWhat coloumn are you interested in?");
 
                     sql += sc.nextLine() + " ";
                     dbHandler.get(table, sql);
-                    System.out.println(table + " " + sql);
                     table = "";
                     sql = "";
                     break;
 
                 case "2":
+                    System.out.println("\t\t\t\t Tables: \n");
+                    dbHandler.getTableNames().forEach(t->System.out.print("| "+t+" | "));
 
-                    System.out.println("Which table do you want to get info from ? ");
+                    System.out.println("\nWhich table do you want to get info from ? ");
                     table += sc.nextLine();
-                    System.out.println("What are you interested in?");
+                    System.out.println("\n\t\t\t\t Coloumns :");
+                    dbHandler.getColoumns(table).forEach(c->System.out.print("| "+c+"| "));
+                    System.out.println("(You can use * for everything)");
+                    System.out.println("\nWhat coloumn are you interested in?");
                     sql += sc.nextLine();
                     System.out.println("Where X =? What is your x");
                     col += sc.nextLine();
                     System.out.println("What do you want X to be equal to?");
-                    identifier+=sc.nextLine();
-                    //// TODO: 14/10/2017 use config to set database name
-                    dbHandler.get(table, sql , col , identifier);
+                    identifier += sc.nextLine();
+
+                    dbHandler.get(table, sql, col, identifier);
                     table = "";
                     sql = "";
                     col = "";
-                    identifier="";
+                    identifier = "";
                     break;
                 case "3":
+                    dbHandler.createTable("Test");
                     break;
                 case "4":
                     dbHandler.dropFromDatabase();

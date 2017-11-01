@@ -110,7 +110,7 @@ public class InputHandler {
      */
 
     private void createTeachers() {
-        System.out.println("Running createTeachers");
+        
         JSONObject tmpObj;
 
 
@@ -162,7 +162,7 @@ public class InputHandler {
      */
 
     private void createRooms() {
-        System.out.println("Running createRooms");
+        
         JSONObject tmpObj;
 
 
@@ -215,7 +215,7 @@ public class InputHandler {
      * Creates objects of type students from input file
      */
     private void createStudent() {
-        System.out.println("Running createSubjects");
+        
         JSONObject tmpObj;
 
 
@@ -255,7 +255,7 @@ public class InputHandler {
      * Creates objects of type subjects from input file
      */
     private void createSubjects() {
-        System.out.println("Running createSubjects");
+        
         JSONObject tmpObj;
 
 
@@ -272,7 +272,7 @@ public class InputHandler {
                 String keyStr = (String) key;
                 Object keyvalue = tmpObj.get(keyStr);
 
-
+                // TODO: 01/11/2017 Say why i put them in objects 
                 if (keyStr.equalsIgnoreCase("name")) {
                     ((Subject) tmpSub).setName((keyvalue.toString()));
                 } else if (keyStr.equalsIgnoreCase("campus_priority")) {
@@ -312,8 +312,6 @@ public class InputHandler {
      * Prints the content of objectList
      */
     public void print() {
-        for (DatabaseContent m : objectList) {
-            System.out.println(m.toString());
-        }
+        objectList.forEach(System.out::println);
     }
 }

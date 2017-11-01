@@ -37,7 +37,7 @@ public class DBConnector {
 
 
         try (PreparedStatement ps = ds.getConnection()
-                .prepareStatement("CREATE DATABASE " + props.getProperty("databasename") + ";")) {
+                .prepareStatement("CREATE DATABASE IF NOT EXISTS " + props.getProperty("databasename") + ";")) {
             ps.execute();
         } catch (SQLException e) {
             System.out.println("Database is already created");
@@ -52,7 +52,7 @@ public class DBConnector {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("Did not manage to open a connection");
+        System.out.println("Did not manage to open a connection -DBCONNENCTOR");
         return connection;
 
     }
