@@ -10,9 +10,10 @@ import static org.junit.Assert.*;
  * Created by Kleppa on 16/10/2017.
  */
 public class DBHandlerTest {
+    DBHandler newDbHandler =new DBHandler();
     @Before
     public void setUp() throws Exception {
-
+        DBHandler newDbHandler =new DBHandler();
     }
 
     @After
@@ -33,6 +34,13 @@ public class DBHandlerTest {
     @Test
     public void addColoumns() throws Exception {
 
+    }
+    @Test
+    public void getSbTest(){
+        String testVariable=null;
+        assertNull(testVariable);
+        testVariable=newDbHandler.getSb();
+        assertTrue(!(testVariable==null));
     }
 
     @Test

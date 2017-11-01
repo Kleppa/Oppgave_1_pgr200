@@ -47,7 +47,11 @@ public class SocketClientThread implements Runnable {
 
                 if (!userCanRequest) {
                     System.out.println("Why does this not work");
-                    output.println(menu());
+                    output.println(menu().length);
+                    for (String info: menu()) {
+                        output.println(info);
+                    }
+
                     System.out.println("After menu");
                     System.out.println("Before msg");
                     String msg = input.readLine();
@@ -122,12 +126,14 @@ public class SocketClientThread implements Runnable {
                     col += input.readLine();
                     output.println("What do you want X to be equal to?");
                     identifier += input.readLine();
-                    //// TODO: 14/10/2017 use config to set database name
+
 
                     dbhand.get(table, sql, col, identifier);
 
                     output.println(dbhand.getSb().length());
                     output.println(dbhand.getSb());
+                    output.println("done");
+                    dbhand.setSbNull();
 
                     table = "";
                     sql = "";
@@ -137,8 +143,6 @@ public class SocketClientThread implements Runnable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                break;
-            case "3":
                 break;
             case "4":
                 dbhand.dropFromDatabase();
@@ -159,12 +163,10 @@ public class SocketClientThread implements Runnable {
 
     /**
      * Method returns the menu, method will be improved later.
-     *
      * @return a string with the meny
      */
-    public static String menu() {
-        String stringMenu = "----- MENU ----- //1 - Get a coloumn from table// 2 - get a specific row from table// 3 - exit";
-
+    public static String[] menu() {
+        String[] stringMenu = {"--------------- MENU --------------- ","1 - Get a coloumn from table", "2 - get a specific row from table","3 - exit"};
         return stringMenu;
     }
 

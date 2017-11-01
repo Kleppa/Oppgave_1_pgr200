@@ -8,10 +8,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.PreparedStatement;
-import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
@@ -22,11 +18,10 @@ import java.util.Scanner;
  * Handles interaction with database
  */
 public class DBHandler {
-    public int getRowCount() {
-        return rowCount;
+    public void setSbNull() {
+        sb.delete(0, sb.length());
     }
-
-    private int rowCount=0;
+    private int rowCount = 0;
     private ArrayList<DatabaseContent> contentArrayList;
 
     public String getSb() {
@@ -37,11 +32,11 @@ public class DBHandler {
         this.sb = sb;
     }
 
-    private StringBuilder sb= new StringBuilder();
-    private Scanner scanner=new Scanner(System.in);
+    private StringBuilder sb = new StringBuilder();
+    private Scanner scanner = new Scanner(System.in);
     private InputHandler input;
     private DBConnector dbCon;
-    Properties newProp = new Properties();
+    private Properties newProp = new Properties();
     private FileInputStream inputStream;
 
     public void readPropertyPathAndSendToInputHandler() {
@@ -52,15 +47,20 @@ public class DBHandler {
             e.printStackTrace();
         }
 
+        loadProperties();
 
+        input = new InputHandler(newProp.getProperty("dbcontent"));
+    }
+
+    private void loadProperties() {
         if (inputStream != null) {
             try {
                 newProp.load(inputStream);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            input = new InputHandler(newProp.getProperty("dbcontent"));
         }
+
     }
 
     public DBHandler() {
@@ -140,7 +140,7 @@ public class DBHandler {
 
                         String querySql = "SELECT COUNT(*) AS cols\n" +
                                 "FROM INFORMATION_SCHEMA.COLUMNS\n" +
-                                "WHERE table_schema = '" +newProp.getProperty("databasename")+"'\n" +
+                                "WHERE table_schema = '" + newProp.getProperty("databasename") + "'\n" +
                                 "  AND table_name = '" + tableName + "';";
 
 
@@ -171,10 +171,9 @@ public class DBHandler {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("There was an issue establish a connection to db");
         }
     }
-
 
     public void fillTablesWithRowContent() {
         int objectListSize = input.getObjectList().size();
@@ -217,9 +216,7 @@ public class DBHandler {
                     }
 
                 } else {
-
                     values[x] = tmpobj.get(tmpobj.names().getString(x)).toString();
-
 
                     if (x < values.length - 1) {
                         questionMarks += "?,";
@@ -263,11 +260,9 @@ public class DBHandler {
         if (identifier.isEmpty() || coloumnToIdentifyRowWith.isEmpty()) {
             get(tableName, sql);
             return;
-            // TODO: 10/10/2017 FIX SPECIFIC GET METHOD
         }
 
-
-        String tableNameWithAddedPrefix = newProp.getProperty("databasename")+".";
+        String tableNameWithAddedPrefix = newProp.getProperty("databasename") + ".";
         tableNameWithAddedPrefix += tableName;
 
         try (Connection con = dbCon.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT " + sql.trim() + " FROM " + tableNameWithAddedPrefix.trim() + " WHERE " + coloumnToIdentifyRowWith + "  = " + "?" + " ;")) {
@@ -287,16 +282,14 @@ public class DBHandler {
                     if (columnCount == 1) {
                         String row = "";
                         if (rs.next()) {
-                            for (int i = 1; i <= columnCount; i++) {
+                            for (int i = 1; i <= columnCount; i++)
                                 row += rsmd.getColumnName(i) + " : " + rs.getString(i) + ", ";
 
-                            }
                             sb.append(row);
                             rowCount++;
                             System.out.println(row);
                         }
                     } else {
-
 
                         while (rs.next()) {
                             String row = "";
@@ -308,17 +301,13 @@ public class DBHandler {
                             sb.append(row);
                             System.out.println(row);
                         }
-
                     }
-
                 }
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 
     /**
      * @param tableName String from what query are you querying
@@ -339,7 +328,7 @@ public class DBHandler {
 
         ) {
             if (!sql.equals("information_schema.tables")) {
-                try (PreparedStatement ps = con.prepareStatement("SELECT " + sql + " FROM " +newName  + " ;")) {
+                try (PreparedStatement ps = con.prepareStatement("SELECT " + sql + " FROM " + newName + " ;")) {
 
                     try (ResultSet rs = ps.executeQuery()) {
                         printContent(rs);
@@ -347,25 +336,22 @@ public class DBHandler {
                     }
                 }
             } else {
-                try (PreparedStatement ps = con.prepareStatement("SELECT " + newName + " FROM " + sql + "  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';");ResultSet rs = ps.executeQuery()) {
+                try (PreparedStatement ps = con.prepareStatement("SELECT " + newName + " FROM " + sql + "  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); ResultSet rs = ps.executeQuery()) {
 
                     printContent(rs);
                     return rs;
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println("Your sql query is not valid sql");
                 }
-
-
             }
-
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("We could not establish a connection");
         }
         return null;
     }
 
     private StringBuilder printContent(ResultSet rs) {
-         sb= new StringBuilder();
+        sb = new StringBuilder();
         ResultSetMetaData rsmd = null;
         try {
             rsmd = rs.getMetaData();
@@ -379,7 +365,7 @@ public class DBHandler {
 
                     if (i > 1) System.out.print(",  ");
                     String columnValue = rs.getString(i);
-                    sb.append(rsmd.getColumnName(i) + " : " + columnValue+"\n");
+                    sb.append(rsmd.getColumnName(i) + " : " + columnValue + "\n");
 
                     System.out.print(rsmd.getColumnName(i) + " : " + columnValue);
 
@@ -465,11 +451,11 @@ public class DBHandler {
         ResultSet resultSet = get("table_name", "information_schema.tables");
         System.out.println("What table do you want to delete, use its name.");
         String userChoice = scanner.nextLine();
-        try(Connection con = dbCon.getNewConnection();PreparedStatement preparedStatement=con.prepareStatement("DROP TABLE "+userChoice+";")){
+        try (Connection con = dbCon.getNewConnection(); PreparedStatement preparedStatement = con.prepareStatement("DROP TABLE " + userChoice + ";")) {
 
 
             preparedStatement.execute();
-            System.out.println("Table -  "+userChoice+" has been deleted from the database");
+            System.out.println("Table -  " + userChoice + " has been deleted from the database");
         } catch (SQLException e) {
             System.out.println("The table you tried to find does not exsist or you tried something that is not allowed");
         }
@@ -479,10 +465,10 @@ public class DBHandler {
     /**
      * createTable creates a table in current db scheme from userinput.
      */
-    public void createTable(){
+    public void createTable() {
         System.out.println("What do you want your table to be named?");
         String userinput = scanner.nextLine();
-        try (Connection con = dbCon.getNewConnection(); PreparedStatement ps = con.prepareStatement("CREATE TABLE "+userinput+";")){
+        try (Connection con = dbCon.getNewConnection(); PreparedStatement ps = con.prepareStatement("CREATE TABLE " + userinput + ";")) {
             ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();

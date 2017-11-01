@@ -29,7 +29,10 @@ public class Client {
                //gets menu from ThreadClass
                 System.out.println("before menu");
 
-                System.out.println(input.readLine());
+                int menuLength= Integer.parseInt(input.readLine());
+                for (int i = 0; i <menuLength ; i++) {
+                    System.out.println(input.readLine());
+                }
                 System.out.println("before userinput");
                 String userInput = scanner.nextLine();
                 //Now we write it to the server
@@ -37,7 +40,6 @@ public class Client {
                 System.out.println("Before Menu print");
 
                 output.println(userInput);
-
                 System.out.println("Waiting");
 
                 if (userInput.equals("1")) {
@@ -46,6 +48,7 @@ public class Client {
                     sendAndRetrieve(4, output, input);
 
                 } else if (userInput.equals("3")) {
+                    System.exit(0);
 
                 } else {
 
@@ -74,14 +77,11 @@ public class Client {
         int sbSize = 0;
         try {
             sbSize = Integer.parseInt(input.readLine());
-            System.out.println(sbSize);
             // TODO: 25/10/2017 FIx for loop
             String inputString = null;
-            while((inputString=input.readLine())!=null){
-                if (inputString.contains("draft")) {
-                    System.out.println("We BROKE BOIS");
+            while((inputString=input.readLine()).contains(" ")){
+                if (inputString.equalsIgnoreCase("done"))
                     break;
-                }
                 System.out.println(inputString);
 
             }

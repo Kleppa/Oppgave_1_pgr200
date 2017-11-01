@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 
 public class Server {
     private static ExecutorService executor = Executors.newFixedThreadPool(50);
-
+    int count = 0;
     public static void main(String[] args) {
         server();
     }

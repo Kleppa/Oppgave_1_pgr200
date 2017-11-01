@@ -16,6 +16,23 @@ import java.util.Scanner;
 public class InputHandler {
 
     private JSONObject obj;
+
+    public JSONArray getObjArrSubjects() {
+        return objArrSubjects;
+    }
+
+    public JSONArray getObjArrTeacher() {
+        return objArrTeacher;
+    }
+
+    public JSONArray getObjArrRoom() {
+        return objArrRoom;
+    }
+
+    public JSONArray getObjArrStudentGroups() {
+        return objArrStudentGroups;
+    }
+
     private JSONArray objArrSubjects;
     private JSONArray objArrTeacher;
     private JSONArray objArrRoom;
@@ -30,6 +47,9 @@ public class InputHandler {
         readContent(filename);
 
     }
+    public InputHandler(){
+
+    }
 
     /**
      * Takes a jsonfile and adds content to correct types of json arrays
@@ -41,14 +61,13 @@ public class InputHandler {
         Scanner sc = null;
 
         try {
-            System.out.println(filename);
             file = new File(filename);
             sc = new Scanner(file);
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(" We could not find the file you wanted to use");
         } catch (NullPointerException e) {
-            e.printStackTrace();
+            System.out.println(" Nullpointer Exception is thrown.");
 
         }
         String fileContent = null;

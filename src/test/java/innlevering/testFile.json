@@ -1,0 +1,65 @@
+{
+  "teachers": [
+    {
+      "name": "Peremann",
+      "age": "22",
+      "subject": [
+        {
+          "subname": "pgr200"
+        },
+        {
+          "subname": "pgr4200"
+        }
+      ],
+      "availability": "true",
+      "contact_info": "peremann@gmail.com",
+      "ColsAndDataTypes": "name VARCHAR(255), age INT(10),contactInfo varchar(255),availability varchar(255),subjectList varchar(255)"
+    },
+    {
+      "name": "Jarand",
+      "age": "23",
+      "subject": [
+        {
+          "subbame": "root"
+        }
+      ],
+      "availability": "true",
+      "contact_info": "Jarand@gmail.com",
+      "ColsAndDataTypes": "name VARCHAR(255), age INT(10),contactInfo varchar(255),availability varchar(255),subjectList varchar(255)"
+    }
+  ],
+  "subjects": [
+    {
+      "subject_code": "pgr200",
+      "name": "Avansert Javaprogrammering",
+      "campus_priority": "Fjerdingen",
+      "educationForm": "",
+      "subjectProgram": "",
+      "duration": "0",
+      "amountOfHours": "0",
+      "amountOfStudents": "12",
+      "colsanddatatypes" :"name varchar(255),subjectCode varchar(255),campusPrio varchar(255),educationForm varchar(255),subjectProgram varchar(255), duration int(100),amountOfHours int(100),amountOfStudents int(100)"
+    }
+
+  ],
+  "students": [
+    {
+      "studentName": "Halvor",
+      "studentSubjects": "5",
+      "ColsAndDataTypes": "studentName varchar(50),studentSubjects int"
+    }
+
+
+
+
+  ],
+  "rooms": [
+    {
+      "room_code": "F11",
+      "facilitiesSupports": "test",
+      "max-capasity": "50",
+      "room-size": "X",
+      "ColsAndDataTypes":"roomCode varchar(5),facilitiesSupports varchar(55),maxCapasity tinyint(10), roomSize varchar(20)"
+    }
+  ]
+}

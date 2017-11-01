@@ -18,26 +18,16 @@ import java.util.Properties;
 public class DBConnector {
     private static MysqlDataSource ds = new MysqlDataSource();
     private static InputStream inputStream;
+    private static Properties props;
 
     public DBConnector() {
 
     }
 
     public Connection getNewConnection() {
-        Properties props = new Properties();
-        try {
-            inputStream = new FileInputStream("conf.properties");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        if (inputStream != null) {
-            try {
-                props.load(inputStream);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        Connection connection=null;
+        props= new Properties();
+        readProperties();
 
 
         ds.setServerName(props.getProperty("host"));
@@ -57,13 +47,30 @@ public class DBConnector {
         ds.setDatabaseName(props.getProperty("databasename"));
 
         try {
-            return ds.getConnection();
+            connection=ds.getConnection();
+            return connection;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         System.out.println("Did not manage to open a connection");
-        return null;
+        return connection;
 
+    }
+
+    private void readProperties() {
+        try {
+            inputStream = new FileInputStream("conf.properties");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if (inputStream != null) {
+            try {
+                props.load(inputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public ConnectionSource getNewOrmConnection() {
