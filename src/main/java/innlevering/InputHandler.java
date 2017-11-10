@@ -220,19 +220,14 @@ public class InputHandler {
 
 
         for (int i = 0; i < objArrStudentGroups.length(); i++) {
-
-
             tmpObj = objArrStudentGroups.getJSONObject(i);
-
             DatabaseContent tmpStu = new Student();
 
             for (Object key : tmpObj.keySet()) {
-
                 //based on you key types
                 String keyStr = (String) key;
                 Object keyvalue = tmpObj.get(keyStr);
                 //Print key and value
-
                 if (keyStr.equalsIgnoreCase("ColsAndDataTypes")) {
                     ((Student) tmpStu).setColsAndDataTypes(keyvalue.toString());
                 }else if(keyStr.equalsIgnoreCase("studentname")){
@@ -243,10 +238,7 @@ public class InputHandler {
                 }
             }
             // just testing if  everything is added nicely....
-
             objectList.add(tmpStu);
-
-
         }
     }
 
@@ -258,20 +250,15 @@ public class InputHandler {
         
         JSONObject tmpObj;
 
-
         for (int i = 0; i < objArrSubjects.length(); i++) {
 
             tmpObj = objArrSubjects.getJSONObject(i);
-
-
             DatabaseContent tmpSub = new Subject();
 
             for (Object key : tmpObj.keySet()) {
 
-
                 String keyStr = (String) key;
                 Object keyvalue = tmpObj.get(keyStr);
-
                 // TODO: 01/11/2017 Say why i put them in objects 
                 if (keyStr.equalsIgnoreCase("name")) {
                     ((Subject) tmpSub).setName((keyvalue.toString()));
@@ -307,7 +294,6 @@ public class InputHandler {
 
         }
     }
-
     /**
      * Prints the content of objectList
      */

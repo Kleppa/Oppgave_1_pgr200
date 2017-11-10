@@ -117,6 +117,7 @@ public class SocketClientThread implements Runnable {
 
             case "2":
                 try {
+
                     output.println("Which table do you want to get info from ? ");
                     table += input.readLine();
 
@@ -126,7 +127,6 @@ public class SocketClientThread implements Runnable {
                     col += input.readLine();
                     output.println("What do you want X to be equal to?");
                     identifier += input.readLine();
-
 
                     dbhand.get(table, sql, col, identifier);
 
@@ -157,10 +157,8 @@ public class SocketClientThread implements Runnable {
 
             default:
                 break;
-
         }
     }
-
     /**
      * Method returns the menu, method will be improved later.
      * @return a string with the meny
@@ -168,14 +166,6 @@ public class SocketClientThread implements Runnable {
     public static String[] menu() {
         String[] stringMenu = {"--------------- MENU --------------- ","1 - Get a coloumn from table", "2 - get a specific row from table","3 - exit"};
         return stringMenu;
-    }
-
-    public boolean isActiviateUser() {
-        return activiateUser;
-    }
-
-    public void setActiviateUser(boolean activiateUser) {
-        this.activiateUser = activiateUser;
     }
 }
 

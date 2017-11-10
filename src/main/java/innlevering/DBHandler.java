@@ -2,7 +2,6 @@ package innlevering;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,7 +9,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
-
 
 /**
  * Created by Kleppa on 12/09/2017.
@@ -22,7 +20,7 @@ public class DBHandler {
     }
 
     private int rowCount = 0;
-    private ArrayList < DatabaseContent > contentArrayList;
+    private ArrayList<DatabaseContent> contentArrayList;
 
     public String getStringBuilder() {
         return stringBuilder.toString();
@@ -59,7 +57,6 @@ public class DBHandler {
                 System.out.println("Could not load properties from inputStream, see loadproperties()");
             }
         }
-
     }
 
     public DBHandler() {
@@ -98,39 +95,25 @@ public class DBHandler {
         boolean dontSpamMsg = false;
         try (Connection con = dbConnector.getNewConnection()) {
             PreparedStatement gettingColCount = null;
-
             String tableName = "Something went wrong";
             int i = 0;
 
-            for (DatabaseContent dbc: contentArrayList) {
+            for (DatabaseContent dbc : contentArrayList) {
 
-                tableName = contentArrayList.get(i).getClass().toString();
-                tableName = tableName.substring(tableName.lastIndexOf(".") + 1);
-
+                tableName = contentArrayList.get(i).getClass().toString().substring(tableName.lastIndexOf(".") + 1);
                 try {
-
-
                     DatabaseMetaData md = con.getMetaData();
-
-
                     ResultSet rs = md.getTables(null, null, tableName, null);
 
                     {
-
-
                         String querySql = "SELECT COUNT(*) AS cols\n" +
                                 "FROM INFORMATION_SCHEMA.COLUMNS\n" +
                                 "WHERE table_schema = '" + properties.getProperty("databasename") + "'\n" +
                                 "  AND table_name = '" + tableName + "';";
-
-
                         gettingColCount = con.prepareStatement(querySql);
-
                         ResultSet rsCol = gettingColCount.executeQuery();
                         rsCol.next();
                         int colsFromDb = rsCol.getInt("cols");
-
-
                         if (rs.next() && colsFromDb < 2) {
 
                             PreparedStatement preparedStatement = con.prepareStatement(
@@ -144,13 +127,9 @@ public class DBHandler {
                             }
                         }
                         i++;
-
-
                     }
-
                 } catch (SQLException e) {
                     System.out.println("Catched an sql error");
-
                 }
             }
         } catch (SQLException e) {
@@ -184,7 +163,6 @@ public class DBHandler {
                 } else {
                     coloumnsnames += tmpobj.names().getString(x);
                 }
-
 
                 if (tmpobj.has("subjectList") && !tmpobj.isNull("subjectList") && !arrayused) {
                     JSONArray jsAr = tmpobj.getJSONArray("subjectList");
@@ -233,57 +211,68 @@ public class DBHandler {
      */
 
     public void get(String tableName, String sql, String coloumnToIdentifyRowWith, String identifier) {
-
-        if (identifier.isEmpty() || coloumnToIdentifyRowWith.isEmpty()) {
-            System.out.println("You did not specify a row, using generic get instead");
+        if (isIdentifiersEmpty(identifier, coloumnToIdentifyRowWith)) {
+            System.out.println("All variables not filled in, therefor sending task to get(tableName,Sql)");
             get(tableName, sql);
-            return;
         }
-
-        String tableNameWithAddedPrefix = properties.getProperty("databasename") + ".";
-        tableNameWithAddedPrefix += tableName;
-
+        String tableNameWithAddedPrefix = properties.getProperty("databasename") + "." + tableName;
         try (Connection connection = dbConnector.getNewConnection(); PreparedStatement preparedStatement = connection.prepareStatement("SELECT " + sql.trim() + " FROM " + tableNameWithAddedPrefix.trim() + " WHERE " + coloumnToIdentifyRowWith + "  = " + "?" + " ;")) {
-
-
             preparedStatement.setString(1, identifier.trim());
+            if (isPartOfTable(identifier,tableName)) {
+                if (sql.toLowerCase().contains("drop") || sql.toLowerCase().contains(";--") || tableNameWithAddedPrefix.toLowerCase().contains("drop") || tableNameWithAddedPrefix.toLowerCase().contains(";--")) {
+                    System.out.println("wtf are you doing");
+                } else {
 
-            if (sql.toLowerCase().contains("drop") || sql.toLowerCase().contains(";--") || tableNameWithAddedPrefix.toLowerCase().contains("drop") || tableNameWithAddedPrefix.toLowerCase().contains(";--")) {
-                System.out.println("wtf are you doing");
-            } else {
-
-
-                try (ResultSet resultSet = preparedStatement.executeQuery()) {
-
-                    ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-                    int columnCount = resultSetMetaData.getColumnCount();
-                    if (columnCount == 1) {
-                        String row = "";
-                        if (resultSet.next()) {
-                            for (int i = 1; i <= columnCount; i++)
-                                row += resultSetMetaData.getColumnName(i) + " : " + resultSet.getString(i) + ", ";
-
-                            stringBuilder.append(row);
-                            rowCount++;
-                            System.out.println(row);
-                        }
-                    } else {
-                        while (resultSet.next()) {
+                    try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                        ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+                        if (getColoumnCount(resultSet) == 1) {
                             String row = "";
-                            for (int i = 1; i <= columnCount; i++) {
-                                row += resultSetMetaData.getColumnName(i) + " : " + resultSet.getString(i) + ", ";
+                            if (resultSet.next()) {
+                                for (int i = 1; i <= getColoumnCount(resultSet); i++)
+                                    row += resultSetMetaData.getColumnName(i) + " : " + resultSet.getString(i) + ", ";
 
+                                stringBuilder.append(row);
+                                rowCount++;
+                                System.out.println(row);
                             }
-                            rowCount++;
-                            stringBuilder.append(row);
-                            System.out.println(row);
+                        } else {
+                            while (resultSet.next()) {
+                                String row = "";
+                                for (int i = 1; i <= getColoumnCount(resultSet); i++) {
+                                    row += resultSetMetaData.getColumnName(i) + " : " + resultSet.getString(i) + ", ";
+                                }
+                                rowCount++;
+                                stringBuilder.append(row);
+                                System.out.println(row);
+                            }
                         }
                     }
                 }
+            }else{
+                System.out.println("Your identifier could not be found in the table.");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("We had an issue getting your sql query.");
         }
+    }
+
+    private boolean isPartOfTable(String targetName,String table) {
+        if (getColoumns(table).contains(targetName))
+            return true;
+
+        return false;
+    }
+
+    private boolean isIdentifiersEmpty(String identifier, String coloumnToIdentifyRowWith) {
+        if (identifier.isEmpty() || coloumnToIdentifyRowWith.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
+    private int getColoumnCount(ResultSet resultSet) throws SQLException {
+        ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+        return resultSetMetaData.getColumnCount();
     }
 
     /**
@@ -325,8 +314,8 @@ public class DBHandler {
         return null;
     }
 
-    public ArrayList < String > getTableNames() {
-        ArrayList < String > tableNameList = new ArrayList < > ();
+    public ArrayList<String> getTableNames() {
+        ArrayList<String> tableNameList = new ArrayList<>();
         try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps =
                 con.prepareStatement("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker' ;")) {
             ResultSet resultSet = ps.executeQuery();
@@ -366,8 +355,14 @@ public class DBHandler {
         return stringBuilder;
     }
 
-    public ArrayList < String > getColoumns(String table) {
-        ArrayList < String > coloumnList = new ArrayList < > ();
+    /**
+     * Returns an arraylist of coloumn names from chosen table
+     *
+     * @param table specify what table you want coloums from
+     * @return ArrayList with coloumn names
+     */
+    public ArrayList<String> getColoumns(String table) {
+        ArrayList<String> coloumnList = new ArrayList<>();
         try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps =
                 con.prepareStatement("select Column_name \n" +
                         "from Information_schema.columns \n" +
@@ -388,30 +383,23 @@ public class DBHandler {
      * Takes userinput and builds a query to delete someth
      */
     public void dropFromDatabase() {
-        //  DELETE FROM table_name WHERE some_column IS NULL;
 
 
         try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT table_name FROM information_schema.tables  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); PreparedStatement ps2 = con.prepareStatement("SELECT count(table_name) FROM information_schema.tables WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); ResultSet rs2 = ps2.executeQuery()) {
             ps.executeQuery();
-            ArrayList < String > tableNames = getTableNames();
-
-
-            //SELECT table_name FROM information_schema.tables;
+            ArrayList<String> tableNames = getTableNames();
             if (tableNames != null) {
-
                 Scanner sc = new Scanner(System.in);
                 getTableNames().forEach(System.out::println);
                 System.out.println("From what table do you want to delete? please enter a choice");
-
                 String userInput = sc.nextLine();
-
                 int userChoose = Integer.parseInt(userInput);
-
                 getColoumns(userInput).forEach(System.out::println);
                 System.out.println("What do you want to delete? Coloumn name");
                 String userChooseRow = sc.nextLine();
                 System.out.println("What do you want to delete? row value");
                 String rowValue = sc.nextLine();
+
                 String value = tableNames.stream().filter(rn -> rn.equals(userInput))
                         .findAny().get();
 
@@ -434,21 +422,16 @@ public class DBHandler {
 
     public void dropTable() {
 
-
         getTableNames().forEach(System.out::println);
         System.out.println("What table do you want to delete?");
-
         String userChoice = scanner.nextLine();
-
         try (Connection con = dbConnector.getNewConnection(); PreparedStatement preparedStatement = con.prepareStatement("DROP TABLE " + userChoice + ";")) {
-
 
             preparedStatement.execute();
             System.out.println("Table -  " + userChoice + " has been deleted from the database");
         } catch (SQLException e) {
             System.out.println("The table you tried to find does not exsist or you tried something that is not allowed");
         }
-
     }
 
     /**
@@ -459,7 +442,6 @@ public class DBHandler {
     public void createTable(String tableName) {
         try (Connection con = dbConnector.getNewConnection(); PreparedStatement preparedStatement = con.prepareStatement("CREATE TABLE IF NOT EXISTS  " + tableName + " (id int AUTO_INCREMENT, CONSTRAINT PK_" + tableName + " PRIMARY KEY (id));")) {
             preparedStatement.executeUpdate();
-
         } catch (SQLException e) {
             System.out.println("Could not connenct to database");
         }
