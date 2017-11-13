@@ -1,4 +1,6 @@
-package innlevering;
+package innlevering.Innlevering_del_2;
+
+import innlevering.DBHandler;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -78,18 +80,14 @@ public class SocketClientThread implements Runnable {
      * Methode is not complete
      */
 
-    private void handleRequest(String msg, BufferedReader input, PrintWriter output) {
+    private void handleRequest(String msg, BufferedReader input, PrintWriter output) throws IOException {
 
-        Scanner sc = new Scanner(System.in);
 
         String table = "";
         String sql = "";
         String col = "";
         String identifier = "";
-        boolean whileLock = true;
 
-
-        System.out.println("before switch");
 
         switch (msg) {
 
@@ -144,15 +142,26 @@ public class SocketClientThread implements Runnable {
                     e.printStackTrace();
                 }
                 break;
-            case "4":
-                dbhand.dropFromDatabase();
-                break;
-            case "5":
-                dbhand.dropTable();
-                break;
+            case "3":
+            	output.println(" What table do you want to delete from?");
+				table += input.readLine();
+            	output.println("What do you want to delete? Coloumn name");
+				sql += input.readLine();
+            	output.println("What do you want to delete? row value");
+				col += input.readLine();
 
-            case "0":
-                whileLock = false;
+            	//+ value + " WHERE " + userChooseRow + " = " + rowValue +
+                dbhand.dropFromDatabase(table,sql,col);
+				output.println(dbhand.getStringBuilder().length());
+
+				dbhand.setSbNull();
+				table = "";
+				sql = "";
+				col = "";
+				identifier = "";
+                break;
+            case "4":
+                dbhand.dropTable();
                 break;
 
             default:
@@ -161,10 +170,16 @@ public class SocketClientThread implements Runnable {
     }
     /**
      * Method returns the menu, method will be improved later.
-     * @return a string with the meny
+     * @return a string with the menu
      */
     public static String[] menu() {
-        String[] stringMenu = {"--------------- MENU --------------- ","1 - Get a coloumn from table", "2 - get a specific row from table","3 - exit"};
+        String[] stringMenu = {
+        		"--------------- MENU --------------- "
+				,"1 - Get a coloumn from table"
+				, "2 - get a specific row from table"
+				, "3 - drop element from database"
+				, "4 - drop table from database"
+				,"0 - exit"};
         return stringMenu;
     }
 }

@@ -1,4 +1,4 @@
-package innlevering;
+package innlevering.Innlevering_del_2;
 
 import java.io.*;
 import java.net.*;
@@ -41,7 +41,6 @@ public class Client {
 	 */
 	private void functionalMenu(BufferedReader input, Scanner scanner, PrintWriter output) throws IOException {
 
-		System.out.println("before menu");
 
 		int menuLength= Integer.parseInt(input.readLine());
 		for (int i = 0; i <menuLength ; i++) {
@@ -61,7 +60,10 @@ public class Client {
 		} else if (userInput.equals("2")) {
 			sendAndRetrieve(4, output, input);
 
-		} else if (userInput.equals("3")) {
+		}else if (userInput.equals("3")) {
+			sendAndRetrieve(3, output, input);
+
+		} else if (userInput.equals("0")) {
 			System.exit(0);
 
 		} else {
@@ -69,7 +71,13 @@ public class Client {
 		}
 	}
 
-	public void sendAndRetrieve(int amountOfQuestions, PrintWriter output, BufferedReader input) {
+	/**
+	 *
+	 * @param amountOfQuestions forloop number of iteration decider.
+	 * @param output sends info to server.
+	 * @param input returns info from server.
+	 */
+	public void sendAndRetrieve(int amountOfQuestions, PrintWriter output, BufferedReader input) throws IOException {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -82,11 +90,10 @@ public class Client {
                 e1.printStackTrace();
             }
         }
-        int sbSize = 0;
-        try {
-            sbSize = Integer.parseInt(input.readLine());
-            // TODO: 25/10/2017 FIx for loop
+
+		try {
             String inputString = null;
+
             while((inputString=input.readLine()).contains(" ")){
                 if (inputString.equalsIgnoreCase("done"))
                     break;
@@ -95,8 +102,7 @@ public class Client {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+			System.out.println("The program experienced an IOexception.");
+		}
     }
 }

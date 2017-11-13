@@ -397,7 +397,7 @@ public class DBHandler {
                 getColoumns(userInput).forEach(System.out::println);
                 System.out.println("What do you want to delete? Coloumn name");
                 String userChooseRow = sc.nextLine();
-                System.out.println("What do you want to delete? row value");
+                System.out.println("What do you want to delete? Cell value");
                 String rowValue = sc.nextLine();
 
                 String value = tableNames.stream().filter(rn -> rn.equals(userInput))
@@ -446,5 +446,38 @@ public class DBHandler {
             System.out.println("Could not connenct to database");
         }
     }
+
+    //Just made a duplicate for the Server- client version.
+	public void dropFromDatabase(String table, String sql,String col) {
+
+
+		try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT table_name FROM information_schema.tables  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); PreparedStatement ps2 = con.prepareStatement("SELECT count(table_name) FROM information_schema.tables WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); ResultSet rs2 = ps2.executeQuery()) {
+			ps.executeQuery();
+			ArrayList<String> tableNames = getTableNames();
+			if (tableNames != null) {
+
+				String userInput = table;
+				String userChooseRow =sql;
+				String rowValue =col;
+				String value = tableNames.stream().filter(rn -> rn.equals(userInput))
+						.findAny().get();
+
+				if (tableNames.contains(userInput)) {
+
+					try (PreparedStatement prepStat2 = con.prepareStatement("DELETE FROM " + " Westerdals_Schedual_Maker." + value + " WHERE " + userChooseRow + " = " + rowValue + " LIMIT 1 ;")) {
+						prepStat2.execute();
+
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				} else {
+					System.out.println("user choice is empty");
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
 // TODO: bygg med maven #viktig

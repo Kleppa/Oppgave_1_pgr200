@@ -1,4 +1,4 @@
-package innlevering;
+package innlevering.Innlevering_del_2;
 
 import java.net.*;
 import java.util.*;
