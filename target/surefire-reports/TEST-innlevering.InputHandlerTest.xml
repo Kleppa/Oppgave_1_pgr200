@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="innlevering.InputHandlerTest" time="0.004" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="innlevering.InputHandlerTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib"/>
@@ -65,9 +65,9 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="innlevering.InputHandlerTest" name="fileNullPointerConstructorTest" time="0.001"/>
-  <testcase classname="innlevering.InputHandlerTest" name="readContent" time="0.002"/>
+  <testcase classname="innlevering.InputHandlerTest" name="fileNullPointerConstructorTest" time="0"/>
+  <testcase classname="innlevering.InputHandlerTest" name="readContent" time="0"/>
   <testcase classname="innlevering.InputHandlerTest" name="nullPointerNofile" time="0"/>
   <testcase classname="innlevering.InputHandlerTest" name="getObjectList" time="0"/>
-  <testcase classname="innlevering.InputHandlerTest" name="fileNullPointerMethod" time="0.001"/>
+  <testcase classname="innlevering.InputHandlerTest" name="fileNullPointerMethod" time="0"/>
 </testsuite>

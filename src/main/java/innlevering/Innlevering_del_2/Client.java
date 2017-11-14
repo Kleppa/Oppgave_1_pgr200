@@ -110,7 +110,7 @@ public class Client {
 		}
 	}
 
-	private boolean printColoumns(BufferedReader input) {
+	public boolean printColoumns(BufferedReader input) {
 		System.out.println("\t\t\t----Coloumns----");
 		System.out.print("|| ");
 		try {
@@ -131,7 +131,7 @@ public class Client {
 		return true;
 	}
 
-	private boolean printTables(BufferedReader input) {
+	public boolean printTables(BufferedReader input) {
 		System.out.println("\t\t\t----Tables----");
 		System.out.print("|| ");
 

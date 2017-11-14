@@ -1,8 +1,9 @@
 package innlevering;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -16,61 +17,30 @@ public class DBHandlerTest {
         DBHandler newDbHandler =new DBHandler();
     }
 
-    @After
-    public void tearDown() throws Exception {
-
-    }
-
-    @Test
-    public void readPropertyPathAndSendToInputHandler() throws Exception {
-
-    }
-
-    @Test
-    public void createTables() throws Exception {
-
-    }
-
-    @Test
-    public void addColoumns() throws Exception {
-
-    }
     @Test
     public void getSbTest(){
         String testVariable=null;
         assertNull(testVariable);
-        testVariable=newDbHandler.getStringBuilder();
+        testVariable=newDbHandler.getStringBuilderAsString();
         assertTrue(!(testVariable==null));
-    }
-
-    @Test
-    public void fillTablesWithRowContent() throws Exception {
 
     }
+	@Test
+	public void testGetColoumns(){
+		ArrayList<String>arr=newDbHandler.getColoumns(null);
+		assertEquals(arr,null);ArrayList<String>
+				arr2=newDbHandler.getColoumns("NotInDatabase");
+		assertEquals(arr,null);
 
-    @Test
-    public void get() throws Exception {
+	}@Test
+	public void testGetColoumnsNotNull(){
+		ArrayList<String>arr=newDbHandler.getColoumns("Teacher");
+		ArrayList<String>arr1=newDbHandler.getColoumns("Room");
+		ArrayList<String>arr2=newDbHandler.getColoumns("Student");
+		assertTrue(arr.size()>0);
+		assertTrue(arr1.size()>0);
+		assertTrue(arr2.size()>0);
+	}
 
-    }
-
-    @Test
-    public void get1() throws Exception {
-
-    }
-
-    @Test
-    public void dropFromDatabase() throws Exception {
-
-    }
-
-    @Test
-    public void dropTable() throws Exception {
-
-    }
-
-    @Test
-    public void createTable() throws Exception {
-
-    }
 
 }

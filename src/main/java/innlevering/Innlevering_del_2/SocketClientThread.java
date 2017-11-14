@@ -48,30 +48,33 @@ public class SocketClientThread implements Runnable {
 			while (true) {
 				//This will wait until a line of text has been sent
 
-				if (!userCanRequest) {
-					System.out.println("Why does this not work");
-					output.println(menu().length);
-					for (String info : menu()) {
-						output.println(info);
-					}
 
-					System.out.println("After menu");
-					System.out.println("Before msg");
-					String msg = input.readLine();
-					System.out.println("after msg");
-
-					System.out.println("Message from client :  " + msg);
-					handleRequest(msg, input, output);
-
-
+				output.println(menu().length);
+				for (String info : menu()) {
+					output.println(info);
 				}
+
+				System.out.println("After menu");
+				System.out.println("Before msg");
+				String msg = input.readLine();
+				System.out.println("after msg");
+
+				System.out.println("Message from client :  " + msg);
+				handleRequest(msg, input, output);
+
+
 			}
-		} catch (IOException exception) {
+
+		} catch (
+				IOException exception)
+
+		{
 			System.out.println("it breaks");
 			System.out.println("Error: " + exception);
 			exception.printStackTrace();
 		}
 	}
+
 
 	/**
 	 * @param msg    String from user
@@ -97,15 +100,16 @@ public class SocketClientThread implements Runnable {
 				output.println("Which table do you want to get info from ? ");
 				try {
 					table = input.readLine().toString();
-					getColoumns(output,table);
+					getColoumns(output, table);
 					output.println("What coloumn are you interested in?");
 					sql += input.readLine() + " ";
 
 					dbhand.get(table, sql);
 
 					//gets String builder from dbhandler, with lengts also.
-					output.println(dbhand.getStringBuilder().length());
-					output.println(dbhand.getStringBuilder());
+					output.println(dbhand.getStringBuilderAsString().length());
+					output.println(dbhand.getStringBuilderAsString());
+					;
 					table = "";
 					sql = "";
 
@@ -121,7 +125,7 @@ public class SocketClientThread implements Runnable {
 					getTables(output);
 					output.println("Which table do you want to get info from ? ");
 					table += input.readLine();
-					getColoumns(output,table);
+					getColoumns(output, table);
 					output.println("What are you interested in?");
 					sql += input.readLine();
 					output.println("Where X =? What is your x");
@@ -130,11 +134,10 @@ public class SocketClientThread implements Runnable {
 					identifier += input.readLine();
 
 					dbhand.get(table, sql, col, identifier);
+					;
+					output.println(dbhand.getStringBuilderAsString().length());
+					output.println(dbhand.getStringBuilderAsString());
 
-					output.println(dbhand.getStringBuilder().length());
-					output.println(dbhand.getStringBuilder());
-					output.println("done");
-					dbhand.setSbNull();
 
 					table = "";
 					sql = "";
@@ -155,7 +158,7 @@ public class SocketClientThread implements Runnable {
 
 				//+ value + " WHERE " + userChooseRow + " = " + rowValue +
 				dbhand.dropFromDatabase_Assignement2(table, sql, col);
-				output.println(dbhand.getStringBuilder().length());
+				output.println(dbhand.getStringBuilderAsString().length());
 
 				dbhand.setSbNull();
 				table = "";
@@ -189,6 +192,7 @@ public class SocketClientThread implements Runnable {
 				, "3 - drop element from database"
 				, "4 - drop table from database"
 				, "0 - exit"};
+
 		return stringMenu;
 	}
 

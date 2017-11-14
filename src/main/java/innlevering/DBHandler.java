@@ -22,7 +22,7 @@ public class DBHandler {
     private int rowCount = 0;
     private ArrayList<DatabaseContent> contentArrayList;
 
-    public String getStringBuilder() {
+    public String getStringBuilderAsString() {
         return stringBuilder.toString();
     }
 
@@ -222,13 +222,14 @@ public class DBHandler {
         String tableNameWithAddedPrefix = properties.getProperty("databasename") + "." + tableName;
         try (Connection connection = dbConnector.getNewConnection(); PreparedStatement preparedStatement = connection.prepareStatement("SELECT " + sql.trim() + " FROM " + tableNameWithAddedPrefix.trim() + " WHERE " + coloumnToIdentifyRowWith + "  = " + "?" + " ;")) {
             preparedStatement.setString(1, identifier.trim());
-            if (isPartOfTable(identifier,tableName)) {
+            if (isPartOfTable(coloumnToIdentifyRowWith,tableName)) {
                 if (sql.toLowerCase().contains("drop") || sql.toLowerCase().contains(";--") || tableNameWithAddedPrefix.toLowerCase().contains("drop") || tableNameWithAddedPrefix.toLowerCase().contains(";--")) {
                     System.out.println("wtf are you doing");
                 } else {
 
                     try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                        ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+						//System.out.println(resultSet.getString(0));
+						ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
                         if (getColoumnCount(resultSet) == 1) {
                             String row = "";
                             if (resultSet.next()) {
@@ -366,21 +367,24 @@ public class DBHandler {
      * @return ArrayList with coloumn names
      */
     public ArrayList<String> getColoumns(String table) {
-        ArrayList<String> coloumnList = new ArrayList<>();
-        try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps =
-                con.prepareStatement("select Column_name \n" +
-                        "from Information_schema.columns \n" +
-                        "where Table_name like '" + table + "'" +
-                        ";")) {
-            ResultSet resultSet = ps.executeQuery();
-            while (resultSet.next())
-                coloumnList.add(resultSet.getString(1));
+    	if (getTableNames().contains(table)) {
+			ArrayList<String> coloumnList = new ArrayList<>();
+			try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps =
+					con.prepareStatement("select Column_name \n" +
+							"from Information_schema.columns \n" +
+							"where Table_name like '" + table + "'" +
+							";")) {
+				ResultSet resultSet = ps.executeQuery();
+				while (resultSet.next())
+					coloumnList.add(resultSet.getString(1));
 
 
-        } catch (SQLException e) {
-            System.out.println("Did not manage to open a connenction");
-        }
-        return coloumnList;
+			} catch (SQLException e) {
+				System.out.println("Did not manage to open a connenction");
+			}
+			return coloumnList;
+		}
+		return null;
     }
 
     /**

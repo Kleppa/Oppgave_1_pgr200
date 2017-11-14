@@ -21,7 +21,7 @@ public class InputHandlerTest {
     }
 
     @Test
-    public void readContent(){
+    public void readContent()   {
 
         //Relative path does not work.
         newip.readContent("src/main/java/database/info/info.json");
@@ -45,6 +45,7 @@ public class InputHandlerTest {
         newip.readContent("testFile.json");
 
     }
+
 
 
 }
