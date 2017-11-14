@@ -180,15 +180,18 @@ public class InputHandler {
                 String keyStr = (String) key;
                 Object keyvalue = tmpObj.get(keyStr);
                 //Print key and value
+				/**
+				 roomCode varchar(5),facilitiesSupports varchar(55),max-capasity tinyint(10), roomSize varchar(20));
+				 */
 
-                if (keyStr.equalsIgnoreCase("room_code")) {
+                if (keyStr.equalsIgnoreCase("roomCode")) {
 
                     ((Room) tmpRoom).setRoomCode((keyvalue.toString()));
                 } else if (keyStr.equalsIgnoreCase("ColsAndDataTypes")) {
                     ((Room) tmpRoom).setColsAndDataTypes(keyvalue.toString());
-                } else if (keyStr.equalsIgnoreCase("room-size")) {
+                } else if (keyStr.equalsIgnoreCase("roomSize")) {
                     ((Room) tmpRoom).setRoomSize(keyvalue.toString());
-                } else if (keyStr.equalsIgnoreCase("max-capasity")) {
+                } else if (keyStr.equalsIgnoreCase("max_capasity")) {
                     ((Room) tmpRoom).setMaxCapasity(Integer.parseInt(keyvalue.toString()));
                 } else if (keyStr.equalsIgnoreCase("facilitiesSupports")) {
                     ((Room) tmpRoom).setFacilitiesSupports(keyvalue.toString());

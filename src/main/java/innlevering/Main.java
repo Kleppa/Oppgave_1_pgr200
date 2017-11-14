@@ -87,7 +87,7 @@ public class Main {
                     dbHandler.createTable("Test");
                     break;
                 case "4":
-                    dbHandler.dropFromDatabase();
+                  //  dbHandler.dropFromDatabase_Assignement2();
                     break;
                 case "5":
                     dbHandler.dropTable();

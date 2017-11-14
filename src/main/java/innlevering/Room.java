@@ -46,12 +46,14 @@ public class Room implements DatabaseContent {
         return "Room{" +
                 "\"roomCode\":" + "\"" + roomCode + "\"" +
                 ", \"facilitiesSupports\":" + "\"" + facilitiesSupports + "\"" +
-                ", \"maxCapasity\":" + "\"" + maxCapasity + "\"" +
+                ", \"max_capasity\":" + "\"" + maxCapasity + "\"" +
                 ", \"roomSize\":" + "\"" + roomSize + "\"" +
                 '}';
-    }
 
-    private String roomSize;
+
+	}
+
+	private String roomSize;
 
     public String getRoomCode() {
         return roomCode;
@@ -85,20 +87,7 @@ public class Room implements DatabaseContent {
         this.roomSize = roomSize;
     }
 
-    public static void OrmUsage() {
-        DBConnector dbcon = new DBConnector();
-        try {
-            ConnectionSource con =  dbcon.getNewOrmConnection();
 
-            Dao<Room, Integer> roomDao = DaoManager.createDao(con, Room.class);
-            TableUtils.createTableIfNotExists(con,Room.class);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-    }
 
     public int getId() {
         return id;

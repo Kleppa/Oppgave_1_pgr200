@@ -111,15 +111,17 @@ public class DBHandler {
                                 "WHERE table_schema = '" + properties.getProperty("databasename") + "'\n" +
                                 "  AND table_name = '" + tableName + "';";
                         gettingColCount = con.prepareStatement(querySql);
-                        ResultSet rsCol = gettingColCount.executeQuery();
-                        rsCol.next();
-                        int colsFromDb = rsCol.getInt("cols");
-                        if (rs.next() && colsFromDb < 2) {
+						System.out.println(gettingColCount);
+						ResultSet rsCol = gettingColCount.executeQuery();
+						rsCol.next();
+
+                        if (rs.next()) {
 
                             PreparedStatement preparedStatement = con.prepareStatement(
                                     "ALTER TABLE " + tableName + " ADD(" + (contentArrayList.get(i).getColsAndDataTypes() + ");"));
 
-                            preparedStatement.execute();
+							System.out.println("@@@@@@@@@@@@@@@@@@@@@"+preparedStatement);
+							preparedStatement.execute();
                         } else {
                             if (!dontSpamMsg) {
                                 System.out.println("Tried to duplicate columns");
@@ -192,7 +194,9 @@ public class DBHandler {
                     for (int l = 0; l < values.length; l++) {
                         preparedStatement.setString(l + 1, values[l]);
                     }
-                    preparedStatement.execute();
+					System.out.println(preparedStatement);
+
+					preparedStatement.execute();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -441,14 +445,15 @@ public class DBHandler {
      */
     public void createTable(String tableName) {
         try (Connection con = dbConnector.getNewConnection(); PreparedStatement preparedStatement = con.prepareStatement("CREATE TABLE IF NOT EXISTS  " + tableName + " (id int AUTO_INCREMENT, CONSTRAINT PK_" + tableName + " PRIMARY KEY (id));")) {
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("Could not connenct to database");
+
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Could not connenct to database");
         }
     }
 
     //Just made a duplicate for the Server- client version.
-	public void dropFromDatabase(String table, String sql,String col) {
+	public void dropFromDatabase_Assignement2(String table, String sql, String col) {
 
 
 		try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT table_name FROM information_schema.tables  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); PreparedStatement ps2 = con.prepareStatement("SELECT count(table_name) FROM information_schema.tables WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); ResultSet rs2 = ps2.executeQuery()) {
@@ -471,7 +476,7 @@ public class DBHandler {
 						e.printStackTrace();
 					}
 				} else {
-					System.out.println("user choice is empty");
+					System.out.println("We could not use your query, please try again");
 				}
 			}
 		} catch (SQLException e) {
