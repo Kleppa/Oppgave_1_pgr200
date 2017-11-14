@@ -382,7 +382,7 @@ public class DBHandler {
     /**
      * Takes userinput and builds a query to delete someth
      */
-    public void dropFromDatabase() {
+    public void dropFromDatabaseAssignement_2() {
 
 
         try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT table_name FROM information_schema.tables  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); PreparedStatement ps2 = con.prepareStatement("SELECT count(table_name) FROM information_schema.tables WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); ResultSet rs2 = ps2.executeQuery()) {
@@ -448,7 +448,7 @@ public class DBHandler {
     }
 
     //Just made a duplicate for the Server- client version.
-	public void dropFromDatabase(String table, String sql,String col) {
+	public void dropFromDatabaseAssignement_2(String table, String sql, String col) {
 
 
 		try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT table_name FROM information_schema.tables  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); PreparedStatement ps2 = con.prepareStatement("SELECT count(table_name) FROM information_schema.tables WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); ResultSet rs2 = ps2.executeQuery()) {
@@ -463,7 +463,6 @@ public class DBHandler {
 						.findAny().get();
 
 				if (tableNames.contains(userInput)) {
-
 					try (PreparedStatement prepStat2 = con.prepareStatement("DELETE FROM " + " Westerdals_Schedual_Maker." + value + " WHERE " + userChooseRow + " = " + rowValue + " LIMIT 1 ;")) {
 						prepStat2.execute();
 
@@ -471,7 +470,7 @@ public class DBHandler {
 						e.printStackTrace();
 					}
 				} else {
-					System.out.println("user choice is empty");
+					System.out.println("We could not use your query, please try again");
 				}
 			}
 		} catch (SQLException e) {

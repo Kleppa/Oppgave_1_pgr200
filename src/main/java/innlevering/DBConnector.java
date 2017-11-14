@@ -24,7 +24,12 @@ public class DBConnector {
 
     }
 
-    public Connection getNewConnection() {
+	/**
+	 * Sets up a connenction with config file user/name/databse  and returns a connenction
+	 * @return new Connection();
+	 */
+
+	public Connection getNewConnection() {
         Connection connection=null;
         props= new Properties();
         readProperties();
@@ -57,7 +62,12 @@ public class DBConnector {
 
     }
 
-    private void readProperties() {
+	/**
+	 * reads a config file and loads them to property object
+	 *
+	 */
+
+	private void readProperties() {
         try {
             inputStream = new FileInputStream("conf.properties");
         } catch (FileNotFoundException e) {
@@ -71,19 +81,5 @@ public class DBConnector {
                 e.printStackTrace();
             }
         }
-    }
-
-    public ConnectionSource getNewOrmConnection() {
-
-        String databaseUrl = "jdbc:mysql://localhost/roomdatabase";
-// create a connection source to our database
-
-
-        try {
-            return new JdbcConnectionSource(databaseUrl);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }
