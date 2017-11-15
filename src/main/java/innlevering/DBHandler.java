@@ -2,9 +2,11 @@ package innlevering;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.ConnectException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,98 +19,102 @@ import java.util.stream.Collectors;
  * Handles interaction with database
  */
 public class DBHandler {
-	private boolean hackToFixaBugThatSuddenlyAppereadBeforeDeadline=false;
-    public void setSbNull() {
-        stringBuilder.delete(0, stringBuilder.length());
-    }
+	private boolean hackToFixaBugThatSuddenlyAppereadBeforeDeadline = false;
 
-    private int rowCount = 0;
-    private ArrayList<DatabaseContent> contentArrayList;
+	public void setSbNull() {
+		stringBuilder.delete(0, stringBuilder.length());
+	}
 
-    public String getStringBuilderAsString() {
-        return stringBuilder.toString();
-    }
+	private int rowCount = 0;
+	private ArrayList<DatabaseContent> contentArrayList;
 
-    public void setStringBuilder(StringBuilder stringBuilder) {
-        this.stringBuilder = stringBuilder;
-    }
+	public String getStringBuilderAsString() {
+		return stringBuilder.toString();
+	}
 
-    private StringBuilder stringBuilder = new StringBuilder();
-    private Scanner scanner = new Scanner(System.in);
-    private InputHandler inputHandler;
-    private DBConnector dbConnector;
-    private Properties properties = new Properties();
-    private FileInputStream inputStream;
+	public void setStringBuilder(StringBuilder stringBuilder) {
+		this.stringBuilder = stringBuilder;
+	}
 
-    public void readPropertyPathAndSendToInputHandler() {
-        try {
-            inputStream = new FileInputStream("conf.properties");
-        } catch (FileNotFoundException e) {
-            System.out.println("We did not manage to find the config file");
-        }
+	private StringBuilder stringBuilder = new StringBuilder();
+	private Scanner scanner = new Scanner(System.in);
+	private InputHandler inputHandler;
+	private DBConnector dbConnector;
+	private Properties properties = new Properties();
+	private FileInputStream inputStream;
 
-        loadProperties();
+	public void readPropertyPathAndSendToInputHandler() {
+		try {
+			inputStream = new FileInputStream("conf.properties");
+		} catch (FileNotFoundException e) {
+			System.out.println("We did not manage to find the config file");
+		}
 
-        inputHandler = new InputHandler(properties.getProperty("dbcontent"));
-    }
+		loadProperties();
 
-    private void loadProperties() {
-        if (inputStream != null) {
-            try {
-                properties.load(inputStream);
-            } catch (IOException e) {
-                System.out.println("Could not load properties from inputStream, see loadproperties()");
-            }
-        }
-    }
+		inputHandler = new InputHandler(properties.getProperty("dbcontent"));
+	}
 
-    public DBHandler() {
-        dbConnector = new DBConnector();
-        readPropertyPathAndSendToInputHandler();
-        contentArrayList = inputHandler.getObjectList();
-        fillDataBaseWithTablesFromContentArray();
-        addColoumns();
-        fillTablesWithRowContent();
-        //Room.OrmUsage();
-        System.out.println("Backend is ready without any issues");
-    }
+	private void loadProperties() {
+		if (inputStream != null) {
+			try {
+				properties.load(inputStream);
+			} catch (IOException e) {
+				System.out.println("Could not load properties from inputStream, see loadproperties()");
+			}
+		}
+	}
 
-    public void fillDataBaseWithTablesFromContentArray() {
-        String tableName = "Something went wrong";
-        int i = 0;
-        try (
-                Connection connection = dbConnector.getNewConnection()) {
-            connection.setCatalog(properties.getProperty("databasename"));
-            while (i < contentArrayList.size()) {
-                tableName = contentArrayList.get(i).getClass().toString();
-                tableName = tableName.substring(tableName.lastIndexOf(".") + 1);
-                createTable(tableName);
-                i++;
-            }
-        } catch (SQLException e) {
-            System.out.println("Could not open a connenction");
-        }
-    }
+	public DBHandler() {
+		dbConnector = new DBConnector();
+		readPropertyPathAndSendToInputHandler();
+		contentArrayList = inputHandler.getObjectList();
+		fillDataBaseWithTablesFromContentArray();
+		addColoumns();
+		fillTablesWithRowContent();
+		//Room.OrmUsage();
+		System.out.println("Backend is ready without any issues");
+	}
 
-    /**
-     * Creates coloumns from contentArrayList
-     */
+	private void fillDataBaseWithTablesFromContentArray() {
+		String tableName = "Something went wrong";
+		int i = 0;
+		try (
+				Connection connection = dbConnector.getNewConnection()) {
+			connection.setCatalog(properties.getProperty("databasename"));
+			while (i < contentArrayList.size()) {
+				tableName = contentArrayList.get(i).getClass().toString();
+				tableName = tableName.substring(tableName.lastIndexOf(".") + 1);
+				createTable(tableName);
+				i++;
+			}
+		} catch (SQLException e) {
+			System.out.println("Could not open a connenction");
+		}
+	}
 
-    public void addColoumns() {
-        boolean dontSpamMsg = false;
-        try (Connection con = dbConnector.getNewConnection()) {
-            PreparedStatement gettingColCount = null;
-            String tableName = "Something went wrong";
+	/**
+	 * Creates coloumns from contentArrayList
+	 */
 
+	public void addColoumns() {
+		boolean dontSpamMsg = false;
+		try (Connection con = dbConnector.getNewConnection()) {
+			PreparedStatement gettingColCount = null;
+			String tableName = "Something went wrong";
 
-            for (int i = 0;i<getTableNames().size();i++) {
+			for (int i = 0; i < contentArrayList.size(); i++) {
 
-                tableName=getTableNames().get(i);
-                try {
-                    DatabaseMetaData md = con.getMetaData();
-                    ResultSet rs = md.getTables(null, null, tableName, null);
+				tableName = contentArrayList.get(i).getClass().toString().substring(tableName.lastIndexOf(".") + 1);
+				System.out.println(contentArrayList.size());
+				if (tableName.contains("class innlevering.")) {
+					tableName = tableName.substring(tableName.lastIndexOf(".") + 1);
 
-                    {
+				}
+				try {
+
+					{
+						System.out.println(tableName + "THIS IS THE TABLENAME");
 //                        String querySql = "SELECT COUNT(*) AS cols\n" +
 //                                "FROM INFORMATION_SCHEMA.COLUMNS\n" +
 //                                "WHERE table_schema = '" + properties.getProperty("databasename") + "'\n" +
@@ -121,264 +127,263 @@ public class DBHandler {
 //
 //						int colsFromDb = rsCol.getInt("cols");
 //
-                        if (getTableNames().contains(tableName)) {
-							List<DatabaseContent> filteredOutDuplicatedItesm= contentArrayList.stream().fildistinct().collect(Collectors.toList());
-							System.out.println(filteredOutDuplicatedItesm.size());
-							PreparedStatement preparedStatement = con.prepareStatement(
-                                    "ALTER TABLE " + tableName + " ADD(" + (filteredOutDuplicatedItesm.get(i).getColsAndDataTypes() + ");"));
+						if (getTableNames().contains(tableName)) {
 
-							System.out.println("@@@@@@@@@@@@@@@@@@@@@"+preparedStatement);
+							PreparedStatement preparedStatement = con.prepareStatement(
+									"ALTER TABLE " + tableName + " ADD(" + (contentArrayList.get(i).getColsAndDataTypes() + ");"));
+
+							System.out.println("@@@@@@@@@@@@@@@@@@@@@" + preparedStatement);
 							preparedStatement.execute();
 //							if (tableName=="Room" && hackToFixaBugThatSuddenlyAppereadBeforeDeadline){
 //								hackToFixaBugThatSuddenlyAppereadBeforeDeadline=true;
 //								addColoumns();
 //							}
-                        } else {
-                            if (!dontSpamMsg) {
-                                System.out.println("Tried to duplicate columns");
-                                dontSpamMsg = true;
-                            }
-                        }
+						} else {
+							if (!dontSpamMsg) {
+								System.out.println("Tried to duplicate columns");
+								dontSpamMsg = true;
+							}
+						}
 
-                    }
-                } catch (SQLException e) {
-                    System.out.println("Catched an sql error");
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("There was an issue establish a connection to db");
-        }
-    }
+					}
+				} catch (SQLException e) {
+					System.out.println("Catched an sql error");
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("There was an issue establish a connection to db");
+		}
+	}
 
-    public void fillTablesWithRowContent() {
-        int objectListSize = inputHandler.getObjectList().size();
+	public void fillTablesWithRowContent() {
+		int objectListSize = inputHandler.getObjectList().size();
 
 
-        String tableName = "If this shows Something went wrong";
-        for (int i = 0; i < objectListSize; i++) {
+		String tableName = "If this shows Something went wrong";
+		for (int i = 0; i < objectListSize; i++) {
 
-            tableName = contentArrayList.get(i).getClass().toString();
-            tableName = tableName.substring(tableName.lastIndexOf(".") + 1);
+			tableName = contentArrayList.get(i).getClass().toString();
+			tableName = tableName.substring(tableName.lastIndexOf(".") + 1);
 
-            JSONObject tmpobj;
-            String objectToStringedFromObjectList = inputHandler.getObjectList().get(i).toString();
-            //Ugliest String Ive ever made, but it gets the job done, it makes sure that the text only starts from where the needed json object is.
-            String splitOutJsonObj = (objectToStringedFromObjectList.substring(objectToStringedFromObjectList.lastIndexOf(tableName) + tableName.length()));
-            tmpobj = new JSONObject(splitOutJsonObj);
-            String coloumnsnames = "";
+			JSONObject tmpobj;
+			String objectToStringedFromObjectList = inputHandler.getObjectList().get(i).toString();
+			//Ugliest String Ive ever made, but it gets the job done, it makes sure that the text only starts from where the needed json object is.
+			String splitOutJsonObj = (objectToStringedFromObjectList.substring(objectToStringedFromObjectList.lastIndexOf(tableName) + tableName.length()));
+			tmpobj = new JSONObject(splitOutJsonObj);
+			String coloumnsnames = "";
 
-            String questionMarks = "";
-            String[] values = new String[tmpobj.names().length()];
-            boolean arrayused = false;
-            for (int x = 0; x < values.length; x++) {
-                if (x < values.length - 1) {
-                    coloumnsnames += tmpobj.names().getString(x) + ",";
-                } else {
-                    coloumnsnames += tmpobj.names().getString(x);
-                }
+			String questionMarks = "";
+			String[] values = new String[tmpobj.names().length()];
+			boolean arrayused = false;
+			for (int x = 0; x < values.length; x++) {
+				if (x < values.length - 1) {
+					coloumnsnames += tmpobj.names().getString(x) + ",";
+				} else {
+					coloumnsnames += tmpobj.names().getString(x);
+				}
 
-                if (tmpobj.has("subjectList") && !tmpobj.isNull("subjectList") && !arrayused) {
-                    JSONArray jsAr = tmpobj.getJSONArray("subjectList");
-                    values[x] = "Subjects";
-                    arrayused = true;
-                    if (x < values.length - 1) {
-                        questionMarks += "?,";
-                    } else {
-                        questionMarks += "?";
-                    }
+				if (tmpobj.has("subjectList") && !tmpobj.isNull("subjectList") && !arrayused) {
+					JSONArray jsAr = tmpobj.getJSONArray("subjectList");
+					values[x] = "Subjects";
+					arrayused = true;
+					if (x < values.length - 1) {
+						questionMarks += "?,";
+					} else {
+						questionMarks += "?";
+					}
 
-                } else {
-                    values[x] = tmpobj.get(tmpobj.names().getString(x)).toString();
+				} else {
+					values[x] = tmpobj.get(tmpobj.names().getString(x)).toString();
 
-                    if (x < values.length - 1) {
-                        questionMarks += "?,";
-                    } else {
-                        questionMarks += "?";
-                    }
-                }
-            }
-            try (
-                    Connection connection = dbConnector.getNewConnection()) {
-                try (
-                        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO " + tableName + "(" + coloumnsnames + ") VALUES (" + questionMarks + "); ")) {
+					if (x < values.length - 1) {
+						questionMarks += "?,";
+					} else {
+						questionMarks += "?";
+					}
+				}
+			}
+			try (
+					Connection connection = dbConnector.getNewConnection()) {
+				try (
+						PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO " + tableName + "(" + coloumnsnames + ") VALUES (" + questionMarks + "); ")) {
 
-                    for (int l = 0; l < values.length; l++) {
-                        preparedStatement.setString(l + 1, values[l]);
-                    }
+					for (int l = 0; l < values.length; l++) {
+						preparedStatement.setString(l + 1, values[l]);
+					}
 					System.out.println(preparedStatement);
 
 					preparedStatement.execute();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
-    /**
-     * @param tableName                String from what query are you querying
-     * @param sql                      String sql statement to send with the query
-     * @param coloumnToIdentifyRowWith String sql coloumns u want
-     * @param identifier               String for identifying specific rows.
-     *                                 sql injection vulnerability
-     */
+	/**
+	 * @param tableName                String from what query are you querying
+	 * @param sql                      String sql statement to send with the query
+	 * @param coloumnToIdentifyRowWith String sql coloumns u want
+	 * @param identifier               String for identifying specific rows.
+	 *                                 sql injection vulnerability
+	 */
 
-    public void get(String tableName, String sql, String coloumnToIdentifyRowWith, String identifier) {
-        if (isIdentifiersEmpty(identifier, coloumnToIdentifyRowWith)) {
-            System.out.println("All variables not filled in, therefor sending task to get(tableName,Sql)");
-            get(tableName, sql);
-        }
-        String tableNameWithAddedPrefix = properties.getProperty("databasename") + "." + tableName;
-        try (Connection connection = dbConnector.getNewConnection(); PreparedStatement preparedStatement = connection.prepareStatement("SELECT " + sql.trim() + " FROM " + tableNameWithAddedPrefix.trim() + " WHERE " + coloumnToIdentifyRowWith + "  = " + "?" + " ;")) {
-            preparedStatement.setString(1, identifier.trim());
-            if (isPartOfTable(coloumnToIdentifyRowWith,tableName)) {
-                if (sql.toLowerCase().contains("drop") || sql.toLowerCase().contains(";--") || tableNameWithAddedPrefix.toLowerCase().contains("drop") || tableNameWithAddedPrefix.toLowerCase().contains(";--")) {
-                    System.out.println("wtf are you doing");
-                } else {
+	public void get(String tableName, String sql, String coloumnToIdentifyRowWith, String identifier) {
+		if (isIdentifiersEmpty(identifier, coloumnToIdentifyRowWith)) {
+			System.out.println("All variables not filled in, therefor sending task to get(tableName,Sql)");
+			get(tableName, sql);
+		}
+		String tableNameWithAddedPrefix = properties.getProperty("databasename") + "." + tableName;
+		try (Connection connection = dbConnector.getNewConnection(); PreparedStatement preparedStatement = connection.prepareStatement("SELECT " + sql.trim() + " FROM " + tableNameWithAddedPrefix.trim() + " WHERE " + coloumnToIdentifyRowWith + "  = " + "?" + " ;")) {
+			preparedStatement.setString(1, identifier.trim());
+			if (isPartOfTable(coloumnToIdentifyRowWith, tableName)) {
+				if (sql.toLowerCase().contains("drop") || sql.toLowerCase().contains(";--") || tableNameWithAddedPrefix.toLowerCase().contains("drop") || tableNameWithAddedPrefix.toLowerCase().contains(";--")) {
+					System.out.println("wtf are you doing");
+				} else {
 
-                    try (ResultSet resultSet = preparedStatement.executeQuery()) {
+					try (ResultSet resultSet = preparedStatement.executeQuery()) {
 						//System.out.println(resultSet.getString(0));
 						ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-                        if (getColoumnCount(resultSet) == 1) {
-                            String row = "";
-                            if (resultSet.next()) {
-                                for (int i = 1; i <= getColoumnCount(resultSet); i++)
-                                    row += resultSetMetaData.getColumnName(i) + " : " + resultSet.getString(i) + ", ";
+						if (getColoumnCount(resultSet) == 1) {
+							String row = "";
+							if (resultSet.next()) {
+								for (int i = 1; i <= getColoumnCount(resultSet); i++)
+									row += resultSetMetaData.getColumnName(i) + " : " + resultSet.getString(i) + ", ";
 
-                                stringBuilder.append(row);
-                                rowCount++;
-                                System.out.println(row);
-                            }
-                        } else {
-                            while (resultSet.next()) {
-                                String row = "";
-                                for (int i = 1; i <= getColoumnCount(resultSet); i++) {
-                                    row += resultSetMetaData.getColumnName(i) + " : " + resultSet.getString(i) + ", ";
-                                }
-                                rowCount++;
-                                stringBuilder.append(row);
-                                System.out.println(row);
-                            }
-                        }
-                    }
-                }
-            }else{
-                System.out.println("Your identifier could not be found in the table.");
-            }
-        } catch (SQLException e) {
-            System.out.println("We had an issue getting your sql query.");
-        }
-    }
+								stringBuilder.append(row);
+								rowCount++;
+								System.out.println(row);
+							}
+						} else {
+							while (resultSet.next()) {
+								String row = "";
+								for (int i = 1; i <= getColoumnCount(resultSet); i++) {
+									row += resultSetMetaData.getColumnName(i) + " : " + resultSet.getString(i) + ", ";
+								}
+								rowCount++;
+								stringBuilder.append(row);
+								System.out.println(row);
+							}
+						}
+					}
+				}
+			} else {
+				System.out.println("Your identifier could not be found in the table.");
+			}
+		} catch (SQLException e) {
+			System.out.println("We had an issue getting your sql query.");
+		}
+	}
 
-    private boolean isPartOfTable(String targetName,String table) {
-        if (getColoumns(table).contains(targetName))
-            return true;
+	private boolean isPartOfTable(String targetName, String table) {
+		if (getColoumns(table).contains(targetName))
+			return true;
 
-        return false;
-    }
+		return false;
+	}
 
-    private boolean isIdentifiersEmpty(String identifier, String coloumnToIdentifyRowWith) {
-        if (identifier.isEmpty() || coloumnToIdentifyRowWith.isEmpty()) {
-            return true;
-        }
-        return false;
-    }
+	private boolean isIdentifiersEmpty(String identifier, String coloumnToIdentifyRowWith) {
+		if (identifier.isEmpty() || coloumnToIdentifyRowWith.isEmpty()) {
+			return true;
+		}
+		return false;
+	}
 
-    private int getColoumnCount(ResultSet resultSet) throws SQLException {
-        ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-        return resultSetMetaData.getColumnCount();
-    }
+	private int getColoumnCount(ResultSet resultSet) throws SQLException {
+		ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+		return resultSetMetaData.getColumnCount();
+	}
 
-    /**
+	/**
 	 * @param tableName String from what query are you querying
 	 * @param sql       String sql statement to send with the query
 	 */
-    public ResultSet get(String tableName, String sql) {
+	public ResultSet get(String tableName, String sql) {
 
-        String newName = tableName;
-        try (
-                Connection con = dbConnector.getNewConnection()
+		String newName = tableName;
+		try (
+				Connection con = dbConnector.getNewConnection()
 
-        ) {
-            if (!getTableNames().contains(tableName)) {
-                System.out.println("We do not have a table with that name");
-                return null;
-            }
+		) {
+			if (!getTableNames().contains(tableName)) {
+				System.out.println("We do not have a table with that name");
+				return null;
+			}
 
-            if (!sql.equals("information_schema.tables")) {
-                try (PreparedStatement ps = con.prepareStatement("SELECT " + sql + " FROM " + newName + " ;")) {
+			if (!sql.equals("information_schema.tables")) {
+				try (PreparedStatement ps = con.prepareStatement("SELECT " + sql + " FROM " + newName + " ;")) {
 
-                    try (ResultSet rs = ps.executeQuery()) {
-                        printContent(rs);
-                        return rs;
-                    }
-                }
-            } else {
-                try (PreparedStatement ps = con.prepareStatement("SELECT " + newName + " FROM " + sql + "  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); ResultSet rs = ps.executeQuery()) {
+					try (ResultSet rs = ps.executeQuery()) {
+						printContent(rs);
+						return rs;
+					}
+				}
+			} else {
+				try (PreparedStatement ps = con.prepareStatement("SELECT " + newName + " FROM " + sql + "  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); ResultSet rs = ps.executeQuery()) {
 
-                    printContent(rs);
-                    return rs;
-                } catch (SQLException e) {
-                    System.out.println("Your sql query is not valid sql");
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("We could not establish a connection");
-        }
-        return null;
-    }
+					printContent(rs);
+					return rs;
+				} catch (SQLException e) {
+					System.out.println("Your sql query is not valid sql");
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("We could not find your coloumn in db");
+		}
+		return null;
+	}
 
-    public ArrayList<String> getTableNames() {
-        ArrayList<String> tableNameList = new ArrayList<>();
-        try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps =
-                con.prepareStatement("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker' ;")) {
-            ResultSet resultSet = ps.executeQuery();
-            while (resultSet.next())
-                tableNameList.add(resultSet.getString(1));
-        } catch (SQLException e) {
-            System.out.println("Did not manage to open a connenction");
-        }
-        return tableNameList;
-    }
+	public ArrayList<String> getTableNames() {
+		ArrayList<String> tableNameList = new ArrayList<>();
+		try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps =
+				con.prepareStatement("SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker' ;")) {
+			ResultSet resultSet = ps.executeQuery();
+			while (resultSet.next())
+				tableNameList.add(resultSet.getString(1));
+		} catch (SQLException e) {
+			System.out.println("Did not manage to open a connenction");
+		}
+		return tableNameList;
+	}
 
-    private StringBuilder printContent(ResultSet rs) {
-        stringBuilder = new StringBuilder();
-        ResultSetMetaData rsmd = null;
-        try {
-            rsmd = rs.getMetaData();
+	private StringBuilder printContent(ResultSet rs) {
+		stringBuilder = new StringBuilder();
+		ResultSetMetaData rsmd = null;
+		try {
+			rsmd = rs.getMetaData();
 
-            int columnsNumber = rsmd.getColumnCount();
-            int counter = 1;
+			int columnsNumber = rsmd.getColumnCount();
+			int counter = 1;
 
-            while (rs.next()) {
-                System.out.println("-------------------------------------------- ROW NUMBER " + counter + " : ---------------------------------------------\n");
-                for (int i = 1; i <= columnsNumber; i++) {
+			while (rs.next()) {
+				System.out.println("-------------------------------------------- ROW NUMBER " + counter + " : ---------------------------------------------\n");
+				for (int i = 1; i <= columnsNumber; i++) {
 
-                    if (i > 1) System.out.print(",  ");
-                    String columnValue = rs.getString(i);
-                    stringBuilder.append(rsmd.getColumnName(i) + " : " + columnValue + "\n");
+					if (i > 1) System.out.print(",  ");
+					String columnValue = rs.getString(i);
+					stringBuilder.append(rsmd.getColumnName(i) + " : " + columnValue + "\n");
 
-                    System.out.print(rsmd.getColumnName(i) + " : " + columnValue);
-                    counter++;
-                }
-                System.out.println("\n----------------------------------------------------------------------------------------------------------");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return stringBuilder;
-    }
+					System.out.print(rsmd.getColumnName(i) + " : " + columnValue);
+					counter++;
+				}
+				System.out.println("\n----------------------------------------------------------------------------------------------------------");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return stringBuilder;
+	}
 
-    /**
-     * Returns an arraylist of coloumn names from chosen table
-     *
-     * @param table specify what table you want coloums from
-     * @return ArrayList with coloumn names
-     */
-    public ArrayList<String> getColoumns(String table) {
-    	if (getTableNames().contains(table)) {
+	/**
+	 * Returns an arraylist of coloumn names from chosen table
+	 *
+	 * @param table specify what table you want coloums from
+	 * @return ArrayList with coloumn names
+	 */
+	public ArrayList<String> getColoumns(String table) {
+		if (getTableNames().contains(table)) {
 			ArrayList<String> coloumnList = new ArrayList<>();
 			try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps =
 					con.prepareStatement("select Column_name \n" +
@@ -391,83 +396,84 @@ public class DBHandler {
 
 
 			} catch (SQLException e) {
-				System.out.println("Did not manage to open a connenction");
+				System.out.println("Did not find that coloumn in table");
 			}
 			return coloumnList;
 		}
+
 		return null;
-    }
+	}
 
-    /**
-     * Takes userinput and builds a query to delete someth
-     */
-    public void dropFromDatabase() {
+	/**
+	 * Takes userinput and builds a query to delete someth
+	 */
+	public void dropFromDatabase() {
 
 
-        try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT table_name FROM information_schema.tables  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); PreparedStatement ps2 = con.prepareStatement("SELECT count(table_name) FROM information_schema.tables WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); ResultSet rs2 = ps2.executeQuery()) {
-            ps.executeQuery();
-            ArrayList<String> tableNames = getTableNames();
-            if (tableNames != null) {
-                Scanner sc = new Scanner(System.in);
-                getTableNames().forEach(System.out::println);
-                System.out.println("From what table do you want to delete? please enter a choice");
-                String userInput = sc.nextLine();
-                int userChoose = Integer.parseInt(userInput);
-                getColoumns(userInput).forEach(System.out::println);
-                System.out.println("What do you want to delete? Coloumn name");
-                String userChooseRow = sc.nextLine();
-                System.out.println("What do you want to delete? Cell value");
-                String rowValue = sc.nextLine();
+		try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps = con.prepareStatement("SELECT table_name FROM information_schema.tables  WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); PreparedStatement ps2 = con.prepareStatement("SELECT count(table_name) FROM information_schema.tables WHERE TABLE_SCHEMA='Westerdals_Schedual_Maker';"); ResultSet rs2 = ps2.executeQuery()) {
+			ps.executeQuery();
+			ArrayList<String> tableNames = getTableNames();
+			if (tableNames != null) {
+				Scanner sc = new Scanner(System.in);
+				getTableNames().forEach(System.out::println);
+				System.out.println("From what table do you want to delete? please enter a choice");
+				String userInput = sc.nextLine();
 
-                String value = tableNames.stream().filter(rn -> rn.equals(userInput))
-                        .findAny().get();
+				getColoumns(userInput).forEach(System.out::println);
+				System.out.println("What do you want to delete? Coloumn name");
+				String userChooseRow = sc.nextLine();
+				System.out.println("What do you want to delete? Cell value");
+				String rowValue = sc.nextLine();
 
-                if (tableNames.contains(userInput)) {
+				String value = tableNames.stream().filter(rn -> rn.equals(userInput))
+						.findAny().get();
 
-                    try (PreparedStatement prepStat2 = con.prepareStatement("DELETE FROM " + " Westerdals_Schedual_Maker." + value + " WHERE " + userChooseRow + " = " + rowValue + " LIMIT 1 ;")) {
-                        prepStat2.execute();
+				if (tableNames.contains(userInput)) {
 
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    System.out.println("user choice is empty");
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+					try (PreparedStatement prepStat2 = con.prepareStatement("DELETE FROM " + " Westerdals_Schedual_Maker." + value + " WHERE " + userChooseRow + " = " + rowValue + " LIMIT 1 ;")) {
+						prepStat2.execute();
 
-    public void dropTable() {
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				} else {
+					System.out.println("user choice is empty");
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
-        getTableNames().forEach(System.out::println);
-        System.out.println("What table do you want to delete?");
-        String userChoice = scanner.nextLine();
-        try (Connection con = dbConnector.getNewConnection(); PreparedStatement preparedStatement = con.prepareStatement("DROP TABLE " + userChoice + ";")) {
+	public void dropTable() {
 
-            preparedStatement.execute();
-            System.out.println("Table -  " + userChoice + " has been deleted from the database");
-        } catch (SQLException e) {
-            System.out.println("The table you tried to find does not exsist or you tried something that is not allowed");
-        }
-    }
+		getTableNames().forEach(System.out::println);
+		System.out.println("What table do you want to delete?");
+		String userChoice = scanner.nextLine();
+		try (Connection con = dbConnector.getNewConnection(); PreparedStatement preparedStatement = con.prepareStatement("DROP TABLE " + userChoice + ";")) {
 
-    /**
-     * createTable creates a table in current db scheme from userinput.
-     *
-     * @param tableName
-     */
-    public void createTable(String tableName) {
-        try (Connection con = dbConnector.getNewConnection(); PreparedStatement preparedStatement = con.prepareStatement("CREATE TABLE IF NOT EXISTS  " + tableName + " (id int AUTO_INCREMENT, CONSTRAINT PK_" + tableName + " PRIMARY KEY (id));")) {
+			preparedStatement.execute();
+			System.out.println("Table -  " + userChoice + " has been deleted from the database");
+		} catch (SQLException e) {
+			System.out.println("The table you tried to find does not exsist or you tried something that is not allowed");
+		}
+	}
 
+	/**
+	 * createTable creates a table in current db scheme from userinput.
+	 *
+	 * @param tableName
+	 */
+	public void createTable(String tableName) {
+		try (Connection con = dbConnector.getNewConnection(); PreparedStatement preparedStatement = con.prepareStatement("CREATE TABLE IF NOT EXISTS  " + tableName + " (id int AUTO_INCREMENT, CONSTRAINT PK_" + tableName + " PRIMARY KEY (id));")) {
+			System.out.println(preparedStatement);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Could not connenct to database");
-        }
-    }
+		}
+	}
 
-    //Just made a duplicate for the Server- client version.
+	//Just made a duplicate for the Server- client version.
 	public void dropFromDatabase_Assignement2(String table, String sql, String col) {
 
 
@@ -477,8 +483,8 @@ public class DBHandler {
 			if (tableNames != null) {
 
 				String userInput = table;
-				String userChooseRow =sql;
-				String rowValue =col;
+				String userChooseRow = sql;
+				String rowValue = col;
 				String value = tableNames.stream().filter(rn -> rn.equals(userInput))
 						.findAny().get();
 
@@ -499,5 +505,109 @@ public class DBHandler {
 		}
 	}
 
+	public void userAddsCols() {
+		System.out.println("What table do you want to alter?");
+		String tableName;
+		getTableNames().stream().forEach(System.out::println);
+		if (getTableNames().contains(tableName = scanner.nextLine())) {
+			try (Connection con = dbConnector.getNewConnection()) {
+
+				System.out.println("What coloumns do you want to add to the table, remember to add sql data type, typeexit to finish adding");
+				String userInput = scanner.nextLine();
+
+
+				StringBuilder colsToAdd = new StringBuilder();
+
+				while (!userInput.equalsIgnoreCase("exit")) {
+					System.out.println("Col added");
+					colsToAdd.append(userInput);
+					userInput = scanner.nextLine();
+					if (userInput.equalsIgnoreCase("exit")) {
+						continue;
+					}
+					colsToAdd.append(", ");
+				}
+
+				PreparedStatement preparedStatement = con.prepareStatement(
+						"ALTER TABLE " + tableName + " ADD(" + (colsToAdd.toString() + ");"));
+				System.out.println(preparedStatement);
+				preparedStatement.executeUpdate();
+				stringBuilder = null;
+			} catch (SQLException ex) {
+				System.out.println("could not execute your sql");
+			}
+		} else {
+			System.out.println("Could not find table");
+		}
+
+	}
+
+	public void addRows() {
+		System.out.println("what table do you want to add rows too");
+		getTableNames().forEach(System.out::println);
+		String userinput = scanner.nextLine();
+		String table = userinput;
+		if (getTableNames().contains(userinput)) {
+			getColoumns(userinput).forEach(System.out::println);
+			System.out.println("These are the coloumn for the current table");
+			try (Connection con = dbConnector.getNewConnection()) {
+
+				StringBuilder colsToAdd = new StringBuilder();
+				System.out.println("What coloumns do you want to use fill in your new row,  type exit to finish , type continue to start adding values to cols");
+				StringBuilder valuesToAdd = new StringBuilder();
+				mainLoop:
+				while (!userinput.equalsIgnoreCase("exit")) {
+
+					userinput = scanner.nextLine();
+
+
+					if (!userinput.equalsIgnoreCase("continue")) {
+						System.out.println("col added");
+						colsToAdd.append(userinput);
+
+						continue;
+					}
+
+					if (userinput.equalsIgnoreCase("exit")) {
+						continue;
+					}
+					System.out.println("col added");
+					colsToAdd.append(", ");
+
+
+
+					if (userinput.equalsIgnoreCase("continue")) {
+
+						System.out.println("What value do you want add");
+
+
+
+						userinput = scanner.nextLine();
+						System.out.println("value added");
+						while (!userinput.equalsIgnoreCase("exit")) {
+
+
+							valuesToAdd.append(userinput);
+							userinput = scanner.nextLine();
+
+							System.out.println("value added");
+							if (userinput.equalsIgnoreCase("exit")) {
+								continue;
+							}
+							valuesToAdd.append(",");
+
+
+						}
+					}
+				}
+
+				PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO " + table + "(" + colsToAdd + ") VALUES (" + valuesToAdd + ");");
+				System.out.println(preparedStatement);
+				preparedStatement.executeQuery();
+			} catch (SQLException e) {
+				System.out.println("Could not use your sql query, please try again");
+			}
+		}
+	}
 }
 // TODO: bygg med maven #viktig

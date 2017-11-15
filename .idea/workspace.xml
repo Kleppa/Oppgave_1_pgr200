@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a61963bf-35fa-4a5a-995a-27bf49883c6a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/Main.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/Main.class" />
+    <list default="true" id="a61963bf-35fa-4a5a-995a-27bf49883c6a" name="Default" comment="Working on adding method to alter a table">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/database/info/info.json" afterPath="$PROJECT_DIR$/src/main/java/database/info/info.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/Main.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/Main.java" />
     </list>
     <ignored path="Oppgave_1_pgr200.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +28,7 @@
     <SUITE FILE_PATH="coverage/Oppgave_1_pgr200$DBHandlerTest_getSbTest.coverage" NAME="DBHandlerTest.getSbTest Coverage Results" MODIFIED="1509113718912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>innlevering.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Oppgave_1_pgr200$Main.coverage" NAME="Main Coverage Results" MODIFIED="1509113736194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Oppgave_1_pgr200$Main.coverage" NAME="Main Coverage Results" MODIFIED="1510753909446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>innlevering.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Oppgave_1_pgr200$Server.coverage" NAME="Server Coverage Results" MODIFIED="1508751796727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -54,39 +54,49 @@
       <file leaf-file-name="DBHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="124" column="24" lean-forward="false" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
+            <state relative-caret-position="224">
+              <caret line="561" column="0" lean-forward="true" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#loadProperties#0;class#DBHandler#0" expanded="false" />
-                <element signature="method#DBHandler#0;class#DBHandler#0" expanded="false" />
                 <element signature="docComment;method#addColoumns#0;class#DBHandler#0" expanded="false" />
-                <element signature="e#3558#3631#0" expanded="false" />
+                <element signature="e#3311#3384#0" expanded="false" />
                 <element signature="docComment;method#get#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#isIdentifiersEmpty#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#getColoumnCount#0;class#DBHandler#0" expanded="false" />
                 <element signature="docComment;method#get#1;class#DBHandler#0" expanded="false" />
-                <element signature="method#dropFromDatabase#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#dropTable#0;class#DBHandler#0" expanded="false" />
-                <marker date="1510745856000" expanded="true" signature="4508:4542" ph="ALTER TABLE Something... " />
-                <marker date="1510745856000" expanded="true" signature="4508:4607" ph="ALTER TABLE Something... " />
-                <marker date="1510745856000" expanded="true" signature="4728:4903" ph="..." />
-                <marker date="1510745856000" expanded="true" signature="7796:7879" ph="INSERT INTO If... " />
-                <marker date="1510745856000" expanded="true" signature="9283:9402" ph="SELECT missi... missingValue" />
-                <marker date="1510745856000" expanded="true" signature="12726:12750" ph="SELECT missi... missingValue" />
-                <marker date="1510745856000" expanded="true" signature="13039:13126" ph="SELECT missi... missingValue" />
-                <marker date="1510745856000" expanded="true" signature="13762:13857" ph="SELECT TABLE... tables" />
-                <marker date="1510745856000" expanded="true" signature="15768:15884" ph="select Colum... columns" />
-                <marker date="1510745856000" expanded="true" signature="16394:16490" ph="SELECT table... tables" />
-                <marker date="1510745856000" expanded="true" signature="16541:16643" ph="SELECT count... tables" />
-                <marker date="1510745856000" expanded="true" signature="17734:17846" ph="DELETE FROM " />
-                <marker date="1510745856000" expanded="true" signature="18540:18551" ph="DROP TABLE m... " />
-                <marker date="1510745856000" expanded="true" signature="19179:19298" ph="CREATE TABLE... IF" />
-                <marker date="1510745856000" expanded="true" signature="19693:19789" ph="SELECT table... tables" />
-                <marker date="1510745856000" expanded="true" signature="19840:19942" ph="SELECT count... tables" />
-                <marker date="1510745856000" expanded="true" signature="20379:20491" ph="DELETE FROM " />
+                <marker date="1510754239000" expanded="true" signature="4028:4062" ph="ALTER TABLE Something... " />
+                <marker date="1510754239000" expanded="true" signature="4028:4117" ph="ALTER TABLE Something... " />
+                <marker date="1510754239000" expanded="true" signature="4240:4415" ph="..." />
+                <marker date="1510754239000" expanded="true" signature="6579:6662" ph="INSERT INTO If... " />
+                <marker date="1510754239000" expanded="true" signature="7874:7993" ph="SELECT missi... missingValue" />
+                <marker date="1510754239000" expanded="true" signature="10538:10562" ph="SELECT missi... missingValue" />
+                <marker date="1510754239000" expanded="true" signature="10752:10839" ph="SELECT missi... missingValue" />
+                <marker date="1510754239000" expanded="true" signature="11341:11436" ph="SELECT TABLE... tables" />
+                <marker date="1510754239000" expanded="true" signature="13044:13160" ph="select Colum... columns" />
+                <marker date="1510754239000" expanded="true" signature="13648:13744" ph="SELECT table... tables" />
+                <marker date="1510754239000" expanded="true" signature="13795:13897" ph="SELECT count... tables" />
+                <marker date="1510754239000" expanded="true" signature="14735:14847" ph="DELETE FROM " />
+                <marker date="1510754239000" expanded="true" signature="15376:15387" ph="DROP TABLE m... " />
+                <marker date="1510754239000" expanded="true" signature="15949:16068" ph="CREATE TABLE... IF" />
+                <marker date="1510754239000" expanded="true" signature="16492:16588" ph="SELECT table... tables" />
+                <marker date="1510754239000" expanded="true" signature="16639:16741" ph="SELECT count... tables" />
+                <marker date="1510754239000" expanded="true" signature="17180:17292" ph="DELETE FROM " />
+                <marker date="1510754239000" expanded="true" signature="18408:18472" ph="ALTER TABLE missingValue... " />
+                <marker date="1510754239000" expanded="true" signature="20389:20462" ph="INSERT INTO missingValue... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="103" column="40" lean-forward="true" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,8 +104,8 @@
       <file leaf-file-name="info.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/database/info/info.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            <state relative-caret-position="135">
+              <caret line="81" column="2" lean-forward="false" selection-start-line="81" selection-start-column="2" selection-end-line="90" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -113,10 +123,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>createtable</find>
       <find>setcata</find>
       <find>CREATE TABLE IF NOT EXISTS  Teacher (id int AUTO_INCREMENT, CONSTRAINT PK_Teacher PRIMARY KEY (id));</find>
-      <find>insert</find>
       <find>done</find>
       <find>----Coloumns----</find>
       <find>get</find>
@@ -133,16 +141,18 @@
       <find>addco</find>
       <find>createroom</find>
       <find>crea</find>
-      <find>create</find>
       <find>Alter</find>
       <find>ROOM</find>
       <find>identi</find>
       <find>identifier</find>
       <find>system.out</find>
       <find>why</find>
-      <find>alter</find>
       <find>room</find>
       <find>tablename</find>
+      <find>create</find>
+      <find>addcol</find>
+      <find>alter</find>
+      <find>insert</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -197,9 +207,9 @@
         <option value="$PROJECT_DIR$/src/test/java/innlevering/InputHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/innlevering/DBHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Egenvurdering" />
-        <option value="$PROJECT_DIR$/src/main/java/innlevering/Main.java" />
         <option value="$PROJECT_DIR$/Egenvurdering" />
         <option value="$PROJECT_DIR$/src/main/java/database/info/info.json" />
+        <option value="$PROJECT_DIR$/src/main/java/innlevering/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" />
       </list>
     </option>
@@ -1034,7 +1044,7 @@
       <workItem from="1510588991091" duration="177000" />
       <workItem from="1510665821198" duration="12603000" />
       <workItem from="1510742309312" duration="139000" />
-      <workItem from="1510742479555" duration="3424000" />
+      <workItem from="1510742479555" duration="9652000" />
     </task>
     <task id="LOCAL-00001" summary="sass">
       <created>1508249369229</created>
@@ -1113,7 +1123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510685613498</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="help">
+      <created>1510745946224</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1510745946225</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1149,7 +1166,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309878000" />
+    <option name="totallyTimeSpent" value="316106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
@@ -1168,7 +1185,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5888325" sideWeight="0.4822294" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28029078" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31340873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1242,7 +1259,9 @@
     <MESSAGE value="Refacotring" />
     <MESSAGE value="Wierd bug on first run when altering room, need to fix menu choice 2 print result" />
     <MESSAGE value="Wierd bug on first run when altering room" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wierd bug on first run when altering room" />
+    <MESSAGE value="help" />
+    <MESSAGE value="Working on adding method to alter a table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on adding method to alter a table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1285,18 +1304,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java</url>
-          <line>335</line>
+          <line>107</line>
           <properties />
-          <option name="timeStamp" value="163" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java</url>
-          <line>126</line>
-          <properties />
-          <option name="timeStamp" value="171" />
+          <option name="timeStamp" value="175" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="172" />
+      <option name="time" value="176" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1597,14 +1610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="96" column="35" lean-forward="false" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.0.4/mysql-connector-java-5.0.4.jar!/com/mysql/jdbc/ResultSet.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
@@ -1615,46 +1620,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/database/info/info.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        <state relative-caret-position="135">
+          <caret line="81" column="2" lean-forward="false" selection-start-line="81" selection-start-column="2" selection-end-line="90" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="103" column="40" lean-forward="true" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="124" column="24" lean-forward="false" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
+        <state relative-caret-position="224">
+          <caret line="561" column="0" lean-forward="true" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
             <element signature="method#loadProperties#0;class#DBHandler#0" expanded="false" />
-            <element signature="method#DBHandler#0;class#DBHandler#0" expanded="false" />
             <element signature="docComment;method#addColoumns#0;class#DBHandler#0" expanded="false" />
-            <element signature="e#3558#3631#0" expanded="false" />
+            <element signature="e#3311#3384#0" expanded="false" />
             <element signature="docComment;method#get#0;class#DBHandler#0" expanded="false" />
             <element signature="method#isIdentifiersEmpty#0;class#DBHandler#0" expanded="false" />
             <element signature="method#getColoumnCount#0;class#DBHandler#0" expanded="false" />
             <element signature="docComment;method#get#1;class#DBHandler#0" expanded="false" />
-            <element signature="method#dropFromDatabase#0;class#DBHandler#0" expanded="false" />
             <element signature="method#dropTable#0;class#DBHandler#0" expanded="false" />
-            <marker date="1510745856000" expanded="true" signature="4508:4542" ph="ALTER TABLE Something... " />
-            <marker date="1510745856000" expanded="true" signature="4508:4607" ph="ALTER TABLE Something... " />
-            <marker date="1510745856000" expanded="true" signature="4728:4903" ph="..." />
-            <marker date="1510745856000" expanded="true" signature="7796:7879" ph="INSERT INTO If... " />
-            <marker date="1510745856000" expanded="true" signature="9283:9402" ph="SELECT missi... missingValue" />
-            <marker date="1510745856000" expanded="true" signature="12726:12750" ph="SELECT missi... missingValue" />
-            <marker date="1510745856000" expanded="true" signature="13039:13126" ph="SELECT missi... missingValue" />
-            <marker date="1510745856000" expanded="true" signature="13762:13857" ph="SELECT TABLE... tables" />
-            <marker date="1510745856000" expanded="true" signature="15768:15884" ph="select Colum... columns" />
-            <marker date="1510745856000" expanded="true" signature="16394:16490" ph="SELECT table... tables" />
-            <marker date="1510745856000" expanded="true" signature="16541:16643" ph="SELECT count... tables" />
-            <marker date="1510745856000" expanded="true" signature="17734:17846" ph="DELETE FROM " />
-            <marker date="1510745856000" expanded="true" signature="18540:18551" ph="DROP TABLE m... " />
-            <marker date="1510745856000" expanded="true" signature="19179:19298" ph="CREATE TABLE... IF" />
-            <marker date="1510745856000" expanded="true" signature="19693:19789" ph="SELECT table... tables" />
-            <marker date="1510745856000" expanded="true" signature="19840:19942" ph="SELECT count... tables" />
-            <marker date="1510745856000" expanded="true" signature="20379:20491" ph="DELETE FROM " />
+            <marker date="1510754239000" expanded="true" signature="4028:4062" ph="ALTER TABLE Something... " />
+            <marker date="1510754239000" expanded="true" signature="4028:4117" ph="ALTER TABLE Something... " />
+            <marker date="1510754239000" expanded="true" signature="4240:4415" ph="..." />
+            <marker date="1510754239000" expanded="true" signature="6579:6662" ph="INSERT INTO If... " />
+            <marker date="1510754239000" expanded="true" signature="7874:7993" ph="SELECT missi... missingValue" />
+            <marker date="1510754239000" expanded="true" signature="10538:10562" ph="SELECT missi... missingValue" />
+            <marker date="1510754239000" expanded="true" signature="10752:10839" ph="SELECT missi... missingValue" />
+            <marker date="1510754239000" expanded="true" signature="11341:11436" ph="SELECT TABLE... tables" />
+            <marker date="1510754239000" expanded="true" signature="13044:13160" ph="select Colum... columns" />
+            <marker date="1510754239000" expanded="true" signature="13648:13744" ph="SELECT table... tables" />
+            <marker date="1510754239000" expanded="true" signature="13795:13897" ph="SELECT count... tables" />
+            <marker date="1510754239000" expanded="true" signature="14735:14847" ph="DELETE FROM " />
+            <marker date="1510754239000" expanded="true" signature="15376:15387" ph="DROP TABLE m... " />
+            <marker date="1510754239000" expanded="true" signature="15949:16068" ph="CREATE TABLE... IF" />
+            <marker date="1510754239000" expanded="true" signature="16492:16588" ph="SELECT table... tables" />
+            <marker date="1510754239000" expanded="true" signature="16639:16741" ph="SELECT count... tables" />
+            <marker date="1510754239000" expanded="true" signature="17180:17292" ph="DELETE FROM " />
+            <marker date="1510754239000" expanded="true" signature="18408:18472" ph="ALTER TABLE missingValue... " />
+            <marker date="1510754239000" expanded="true" signature="20389:20462" ph="INSERT INTO missingValue... " />
           </folding>
         </state>
       </provider>

@@ -1,66 +1,4 @@
 {
-
-  "students": [
-    {
-      "studentName": "Halvor",
-      "studentSubjects": "5",
-      "ColsAndDataTypes": "studentName varchar(50),studentSubjects int"
-    },
-    {
-      "studentName": "Erik",
-      "studentSubjects": "10",
-      "ColsAndDataTypes": "studentName varchar(50),studentSubjects int"
-    }
-
-
-  ],
-  "rooms": [
-    {
-      "roomCode": "F11",
-      "facilitiesSupports": "test",
-      "max_capasity": "50",
-      "roomSize": "X",
-      "ColsAndDataTypes":"roomCode varchar(5),facilitiesSupports varchar(55),max_capasity tinyint(10), roomSize varchar(20)"
-
-    }
-  ],
-  "subjects": [
-    {
-      "subject_code": "pgr200",
-      "name": "Avansert Javaprogrammering",
-      "campus_priority": "Fjerdingen",
-      "educationForm": "",
-      "subjectProgram": "",
-      "duration": "0",
-      "amountOfHours": "0",
-      "amountOfStudents": "12",
-      "colsanddatatypes" :"name varchar(255),subjectCode varchar(255),campusPrio varchar(255),educationForm varchar(255),subjectProgram varchar(255), duration int(100),amountOfHours int(100),amountOfStudents int(100)"
-    },
-    {
-      "subject_code": "pgr4200",
-      "name": "Algoritmer",
-      "campus_priority": "Fjerdingen",
-      "educationForm": "",
-      "subjectProgram": "",
-      "duration": "700",
-      "amountOfHours": "1299",
-      "amountOfStudents": "999",
-      "colsanddatatypes" :"name varchar(255),subjectCode varchar(255),campusPrio varchar(255),educationForm varchar(255),subjectProgram varchar(255), duration int(100),amountOfHours int(100),amountOfStudents int(100)"
-
-    },
-    {
-      "subject_code": "pgr100",
-      "name": " Javaprogrammering 1",
-      "campus_priority": "Fjerdingen",
-      "educationForm": "",
-      "subjectProgram": "",
-      "duration": "12",
-      "amountOfHours": "3000",
-      "amountOfStudents": "295",
-      "colsanddatatypes" :"name varchar(255),subjectCode varchar(255),campusPrio varchar(255),educationForm varchar(255),subjectProgram varchar(255), duration int(100),amountOfHours int(100),amountOfStudents int(100)"
-
-    }
-  ],
   "teachers": [
     {
       "name": "Peremann",
@@ -89,8 +27,66 @@
       "contact_info": "Jarand@gmail.com",
       "ColsAndDataTypes": "name VARCHAR(255), age INT(10),contactInfo varchar(255),availability varchar(255),subjectList varchar(255)"
     }
+  ],
+  "subjects": [
+    {
+      "subject_code": "pgr200",
+      "name": "Avansert Javaprogrammering",
+      "campus_priority": "Fjerdingen",
+      "educationForm": "",
+      "subjectProgram": "",
+      "duration": "0",
+      "amountOfHours": "0",
+      "amountOfStudents": "12",
+     "colsanddatatypes" :"name varchar(255),subjectCode varchar(255),campusPrio varchar(255),educationForm varchar(255),subjectProgram varchar(255), duration int(100),amountOfHours int(100),amountOfStudents int(100)"
+    },
+    {
+      "subject_code": "pgr4200",
+      "name": "Algoritmer",
+      "campus_priority": "Fjerdingen",
+      "educationForm": "",
+      "subjectProgram": "",
+      "duration": "700",
+      "amountOfHours": "1299",
+      "amountOfStudents": "999",
+      "colsanddatatypes" :"name varchar(255),subjectCode varchar(255),campusPrio varchar(255),educationForm varchar(255),subjectProgram varchar(255), duration int(100),amountOfHours int(100),amountOfStudents int(100)"
+
+    },
+    {
+      "subject_code": "pgr100",
+      "name": " Javaprogrammering 1",
+      "campus_priority": "Fjerdingen",
+      "educationForm": "",
+      "subjectProgram": "",
+      "duration": "12",
+      "amountOfHours": "3000",
+      "amountOfStudents": "295",
+      "colsanddatatypes" :"name varchar(255),subjectCode varchar(255),campusPrio varchar(255),educationForm varchar(255),subjectProgram varchar(255), duration int(100),amountOfHours int(100),amountOfStudents int(100)"
+
+    }
+  ],
+  "students": [
+        {
+          "studentName": "Halvor",
+          "studentSubjects": "5",
+          "ColsAndDataTypes": "studentName varchar(50),studentSubjects int"
+        },
+        {
+          "studentName": "Erik",
+          "studentSubjects": "10",
+          "ColsAndDataTypes": "studentName varchar(50),studentSubjects int"
+        }
+
+
+  ],
+  "rooms": [
+    {
+      "roomCode": "F11",
+      "facilitiesSupports": "test",
+      "max_capasity": "50",
+      "roomSize": "X",
+      "ColsAndDataTypes":"roomCode varchar(5),facilitiesSupports varchar(55),max_capasity tinyint(10), roomSize varchar(20)"
+
+    }
   ]
-
-
-
 }
