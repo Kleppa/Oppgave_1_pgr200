@@ -7,14 +7,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * Created by Kleppa on 12/09/2017.
  * Handles interaction with database
  */
 public class DBHandler {
+	private boolean hackToFixaBugThatSuddenlyAppereadBeforeDeadline=false;
     public void setSbNull() {
         stringBuilder.delete(0, stringBuilder.length());
     }
@@ -96,39 +99,47 @@ public class DBHandler {
         try (Connection con = dbConnector.getNewConnection()) {
             PreparedStatement gettingColCount = null;
             String tableName = "Something went wrong";
-            int i = 0;
 
-            for (DatabaseContent dbc : contentArrayList) {
 
-                tableName = contentArrayList.get(i).getClass().toString().substring(tableName.lastIndexOf(".") + 1);
+            for (int i = 0;i<getTableNames().size();i++) {
+
+                tableName=getTableNames().get(i);
                 try {
                     DatabaseMetaData md = con.getMetaData();
                     ResultSet rs = md.getTables(null, null, tableName, null);
 
                     {
-                        String querySql = "SELECT COUNT(*) AS cols\n" +
-                                "FROM INFORMATION_SCHEMA.COLUMNS\n" +
-                                "WHERE table_schema = '" + properties.getProperty("databasename") + "'\n" +
-                                "  AND table_name = '" + tableName + "';";
-                        gettingColCount = con.prepareStatement(querySql);
-						System.out.println(gettingColCount);
-						ResultSet rsCol = gettingColCount.executeQuery();
-						rsCol.next();
-
-                        if (rs.next()) {
-
-                            PreparedStatement preparedStatement = con.prepareStatement(
-                                    "ALTER TABLE " + tableName + " ADD(" + (contentArrayList.get(i).getColsAndDataTypes() + ");"));
+//                        String querySql = "SELECT COUNT(*) AS cols\n" +
+//                                "FROM INFORMATION_SCHEMA.COLUMNS\n" +
+//                                "WHERE table_schema = '" + properties.getProperty("databasename") + "'\n" +
+//                                "  AND table_name = '" + tableName + "';";
+//                        gettingColCount = con.prepareStatement(querySql);
+//						System.out.println(gettingColCount);
+//						ResultSet rsCol = gettingColCount.executeQuery();
+//						rsCol.next();
+//
+//
+//						int colsFromDb = rsCol.getInt("cols");
+//
+                        if (getTableNames().contains(tableName)) {
+							List<DatabaseContent> filteredOutDuplicatedItesm= contentArrayList.stream().fildistinct().collect(Collectors.toList());
+							System.out.println(filteredOutDuplicatedItesm.size());
+							PreparedStatement preparedStatement = con.prepareStatement(
+                                    "ALTER TABLE " + tableName + " ADD(" + (filteredOutDuplicatedItesm.get(i).getColsAndDataTypes() + ");"));
 
 							System.out.println("@@@@@@@@@@@@@@@@@@@@@"+preparedStatement);
 							preparedStatement.execute();
+//							if (tableName=="Room" && hackToFixaBugThatSuddenlyAppereadBeforeDeadline){
+//								hackToFixaBugThatSuddenlyAppereadBeforeDeadline=true;
+//								addColoumns();
+//							}
                         } else {
                             if (!dontSpamMsg) {
                                 System.out.println("Tried to duplicate columns");
                                 dontSpamMsg = true;
                             }
                         }
-                        i++;
+
                     }
                 } catch (SQLException e) {
                     System.out.println("Catched an sql error");
@@ -281,9 +292,9 @@ public class DBHandler {
     }
 
     /**
-     * @param tableName String from what query are you querying
-     * @param sql       String sql statement to send with the query
-     */
+	 * @param tableName String from what query are you querying
+	 * @param sql       String sql statement to send with the query
+	 */
     public ResultSet get(String tableName, String sql) {
 
         String newName = tableName;
