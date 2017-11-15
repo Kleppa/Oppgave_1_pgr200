@@ -555,55 +555,39 @@ public class DBHandler {
 				StringBuilder colsToAdd = new StringBuilder();
 				System.out.println("What coloumns do you want to use fill in your new row,  type exit to finish , type continue to start adding values to cols");
 				StringBuilder valuesToAdd = new StringBuilder();
-				mainLoop:
-				while (!userinput.equalsIgnoreCase("exit")) {
-
-					userinput = scanner.nextLine();
-
+				userinput=scanner.nextLine();
+				colLoop:
+				while (!(userinput).equalsIgnoreCase("continue")) {
+					System.out.println("Col added to query");
+					colsToAdd.append(userinput);
+					userinput=scanner.nextLine();
 
 					if (!userinput.equalsIgnoreCase("continue")) {
-						System.out.println("col added");
-						colsToAdd.append(userinput);
-
+						colsToAdd.append(", ");
+					}else{
 						continue;
-					}
-
-					if (userinput.equalsIgnoreCase("exit")) {
-						continue;
-					}
-					System.out.println("col added");
-					colsToAdd.append(", ");
-
-
-
-					if (userinput.equalsIgnoreCase("continue")) {
-
-						System.out.println("What value do you want add");
-
-
-
-						userinput = scanner.nextLine();
-						System.out.println("value added");
-						while (!userinput.equalsIgnoreCase("exit")) {
-
-
-							valuesToAdd.append(userinput);
-							userinput = scanner.nextLine();
-
-							System.out.println("value added");
-							if (userinput.equalsIgnoreCase("exit")) {
-								continue;
-							}
-							valuesToAdd.append(",");
-
-
-						}
 					}
 				}
+				System.out.println("What Value do you want to add, one at the time");
+				userinput = scanner.nextLine();
+				valueLoop:while (!userinput.equalsIgnoreCase("exit")) {
+					System.out.println("Val added to query");
+					valuesToAdd.append(userinput);
+					userinput = scanner.nextLine();
+					if (!userinput.equalsIgnoreCase("exit")) {
+						valuesToAdd.append(", ");
 
-				PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO " + table + "(" + colsToAdd + ") VALUES (" + valuesToAdd + ");");
+					}else{
+						continue;
+					}
+
+
+
+				}
+
+				PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO " + table + "(" + colsToAdd.toString() + ") VALUES (" + valuesToAdd.toString() + ");");
 				System.out.println(preparedStatement);
-				preparedStatement.executeQuery();
+				preparedStatement.executeUpdate();
 			} catch (SQLException e) {
 				System.out.println("Could not use your sql query, please try again");
 			}

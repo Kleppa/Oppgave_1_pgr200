@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a61963bf-35fa-4a5a-995a-27bf49883c6a" name="Default" comment="Working on adding method to alter a table">
+    <list default="true" id="a61963bf-35fa-4a5a-995a-27bf49883c6a" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/Main.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/database/info/info.json" afterPath="$PROJECT_DIR$/src/main/java/database/info/info.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/Main.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/Main.java" />
     </list>
     <ignored path="Oppgave_1_pgr200.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,8 +53,8 @@
       <file leaf-file-name="DBHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="561" column="0" lean-forward="true" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
+            <state relative-caret-position="183">
+              <caret line="591" column="79" lean-forward="false" selection-start-line="591" selection-start-column="79" selection-end-line="591" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
@@ -67,25 +66,25 @@
                 <element signature="method#getColoumnCount#0;class#DBHandler#0" expanded="false" />
                 <element signature="docComment;method#get#1;class#DBHandler#0" expanded="false" />
                 <element signature="method#dropTable#0;class#DBHandler#0" expanded="false" />
-                <marker date="1510754239000" expanded="true" signature="4028:4062" ph="ALTER TABLE Something... " />
-                <marker date="1510754239000" expanded="true" signature="4028:4117" ph="ALTER TABLE Something... " />
-                <marker date="1510754239000" expanded="true" signature="4240:4415" ph="..." />
-                <marker date="1510754239000" expanded="true" signature="6579:6662" ph="INSERT INTO If... " />
-                <marker date="1510754239000" expanded="true" signature="7874:7993" ph="SELECT missi... missingValue" />
-                <marker date="1510754239000" expanded="true" signature="10538:10562" ph="SELECT missi... missingValue" />
-                <marker date="1510754239000" expanded="true" signature="10752:10839" ph="SELECT missi... missingValue" />
-                <marker date="1510754239000" expanded="true" signature="11341:11436" ph="SELECT TABLE... tables" />
-                <marker date="1510754239000" expanded="true" signature="13044:13160" ph="select Colum... columns" />
-                <marker date="1510754239000" expanded="true" signature="13648:13744" ph="SELECT table... tables" />
-                <marker date="1510754239000" expanded="true" signature="13795:13897" ph="SELECT count... tables" />
-                <marker date="1510754239000" expanded="true" signature="14735:14847" ph="DELETE FROM " />
-                <marker date="1510754239000" expanded="true" signature="15376:15387" ph="DROP TABLE m... " />
-                <marker date="1510754239000" expanded="true" signature="15949:16068" ph="CREATE TABLE... IF" />
-                <marker date="1510754239000" expanded="true" signature="16492:16588" ph="SELECT table... tables" />
-                <marker date="1510754239000" expanded="true" signature="16639:16741" ph="SELECT count... tables" />
-                <marker date="1510754239000" expanded="true" signature="17180:17292" ph="DELETE FROM " />
-                <marker date="1510754239000" expanded="true" signature="18408:18472" ph="ALTER TABLE missingValue... " />
-                <marker date="1510754239000" expanded="true" signature="20389:20462" ph="INSERT INTO missingValue... " />
+                <marker date="1510758538000" expanded="true" signature="4028:4062" ph="ALTER TABLE Something... " />
+                <marker date="1510758538000" expanded="true" signature="4028:4117" ph="ALTER TABLE Something... " />
+                <marker date="1510758538000" expanded="true" signature="4240:4415" ph="..." />
+                <marker date="1510758538000" expanded="true" signature="6579:6662" ph="INSERT INTO If... " />
+                <marker date="1510758538000" expanded="true" signature="7874:7993" ph="SELECT missi... missingValue" />
+                <marker date="1510758538000" expanded="true" signature="10538:10562" ph="SELECT missi... missingValue" />
+                <marker date="1510758538000" expanded="true" signature="10752:10839" ph="SELECT missi... missingValue" />
+                <marker date="1510758538000" expanded="true" signature="11341:11436" ph="SELECT TABLE... tables" />
+                <marker date="1510758538000" expanded="true" signature="13044:13160" ph="select Colum... columns" />
+                <marker date="1510758538000" expanded="true" signature="13648:13744" ph="SELECT table... tables" />
+                <marker date="1510758538000" expanded="true" signature="13795:13897" ph="SELECT count... tables" />
+                <marker date="1510758538000" expanded="true" signature="14735:14847" ph="DELETE FROM " />
+                <marker date="1510758538000" expanded="true" signature="15376:15387" ph="DROP TABLE m... " />
+                <marker date="1510758538000" expanded="true" signature="15949:16068" ph="CREATE TABLE... IF" />
+                <marker date="1510758538000" expanded="true" signature="16492:16588" ph="SELECT table... tables" />
+                <marker date="1510758538000" expanded="true" signature="16639:16741" ph="SELECT count... tables" />
+                <marker date="1510758538000" expanded="true" signature="17180:17292" ph="DELETE FROM " />
+                <marker date="1510758538000" expanded="true" signature="18408:18472" ph="ALTER TABLE missingValue... " />
+                <marker date="1510758538000" expanded="true" signature="20257:20352" ph="INSERT INTO missingValue... " />
               </folding>
             </state>
           </provider>
@@ -1044,7 +1043,7 @@
       <workItem from="1510588991091" duration="177000" />
       <workItem from="1510665821198" duration="12603000" />
       <workItem from="1510742309312" duration="139000" />
-      <workItem from="1510742479555" duration="9652000" />
+      <workItem from="1510742479555" duration="13516000" />
     </task>
     <task id="LOCAL-00001" summary="sass">
       <created>1508249369229</created>
@@ -1130,7 +1129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510745946225</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="working on adding rows">
+      <created>1510754253661</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1510754253661</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1166,11 +1172,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316106000" />
+    <option name="totallyTimeSpent" value="319970000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1180,12 +1185,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27487352" sideWeight="0.5169628" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03473344" sideWeight="0.45514223" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.285956" sideWeight="0.48303714" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.285956" sideWeight="0.48303714" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5888325" sideWeight="0.4822294" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31340873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07996769" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1261,7 +1266,8 @@
     <MESSAGE value="Wierd bug on first run when altering room" />
     <MESSAGE value="help" />
     <MESSAGE value="Working on adding method to alter a table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on adding method to alter a table" />
+    <MESSAGE value="working on adding rows" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on adding rows" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1304,12 +1310,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java</url>
-          <line>107</line>
+          <line>589</line>
           <properties />
-          <option name="timeStamp" value="175" />
+          <option name="timeStamp" value="179" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="176" />
+      <option name="time" value="180" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1636,8 +1642,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="561" column="0" lean-forward="true" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
+        <state relative-caret-position="183">
+          <caret line="591" column="79" lean-forward="false" selection-start-line="591" selection-start-column="79" selection-end-line="591" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
@@ -1649,25 +1655,25 @@
             <element signature="method#getColoumnCount#0;class#DBHandler#0" expanded="false" />
             <element signature="docComment;method#get#1;class#DBHandler#0" expanded="false" />
             <element signature="method#dropTable#0;class#DBHandler#0" expanded="false" />
-            <marker date="1510754239000" expanded="true" signature="4028:4062" ph="ALTER TABLE Something... " />
-            <marker date="1510754239000" expanded="true" signature="4028:4117" ph="ALTER TABLE Something... " />
-            <marker date="1510754239000" expanded="true" signature="4240:4415" ph="..." />
-            <marker date="1510754239000" expanded="true" signature="6579:6662" ph="INSERT INTO If... " />
-            <marker date="1510754239000" expanded="true" signature="7874:7993" ph="SELECT missi... missingValue" />
-            <marker date="1510754239000" expanded="true" signature="10538:10562" ph="SELECT missi... missingValue" />
-            <marker date="1510754239000" expanded="true" signature="10752:10839" ph="SELECT missi... missingValue" />
-            <marker date="1510754239000" expanded="true" signature="11341:11436" ph="SELECT TABLE... tables" />
-            <marker date="1510754239000" expanded="true" signature="13044:13160" ph="select Colum... columns" />
-            <marker date="1510754239000" expanded="true" signature="13648:13744" ph="SELECT table... tables" />
-            <marker date="1510754239000" expanded="true" signature="13795:13897" ph="SELECT count... tables" />
-            <marker date="1510754239000" expanded="true" signature="14735:14847" ph="DELETE FROM " />
-            <marker date="1510754239000" expanded="true" signature="15376:15387" ph="DROP TABLE m... " />
-            <marker date="1510754239000" expanded="true" signature="15949:16068" ph="CREATE TABLE... IF" />
-            <marker date="1510754239000" expanded="true" signature="16492:16588" ph="SELECT table... tables" />
-            <marker date="1510754239000" expanded="true" signature="16639:16741" ph="SELECT count... tables" />
-            <marker date="1510754239000" expanded="true" signature="17180:17292" ph="DELETE FROM " />
-            <marker date="1510754239000" expanded="true" signature="18408:18472" ph="ALTER TABLE missingValue... " />
-            <marker date="1510754239000" expanded="true" signature="20389:20462" ph="INSERT INTO missingValue... " />
+            <marker date="1510758538000" expanded="true" signature="4028:4062" ph="ALTER TABLE Something... " />
+            <marker date="1510758538000" expanded="true" signature="4028:4117" ph="ALTER TABLE Something... " />
+            <marker date="1510758538000" expanded="true" signature="4240:4415" ph="..." />
+            <marker date="1510758538000" expanded="true" signature="6579:6662" ph="INSERT INTO If... " />
+            <marker date="1510758538000" expanded="true" signature="7874:7993" ph="SELECT missi... missingValue" />
+            <marker date="1510758538000" expanded="true" signature="10538:10562" ph="SELECT missi... missingValue" />
+            <marker date="1510758538000" expanded="true" signature="10752:10839" ph="SELECT missi... missingValue" />
+            <marker date="1510758538000" expanded="true" signature="11341:11436" ph="SELECT TABLE... tables" />
+            <marker date="1510758538000" expanded="true" signature="13044:13160" ph="select Colum... columns" />
+            <marker date="1510758538000" expanded="true" signature="13648:13744" ph="SELECT table... tables" />
+            <marker date="1510758538000" expanded="true" signature="13795:13897" ph="SELECT count... tables" />
+            <marker date="1510758538000" expanded="true" signature="14735:14847" ph="DELETE FROM " />
+            <marker date="1510758538000" expanded="true" signature="15376:15387" ph="DROP TABLE m... " />
+            <marker date="1510758538000" expanded="true" signature="15949:16068" ph="CREATE TABLE... IF" />
+            <marker date="1510758538000" expanded="true" signature="16492:16588" ph="SELECT table... tables" />
+            <marker date="1510758538000" expanded="true" signature="16639:16741" ph="SELECT count... tables" />
+            <marker date="1510758538000" expanded="true" signature="17180:17292" ph="DELETE FROM " />
+            <marker date="1510758538000" expanded="true" signature="18408:18472" ph="ALTER TABLE missingValue... " />
+            <marker date="1510758538000" expanded="true" signature="20257:20352" ph="INSERT INTO missingValue... " />
           </folding>
         </state>
       </provider>
