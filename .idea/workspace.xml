@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a61963bf-35fa-4a5a-995a-27bf49883c6a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" />
     </list>
     <ignored path="Oppgave_1_pgr200.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,7 +51,7 @@
       <file leaf-file-name="DBHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
+            <state relative-caret-position="213">
               <caret line="607" column="20" lean-forward="true" selection-start-line="607" selection-start-column="20" selection-end-line="607" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1119,7 +1119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510754253661</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Stable version">
+      <created>1510775949095</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1510775949095</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1155,7 +1162,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321520000" />
+    <option name="totallyTimeSpent" value="322274000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
@@ -1272,7 +1279,8 @@
     <MESSAGE value="help" />
     <MESSAGE value="Working on adding method to alter a table" />
     <MESSAGE value="working on adding rows" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on adding rows" />
+    <MESSAGE value="Stable version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stable version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1631,7 +1639,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="213">
           <caret line="607" column="20" lean-forward="true" selection-start-line="607" selection-start-column="20" selection-end-line="607" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
