@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a61963bf-35fa-4a5a-995a-27bf49883c6a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/Main.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" />
     </list>
@@ -53,38 +51,33 @@
       <file leaf-file-name="DBHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="591" column="79" lean-forward="false" selection-start-line="591" selection-start-column="79" selection-end-line="591" selection-end-column="79" />
+            <state relative-caret-position="216">
+              <caret line="607" column="20" lean-forward="true" selection-start-line="607" selection-start-column="20" selection-end-line="607" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
-                <element signature="method#loadProperties#0;class#DBHandler#0" expanded="false" />
-                <element signature="docComment;method#addColoumns#0;class#DBHandler#0" expanded="false" />
-                <element signature="e#3311#3384#0" expanded="false" />
-                <element signature="docComment;method#get#0;class#DBHandler#0" expanded="false" />
-                <element signature="method#isIdentifiersEmpty#0;class#DBHandler#0" expanded="false" />
-                <element signature="method#getColoumnCount#0;class#DBHandler#0" expanded="false" />
-                <element signature="docComment;method#get#1;class#DBHandler#0" expanded="false" />
-                <element signature="method#dropTable#0;class#DBHandler#0" expanded="false" />
-                <marker date="1510758538000" expanded="true" signature="4028:4062" ph="ALTER TABLE Something... " />
-                <marker date="1510758538000" expanded="true" signature="4028:4117" ph="ALTER TABLE Something... " />
-                <marker date="1510758538000" expanded="true" signature="4240:4415" ph="..." />
-                <marker date="1510758538000" expanded="true" signature="6579:6662" ph="INSERT INTO If... " />
-                <marker date="1510758538000" expanded="true" signature="7874:7993" ph="SELECT missi... missingValue" />
-                <marker date="1510758538000" expanded="true" signature="10538:10562" ph="SELECT missi... missingValue" />
-                <marker date="1510758538000" expanded="true" signature="10752:10839" ph="SELECT missi... missingValue" />
-                <marker date="1510758538000" expanded="true" signature="11341:11436" ph="SELECT TABLE... tables" />
-                <marker date="1510758538000" expanded="true" signature="13044:13160" ph="select Colum... columns" />
-                <marker date="1510758538000" expanded="true" signature="13648:13744" ph="SELECT table... tables" />
-                <marker date="1510758538000" expanded="true" signature="13795:13897" ph="SELECT count... tables" />
-                <marker date="1510758538000" expanded="true" signature="14735:14847" ph="DELETE FROM " />
-                <marker date="1510758538000" expanded="true" signature="15376:15387" ph="DROP TABLE m... " />
-                <marker date="1510758538000" expanded="true" signature="15949:16068" ph="CREATE TABLE... IF" />
-                <marker date="1510758538000" expanded="true" signature="16492:16588" ph="SELECT table... tables" />
-                <marker date="1510758538000" expanded="true" signature="16639:16741" ph="SELECT count... tables" />
-                <marker date="1510758538000" expanded="true" signature="17180:17292" ph="DELETE FROM " />
-                <marker date="1510758538000" expanded="true" signature="18408:18472" ph="ALTER TABLE missingValue... " />
-                <marker date="1510758538000" expanded="true" signature="20257:20352" ph="INSERT INTO missingValue... " />
+                <element signature="e#578#579#0" expanded="true" />
+                <element signature="e#632#633#0" expanded="true" />
+                <element signature="e#759#760#0" expanded="true" />
+                <element signature="e#797#798#0" expanded="true" />
+                <element signature="e#859#860#0" expanded="true" />
+                <element signature="e#900#901#0" expanded="true" />
+                <marker date="1510775407000" expanded="true" signature="4028:4117" ph="ALTER TABLE Something... " />
+                <marker date="1510775407000" expanded="true" signature="6579:6662" ph="INSERT INTO If... " />
+                <marker date="1510775407000" expanded="true" signature="7874:7993" ph="SELECT missi... missingValue" />
+                <marker date="1510775407000" expanded="true" signature="10538:10562" ph="SELECT missi... missingValue" />
+                <marker date="1510775407000" expanded="true" signature="10752:10839" ph="SELECT missi... missingValue" />
+                <marker date="1510775407000" expanded="true" signature="11341:11436" ph="SELECT TABLE... tables" />
+                <marker date="1510775407000" expanded="true" signature="13044:13160" ph="select Colum... columns" />
+                <marker date="1510775407000" expanded="true" signature="13648:13744" ph="SELECT table... tables" />
+                <marker date="1510775407000" expanded="true" signature="13795:13897" ph="SELECT count... tables" />
+                <marker date="1510775407000" expanded="true" signature="14735:14847" ph="DELETE FROM " />
+                <marker date="1510775407000" expanded="true" signature="15376:15387" ph="DROP TABLE m... " />
+                <marker date="1510775407000" expanded="true" signature="15949:16068" ph="CREATE TABLE... IF" />
+                <marker date="1510775407000" expanded="true" signature="16492:16588" ph="SELECT table... tables" />
+                <marker date="1510775407000" expanded="true" signature="16639:16741" ph="SELECT count... tables" />
+                <marker date="1510775407000" expanded="true" signature="17180:17292" ph="DELETE FROM " />
+                <marker date="1510775407000" expanded="true" signature="18408:18472" ph="ALTER TABLE missingValue... " />
+                <marker date="1510775407000" expanded="true" signature="19181:19263" ph="INSERT INTO missingValue... " />
               </folding>
             </state>
           </provider>
@@ -93,18 +86,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="103" column="40" lean-forward="true" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/database/info/info.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="81" column="2" lean-forward="false" selection-start-line="81" selection-start-column="2" selection-end-line="90" selection-end-column="3" />
+            <state relative-caret-position="132">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -265,10 +248,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,6 +324,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1172,10 +1155,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="319970000" />
+    <option name="totallyTimeSpent" value="321520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1185,12 +1169,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27487352" sideWeight="0.5169628" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03473344" sideWeight="0.45514223" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.285956" sideWeight="0.48303714" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.285956" sideWeight="0.48303714" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5888325" sideWeight="0.4822294" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37055838" sideWeight="0.4822294" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07996769" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2552504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1200,16 +1184,37 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="SFDX" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27487352" sideWeight="0.5169628" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03473344" sideWeight="0.45514223" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.49676898" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2538071" sideWeight="0.4838449" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0993538" sideWeight="0.54485774" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.285956" sideWeight="0.48303714" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5888325" sideWeight="0.4822294" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07996769" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3248731" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Log Manager" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1308,14 +1313,8 @@
           <properties />
           <option name="timeStamp" value="146" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java</url>
-          <line>589</line>
-          <properties />
-          <option name="timeStamp" value="179" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="180" />
+      <option name="time" value="181" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1483,7 +1482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="67" column="6" lean-forward="true" selection-start-line="67" selection-start-column="6" selection-end-line="67" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1538,7 +1536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1546,7 +1543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1554,7 +1550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="23" column="58" lean-forward="false" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1569,7 +1564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="50" column="20" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1578,7 +1572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1586,7 +1579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1601,7 +1593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1620,7 +1611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="3483" column="0" lean-forward="false" selection-start-line="3483" selection-start-column="0" selection-end-line="3483" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1628,52 +1618,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="81" column="2" lean-forward="false" selection-start-line="81" selection-start-column="2" selection-end-line="90" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="103" column="40" lean-forward="true" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
+        <state relative-caret-position="132">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="591" column="79" lean-forward="false" selection-start-line="591" selection-start-column="79" selection-end-line="591" selection-end-column="79" />
+        <state relative-caret-position="216">
+          <caret line="607" column="20" lean-forward="true" selection-start-line="607" selection-start-column="20" selection-end-line="607" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
-            <element signature="method#loadProperties#0;class#DBHandler#0" expanded="false" />
-            <element signature="docComment;method#addColoumns#0;class#DBHandler#0" expanded="false" />
-            <element signature="e#3311#3384#0" expanded="false" />
-            <element signature="docComment;method#get#0;class#DBHandler#0" expanded="false" />
-            <element signature="method#isIdentifiersEmpty#0;class#DBHandler#0" expanded="false" />
-            <element signature="method#getColoumnCount#0;class#DBHandler#0" expanded="false" />
-            <element signature="docComment;method#get#1;class#DBHandler#0" expanded="false" />
-            <element signature="method#dropTable#0;class#DBHandler#0" expanded="false" />
-            <marker date="1510758538000" expanded="true" signature="4028:4062" ph="ALTER TABLE Something... " />
-            <marker date="1510758538000" expanded="true" signature="4028:4117" ph="ALTER TABLE Something... " />
-            <marker date="1510758538000" expanded="true" signature="4240:4415" ph="..." />
-            <marker date="1510758538000" expanded="true" signature="6579:6662" ph="INSERT INTO If... " />
-            <marker date="1510758538000" expanded="true" signature="7874:7993" ph="SELECT missi... missingValue" />
-            <marker date="1510758538000" expanded="true" signature="10538:10562" ph="SELECT missi... missingValue" />
-            <marker date="1510758538000" expanded="true" signature="10752:10839" ph="SELECT missi... missingValue" />
-            <marker date="1510758538000" expanded="true" signature="11341:11436" ph="SELECT TABLE... tables" />
-            <marker date="1510758538000" expanded="true" signature="13044:13160" ph="select Colum... columns" />
-            <marker date="1510758538000" expanded="true" signature="13648:13744" ph="SELECT table... tables" />
-            <marker date="1510758538000" expanded="true" signature="13795:13897" ph="SELECT count... tables" />
-            <marker date="1510758538000" expanded="true" signature="14735:14847" ph="DELETE FROM " />
-            <marker date="1510758538000" expanded="true" signature="15376:15387" ph="DROP TABLE m... " />
-            <marker date="1510758538000" expanded="true" signature="15949:16068" ph="CREATE TABLE... IF" />
-            <marker date="1510758538000" expanded="true" signature="16492:16588" ph="SELECT table... tables" />
-            <marker date="1510758538000" expanded="true" signature="16639:16741" ph="SELECT count... tables" />
-            <marker date="1510758538000" expanded="true" signature="17180:17292" ph="DELETE FROM " />
-            <marker date="1510758538000" expanded="true" signature="18408:18472" ph="ALTER TABLE missingValue... " />
-            <marker date="1510758538000" expanded="true" signature="20257:20352" ph="INSERT INTO missingValue... " />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#797#798#0" expanded="true" />
+            <element signature="e#859#860#0" expanded="true" />
+            <element signature="e#900#901#0" expanded="true" />
+            <marker date="1510775407000" expanded="true" signature="4028:4117" ph="ALTER TABLE Something... " />
+            <marker date="1510775407000" expanded="true" signature="6579:6662" ph="INSERT INTO If... " />
+            <marker date="1510775407000" expanded="true" signature="7874:7993" ph="SELECT missi... missingValue" />
+            <marker date="1510775407000" expanded="true" signature="10538:10562" ph="SELECT missi... missingValue" />
+            <marker date="1510775407000" expanded="true" signature="10752:10839" ph="SELECT missi... missingValue" />
+            <marker date="1510775407000" expanded="true" signature="11341:11436" ph="SELECT TABLE... tables" />
+            <marker date="1510775407000" expanded="true" signature="13044:13160" ph="select Colum... columns" />
+            <marker date="1510775407000" expanded="true" signature="13648:13744" ph="SELECT table... tables" />
+            <marker date="1510775407000" expanded="true" signature="13795:13897" ph="SELECT count... tables" />
+            <marker date="1510775407000" expanded="true" signature="14735:14847" ph="DELETE FROM " />
+            <marker date="1510775407000" expanded="true" signature="15376:15387" ph="DROP TABLE m... " />
+            <marker date="1510775407000" expanded="true" signature="15949:16068" ph="CREATE TABLE... IF" />
+            <marker date="1510775407000" expanded="true" signature="16492:16588" ph="SELECT table... tables" />
+            <marker date="1510775407000" expanded="true" signature="16639:16741" ph="SELECT count... tables" />
+            <marker date="1510775407000" expanded="true" signature="17180:17292" ph="DELETE FROM " />
+            <marker date="1510775407000" expanded="true" signature="18408:18472" ph="ALTER TABLE missingValue... " />
+            <marker date="1510775407000" expanded="true" signature="19181:19263" ph="INSERT INTO missingValue... " />
           </folding>
         </state>
       </provider>

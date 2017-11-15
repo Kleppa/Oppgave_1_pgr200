@@ -545,53 +545,67 @@ public class DBHandler {
 	public void addRows() {
 		System.out.println("what table do you want to add rows too");
 		getTableNames().forEach(System.out::println);
-		String userinput = scanner.nextLine();
-		String table = userinput;
-		if (getTableNames().contains(userinput)) {
-			getColoumns(userinput).forEach(System.out::println);
-			System.out.println("These are the coloumn for the current table");
-			try (Connection con = dbConnector.getNewConnection()) {
+		String table = scanner.nextLine();
 
-				StringBuilder colsToAdd = new StringBuilder();
-				System.out.println("What coloumns do you want to use fill in your new row,  type exit to finish , type continue to start adding values to cols");
-				StringBuilder valuesToAdd = new StringBuilder();
-				userinput=scanner.nextLine();
-				colLoop:
-				while (!(userinput).equalsIgnoreCase("continue")) {
-					System.out.println("Col added to query");
-					colsToAdd.append(userinput);
-					userinput=scanner.nextLine();
-
-					if (!userinput.equalsIgnoreCase("continue")) {
-						colsToAdd.append(", ");
-					}else{
-						continue;
-					}
-				}
-				System.out.println("What Value do you want to add, one at the time");
-				userinput = scanner.nextLine();
-				valueLoop:while (!userinput.equalsIgnoreCase("exit")) {
-					System.out.println("Val added to query");
-					valuesToAdd.append(userinput);
-					userinput = scanner.nextLine();
-					if (!userinput.equalsIgnoreCase("exit")) {
-						valuesToAdd.append(", ");
-
-					}else{
-						continue;
-					}
+		ArrayList<StringBuilder> sqlList = createColsAndVals(table);
+		StringBuilder cols = sqlList.get(0);
+		StringBuilder val = sqlList.get(1);
 
 
-
-				}
-
-				PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO " + table + "(" + colsToAdd.toString() + ") VALUES (" + valuesToAdd.toString() + ");");
-				System.out.println(preparedStatement);
-				preparedStatement.executeUpdate();
-			} catch (SQLException e) {
-				System.out.println("Could not use your sql query, please try again");
-			}
+		try (Connection con = dbConnector.getNewConnection()) {
+			PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO " + table + "(" + cols.toString() + ") VALUES (" + val.toString() + ");");
+			System.out.println(preparedStatement);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Could not use your sql query, please try again");
 		}
+	}
+
+	private ArrayList<StringBuilder> createColsAndVals(String tablename) {
+		ArrayList<StringBuilder> stringArrayList = new ArrayList<>();
+		getTableNames().forEach(System.out::println);
+
+		if (getTableNames().contains(tablename)) {
+
+			String userinput;
+			StringBuilder colsToAdd = new StringBuilder();
+			System.out.println("These are the coloumn for the current table");
+			getColoumns(tablename).forEach(System.out::println);
+
+			System.out.println("What coloumns do you want to use fill in your new row,  type exit to finish , type continue to start adding values to cols");
+			StringBuilder valuesToAdd = new StringBuilder();
+			userinput = scanner.nextLine();
+			colLoop:
+			while (!(userinput).equalsIgnoreCase("continue")) {
+				System.out.println("Col added to query");
+				colsToAdd.append(userinput);
+				userinput = scanner.nextLine();
+
+				if (!userinput.equalsIgnoreCase("continue")) {
+					colsToAdd.append(", ");
+				} else {
+					continue;
+				}
+			}
+			System.out.println("What Value do you want to add, one at the time");
+			userinput = scanner.nextLine();
+			valueLoop:
+			while (!userinput.equalsIgnoreCase("exit")) {
+				System.out.println("Val added to query");
+				valuesToAdd.append("'"+userinput+"'");
+				userinput = scanner.nextLine();
+				if (!userinput.equalsIgnoreCase("exit")) {
+					valuesToAdd.append(", ");
+				} else {
+					continue;
+				}
+
+			}
+			stringArrayList.add(colsToAdd);
+			stringArrayList.add(valuesToAdd);
+			return stringArrayList;
+		}
+		return null;
 	}
 }
 // TODO: bygg med maven #viktig
