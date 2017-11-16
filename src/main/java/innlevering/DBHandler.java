@@ -473,15 +473,15 @@ public class DBHandler {
 	/**
 	 * Drops a table that the user chooses.
 	 */
-	public void dropTable() {
+	public void dropTable(String table) {
 
 		getTableNames().forEach(System.out::println);
 		System.out.println("What table do you want to delete?");
-		String userChoice = scanner.nextLine();
-		try (Connection con = dbConnector.getNewConnection(); PreparedStatement preparedStatement = con.prepareStatement("DROP TABLE " + userChoice + ";")) {
+
+		try (Connection con = dbConnector.getNewConnection(); PreparedStatement preparedStatement = con.prepareStatement("DROP TABLE " + table + ";")) {
 
 			preparedStatement.execute();
-			System.out.println("Table -  " + userChoice + " has been deleted from the database");
+			System.out.println("Table -  " + table + " has been deleted from the database");
 		} catch (SQLException e) {
 			System.out.println("The table you tried to find does not exsist or you tried something that is not allowed");
 		}

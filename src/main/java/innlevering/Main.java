@@ -95,7 +95,8 @@ public class Main {
 					dbHandler.dropFromDatabase();
 					break;
 				case "5":
-					dbHandler.dropTable();
+					System.out.println("What table do you want to delete");
+					dbHandler.dropTable(sc.nextLine());
 					break;
 				case "6":
 					dbHandler.userAddsCols();

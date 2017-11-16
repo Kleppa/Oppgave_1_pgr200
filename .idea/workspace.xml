@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a61963bf-35fa-4a5a-995a-27bf49883c6a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/DBHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/innlevering/Main.class" afterPath="$PROJECT_DIR$/target/classes/innlevering/Main.class" />
+    <list default="true" id="a61963bf-35fa-4a5a-995a-27bf49883c6a" name="Default" comment="Stable version">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/innlevering/Main.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/README" afterPath="$PROJECT_DIR$/src/README" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Client.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Client.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/SocketClientThread.java" afterPath="$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/SocketClientThread.java" />
@@ -57,12 +55,10 @@
       <file leaf-file-name="DBHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="389" column="90" lean-forward="false" selection-start-line="389" selection-start-column="90" selection-end-line="389" selection-end-column="90" />
+            <state relative-caret-position="253">
+              <caret line="486" column="9" lean-forward="false" selection-start-line="486" selection-start-column="9" selection-end-line="486" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#759#760#0" expanded="true" />
-                <element signature="e#797#798#0" expanded="true" />
                 <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#loadProperties#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#DBHandler#0;class#DBHandler#0" expanded="false" />
@@ -72,34 +68,52 @@
                 <element signature="method#fillTablesWithRowContent#0;class#DBHandler#0" expanded="false" />
                 <element signature="docComment;method#get#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#get#0;class#DBHandler#0" expanded="false" />
+                <element signature="docComment;method#isPartOfTable#0;class#DBHandler#0" expanded="false" />
+                <element signature="method#isPartOfTable#0;class#DBHandler#0" expanded="false" />
+                <element signature="docComment;method#isIdentifiersEmpty#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#isIdentifiersEmpty#0;class#DBHandler#0" expanded="false" />
+                <element signature="docComment;method#getColoumnCount#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#getColoumnCount#0;class#DBHandler#0" expanded="false" />
+                <element signature="docComment;method#get#1;class#DBHandler#0" expanded="false" />
+                <element signature="method#get#1;class#DBHandler#0" expanded="false" />
+                <element signature="docComment;method#getTableNames#0;class#DBHandler#0" expanded="false" />
+                <element signature="method#getTableNames#0;class#DBHandler#0" expanded="false" />
+                <element signature="method#getColoumns#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#dropFromDatabase#0;class#DBHandler#0" expanded="false" />
-                <element signature="method#dropTable#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#createTable#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#dropFromDatabase_Assignement2#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#userAddsCols#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#addRow#0;class#DBHandler#0" expanded="false" />
                 <element signature="docComment;method#createColsAndVals#0;class#DBHandler#0" expanded="false" />
                 <element signature="method#createColsAndVals#0;class#DBHandler#0" expanded="false" />
-                <marker date="1510829808000" expanded="true" signature="3499:3588" ph="ALTER TABLE Something... " />
-                <marker date="1510829808000" expanded="true" signature="5863:5946" ph="INSERT INTO If... " />
-                <marker date="1510829808000" expanded="true" signature="7158:7277" ph="SELECT missi... missingValue" />
-                <marker date="1510829808000" expanded="true" signature="10267:10291" ph="SELECT missi... missingValue" />
-                <marker date="1510829808000" expanded="true" signature="10481:10568" ph="SELECT missi... missingValue" />
-                <marker date="1510829808000" expanded="true" signature="11125:11220" ph="SELECT TABLE... tables" />
-                <marker date="1510829808000" expanded="true" signature="12940:13056" ph="select Colum... columns" />
-                <marker date="1510829808000" expanded="true" signature="13544:13640" ph="SELECT table... tables" />
-                <marker date="1510829808000" expanded="true" signature="13691:13793" ph="SELECT count... tables" />
-                <marker date="1510829808000" expanded="true" signature="14631:14743" ph="DELETE FROM " />
-                <marker date="1510829808000" expanded="true" signature="15323:15334" ph="DROP TABLE m... " />
-                <marker date="1510829808000" expanded="true" signature="15896:16015" ph="CREATE TABLE... IF" />
-                <marker date="1510829808000" expanded="true" signature="16439:16535" ph="SELECT table... tables" />
-                <marker date="1510829808000" expanded="true" signature="16586:16688" ph="SELECT count... tables" />
-                <marker date="1510829808000" expanded="true" signature="17127:17239" ph="DELETE FROM " />
-                <marker date="1510829808000" expanded="true" signature="18355:18419" ph="ALTER TABLE missingValue... " />
-                <marker date="1510829808000" expanded="true" signature="19169:19251" ph="INSERT INTO missingValue... " />
+                <marker date="1510836430000" expanded="true" signature="3499:3588" ph="ALTER TABLE Something... " />
+                <marker date="1510836430000" expanded="true" signature="5863:5946" ph="INSERT INTO If... " />
+                <marker date="1510836430000" expanded="true" signature="7158:7277" ph="SELECT missi... missingValue" />
+                <marker date="1510836430000" expanded="true" signature="10267:10291" ph="SELECT missi... missingValue" />
+                <marker date="1510836430000" expanded="true" signature="10481:10568" ph="SELECT missi... missingValue" />
+                <marker date="1510836430000" expanded="true" signature="11125:11220" ph="SELECT TABLE... tables" />
+                <marker date="1510836430000" expanded="true" signature="12940:13056" ph="select Colum... columns" />
+                <marker date="1510836430000" expanded="true" signature="13544:13640" ph="SELECT table... tables" />
+                <marker date="1510836430000" expanded="true" signature="13691:13793" ph="SELECT count... tables" />
+                <marker date="1510836430000" expanded="true" signature="14631:14743" ph="DELETE FROM " />
+                <marker date="1510836430000" expanded="true" signature="15294:15305" ph="DROP TABLE m... " />
+                <marker date="1510836430000" expanded="true" signature="15857:15976" ph="CREATE TABLE... IF" />
+                <marker date="1510836430000" expanded="true" signature="16400:16496" ph="SELECT table... tables" />
+                <marker date="1510836430000" expanded="true" signature="16547:16649" ph="SELECT count... tables" />
+                <marker date="1510836430000" expanded="true" signature="17088:17200" ph="DELETE FROM " />
+                <marker date="1510836430000" expanded="true" signature="18316:18380" ph="ALTER TABLE missingValue... " />
+                <marker date="1510836430000" expanded="true" signature="19130:19212" ph="INSERT INTO missingValue... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="97" column="75" lean-forward="false" selection-start-line="97" selection-start-column="75" selection-end-line="97" selection-end-column="75" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,10 +121,11 @@
       <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-604">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding>
-                <element signature="method#setupStreamConnections#0;class#Client#0" expanded="false" />
+                <element signature="method#sendAndRetrieve#0;class#Client#0" expanded="false" />
+                <element signature="method#printTables#0;class#Client#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -119,7 +134,7 @@
       <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
+            <state relative-caret-position="58">
               <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
               <folding />
             </state>
@@ -129,9 +144,11 @@
       <file leaf-file-name="SocketClientThread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/SocketClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-13">
-              <caret line="153" column="43" lean-forward="false" selection-start-line="153" selection-start-column="38" selection-end-line="153" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="28">
+              <caret line="211" column="49" lean-forward="false" selection-start-line="211" selection-start-column="49" selection-end-line="211" selection-end-column="49" />
+              <folding>
+                <element signature="method#handleRequest#0;class#SocketClientThread#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,10 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&quot;done&quot;</find>
-      <find>execute</find>
-      <find>gettables</find>
-      <find>exe</find>
       <find>while</find>
       <find>assig</find>
       <find>keyval</find>
@@ -178,6 +191,10 @@
       <find>menu</find>
       <find>get(String tablename, string</find>
       <find>append</find>
+      <find>if</find>
+      <find>0</find>
+      <find>gettables</find>
+      <find>exit</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -233,8 +250,8 @@
         <option value="$PROJECT_DIR$/src/main/java/database/info/info.json" />
         <option value="$PROJECT_DIR$/src/README" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/SocketClientThread.java" />
       </list>
     </option>
@@ -377,7 +394,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="$USER_HOME$/.nvm/versions/node/v8.4.0/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="createtable&#9;PSI&#9;JAVA://innlevering.DBHandler#createTable&#10;createroom&#9;PSI&#9;JAVA://innlevering.InputHandler#createRooms&#10;info&#9;FILE&#9;file:///Users/Kleppa/Documents/Oppgave_1_pgr200/src/main/java/database/info/info.json&#10;Createteac&#9;PSI&#9;JAVA://innlevering.InputHandler#createTeachers&#10;readcontent&#9;PSI&#9;JAVA://innlevering.InputHandlerTest#readContent&#10;src/main/java/database/info/info.json&#9;FILE&#9;file:///Users/Kleppa/Documents/Oppgave_1_pgr200/src/main/java/database/info/info.json&#10;test&#9;PSI&#9;JAVA://innlevering.DBHandlerTest&#10;maven&#9;ACTION&#9;Maven.ExecuteGoal&#10;mave&#9;ACTION&#9;Maven.ExecuteGoal&#10;execute maven&#9;ACTION&#9;Maven.ExecuteGoal&#10;setav&#9;PSI&#9;JAVA://innlevering.Teacher#setAvailability" />
+    <property name="SearchEverywhereHistoryKey" value="db&#9;FILE&#9;file:///Users/Kleppa/Documents/Oppgave_1_pgr200/src/main/java/innlevering/DBHandler.java&#10;createtable&#9;PSI&#9;JAVA://innlevering.DBHandler#createTable&#10;createroom&#9;PSI&#9;JAVA://innlevering.InputHandler#createRooms&#10;info&#9;FILE&#9;file:///Users/Kleppa/Documents/Oppgave_1_pgr200/src/main/java/database/info/info.json&#10;Createteac&#9;PSI&#9;JAVA://innlevering.InputHandler#createTeachers&#10;readcontent&#9;PSI&#9;JAVA://innlevering.InputHandlerTest#readContent&#10;src/main/java/database/info/info.json&#9;FILE&#9;file:///Users/Kleppa/Documents/Oppgave_1_pgr200/src/main/java/database/info/info.json&#10;test&#9;PSI&#9;JAVA://innlevering.DBHandlerTest&#10;maven&#9;ACTION&#9;Maven.ExecuteGoal&#10;mave&#9;ACTION&#9;Maven.ExecuteGoal&#10;execute maven&#9;ACTION&#9;Maven.ExecuteGoal&#10;setav&#9;PSI&#9;JAVA://innlevering.Teacher#setAvailability" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -1164,7 +1181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510776607550</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Stable version">
+      <created>1510833391117</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1510833391117</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1200,26 +1224,37 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331745000" />
+    <option name="totallyTimeSpent" value="335965000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2538071" sideWeight="0.4838449" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27487352" sideWeight="0.5169628" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03473344" sideWeight="0.45514223" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.285956" sideWeight="0.48303714" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31979695" sideWeight="0.48303714" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37055838" sideWeight="0.4822294" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2552504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1898223" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3248731" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1255,7 +1290,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5888325" sideWeight="0.4822294" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07996769" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3248731" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Log Manager" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -1342,7 +1376,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Client.java</url>
-          <line>105</line>
+          <line>109</line>
           <properties />
           <option name="timeStamp" value="201" />
         </line-breakpoint>
@@ -1352,8 +1386,22 @@
           <properties />
           <option name="timeStamp" value="202" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Client.java</url>
+          <line>155</line>
+          <properties />
+          <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java</url>
+          <line>374</line>
+          <properties class="innlevering.DBHandler" method="printContent">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="203" />
+      <option name="time" value="206" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1634,38 +1682,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1066">
-          <caret line="101" column="26" lean-forward="true" selection-start-line="101" selection-start-column="26" selection-end-line="101" selection-end-column="26" />
+        <state relative-caret-position="245">
+          <caret line="97" column="75" lean-forward="false" selection-start-line="97" selection-start-column="75" selection-end-line="97" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-604">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding>
-            <element signature="method#setupStreamConnections#0;class#Client#0" expanded="false" />
+            <element signature="method#sendAndRetrieve#0;class#Client#0" expanded="false" />
+            <element signature="method#printTables#0;class#Client#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/DBHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="389" column="90" lean-forward="false" selection-start-line="389" selection-start-column="90" selection-end-line="389" selection-end-column="90" />
+        <state relative-caret-position="253">
+          <caret line="486" column="9" lean-forward="false" selection-start-line="486" selection-start-column="9" selection-end-line="486" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#759#760#0" expanded="true" />
-            <element signature="e#797#798#0" expanded="true" />
             <element signature="method#readPropertyPathAndSendToInputHandler#0;class#DBHandler#0" expanded="false" />
             <element signature="method#loadProperties#0;class#DBHandler#0" expanded="false" />
             <element signature="method#DBHandler#0;class#DBHandler#0" expanded="false" />
@@ -1675,42 +1714,60 @@
             <element signature="method#fillTablesWithRowContent#0;class#DBHandler#0" expanded="false" />
             <element signature="docComment;method#get#0;class#DBHandler#0" expanded="false" />
             <element signature="method#get#0;class#DBHandler#0" expanded="false" />
+            <element signature="docComment;method#isPartOfTable#0;class#DBHandler#0" expanded="false" />
+            <element signature="method#isPartOfTable#0;class#DBHandler#0" expanded="false" />
+            <element signature="docComment;method#isIdentifiersEmpty#0;class#DBHandler#0" expanded="false" />
             <element signature="method#isIdentifiersEmpty#0;class#DBHandler#0" expanded="false" />
+            <element signature="docComment;method#getColoumnCount#0;class#DBHandler#0" expanded="false" />
             <element signature="method#getColoumnCount#0;class#DBHandler#0" expanded="false" />
+            <element signature="docComment;method#get#1;class#DBHandler#0" expanded="false" />
+            <element signature="method#get#1;class#DBHandler#0" expanded="false" />
+            <element signature="docComment;method#getTableNames#0;class#DBHandler#0" expanded="false" />
+            <element signature="method#getTableNames#0;class#DBHandler#0" expanded="false" />
+            <element signature="method#getColoumns#0;class#DBHandler#0" expanded="false" />
             <element signature="method#dropFromDatabase#0;class#DBHandler#0" expanded="false" />
-            <element signature="method#dropTable#0;class#DBHandler#0" expanded="false" />
             <element signature="method#createTable#0;class#DBHandler#0" expanded="false" />
             <element signature="method#dropFromDatabase_Assignement2#0;class#DBHandler#0" expanded="false" />
             <element signature="method#userAddsCols#0;class#DBHandler#0" expanded="false" />
             <element signature="method#addRow#0;class#DBHandler#0" expanded="false" />
             <element signature="docComment;method#createColsAndVals#0;class#DBHandler#0" expanded="false" />
             <element signature="method#createColsAndVals#0;class#DBHandler#0" expanded="false" />
-            <marker date="1510829808000" expanded="true" signature="3499:3588" ph="ALTER TABLE Something... " />
-            <marker date="1510829808000" expanded="true" signature="5863:5946" ph="INSERT INTO If... " />
-            <marker date="1510829808000" expanded="true" signature="7158:7277" ph="SELECT missi... missingValue" />
-            <marker date="1510829808000" expanded="true" signature="10267:10291" ph="SELECT missi... missingValue" />
-            <marker date="1510829808000" expanded="true" signature="10481:10568" ph="SELECT missi... missingValue" />
-            <marker date="1510829808000" expanded="true" signature="11125:11220" ph="SELECT TABLE... tables" />
-            <marker date="1510829808000" expanded="true" signature="12940:13056" ph="select Colum... columns" />
-            <marker date="1510829808000" expanded="true" signature="13544:13640" ph="SELECT table... tables" />
-            <marker date="1510829808000" expanded="true" signature="13691:13793" ph="SELECT count... tables" />
-            <marker date="1510829808000" expanded="true" signature="14631:14743" ph="DELETE FROM " />
-            <marker date="1510829808000" expanded="true" signature="15323:15334" ph="DROP TABLE m... " />
-            <marker date="1510829808000" expanded="true" signature="15896:16015" ph="CREATE TABLE... IF" />
-            <marker date="1510829808000" expanded="true" signature="16439:16535" ph="SELECT table... tables" />
-            <marker date="1510829808000" expanded="true" signature="16586:16688" ph="SELECT count... tables" />
-            <marker date="1510829808000" expanded="true" signature="17127:17239" ph="DELETE FROM " />
-            <marker date="1510829808000" expanded="true" signature="18355:18419" ph="ALTER TABLE missingValue... " />
-            <marker date="1510829808000" expanded="true" signature="19169:19251" ph="INSERT INTO missingValue... " />
+            <marker date="1510836430000" expanded="true" signature="3499:3588" ph="ALTER TABLE Something... " />
+            <marker date="1510836430000" expanded="true" signature="5863:5946" ph="INSERT INTO If... " />
+            <marker date="1510836430000" expanded="true" signature="7158:7277" ph="SELECT missi... missingValue" />
+            <marker date="1510836430000" expanded="true" signature="10267:10291" ph="SELECT missi... missingValue" />
+            <marker date="1510836430000" expanded="true" signature="10481:10568" ph="SELECT missi... missingValue" />
+            <marker date="1510836430000" expanded="true" signature="11125:11220" ph="SELECT TABLE... tables" />
+            <marker date="1510836430000" expanded="true" signature="12940:13056" ph="select Colum... columns" />
+            <marker date="1510836430000" expanded="true" signature="13544:13640" ph="SELECT table... tables" />
+            <marker date="1510836430000" expanded="true" signature="13691:13793" ph="SELECT count... tables" />
+            <marker date="1510836430000" expanded="true" signature="14631:14743" ph="DELETE FROM " />
+            <marker date="1510836430000" expanded="true" signature="15294:15305" ph="DROP TABLE m... " />
+            <marker date="1510836430000" expanded="true" signature="15857:15976" ph="CREATE TABLE... IF" />
+            <marker date="1510836430000" expanded="true" signature="16400:16496" ph="SELECT table... tables" />
+            <marker date="1510836430000" expanded="true" signature="16547:16649" ph="SELECT count... tables" />
+            <marker date="1510836430000" expanded="true" signature="17088:17200" ph="DELETE FROM " />
+            <marker date="1510836430000" expanded="true" signature="18316:18380" ph="ALTER TABLE missingValue... " />
+            <marker date="1510836430000" expanded="true" signature="19130:19212" ph="INSERT INTO missingValue... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/innlevering/Innlevering_del_2/SocketClientThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="153" column="43" lean-forward="false" selection-start-line="153" selection-start-column="38" selection-end-line="153" selection-end-column="43" />
-          <folding />
+        <state relative-caret-position="28">
+          <caret line="211" column="49" lean-forward="false" selection-start-line="211" selection-start-column="49" selection-end-line="211" selection-end-column="49" />
+          <folding>
+            <element signature="method#handleRequest#0;class#SocketClientThread#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

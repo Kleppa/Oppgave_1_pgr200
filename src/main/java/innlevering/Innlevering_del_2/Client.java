@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 
 public class Client {
+	private Socket socket;
 
 	public static void main(String[] args) {
 		new Client();
@@ -22,7 +23,7 @@ public class Client {
 		//We set up the scanner to receive user input
 		Scanner scanner = new Scanner(System.in);
 		try {
-			Socket socket = new Socket("localhost", 4444);
+			socket = new Socket("localhost", 4444);
 			PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 			BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			while (true) {
@@ -65,13 +66,16 @@ public class Client {
 
 		} else if (userInput.equals("3")) {
 			sendAndRetrieve(3, output, input);
+		} else if (userInput.equals("4")) {
+			sendAndRetrieve(1, output, input);
 
 		} else if (userInput.equals("0")) {
+			socket.close();
 			System.exit(0);
 
-		} else {
-
 		}
+
+
 	}
 
 	/**
@@ -102,10 +106,10 @@ public class Client {
 
 		try {
 
-			String respons=input.readLine();
+			String respons = input.readLine();
 			String[] resultArray = respons.split(", ");
-			for (String s:resultArray) {
-				if (s.equalsIgnoreCase("done")){
+			for (String s : resultArray) {
+				if (s.equalsIgnoreCase("done")) {
 					break;
 				}
 				System.out.println(s);

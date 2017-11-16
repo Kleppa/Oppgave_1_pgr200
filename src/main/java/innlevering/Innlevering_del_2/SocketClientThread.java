@@ -162,7 +162,7 @@ public class SocketClientThread implements Runnable {
 				//+ value + " WHERE " + userChooseRow + " = " + rowValue +
 				dbhand.dropFromDatabase_Assignement2(table, sql, col);
 
-				output.println(table+" Has been deleted, done");
+				output.println(" Chosen row has been deleted, done");
 				dbhand.setSbNull();
 				table = "";
 				sql = "";
@@ -171,7 +171,11 @@ public class SocketClientThread implements Runnable {
 				break;
 			case "4":
 				getTables(output);
-				dbhand.dropTable();
+				output.println(" What table do you want to delete from?");
+				table += input.readLine();
+				dbhand.dropTable(table);
+				output.println(table+ " has been deleted, done");
+				table="";
 				break;
 
 			default:
@@ -185,7 +189,6 @@ public class SocketClientThread implements Runnable {
 		dbhand.getTableNames().stream().forEach(output::println);
 
 	}
-
 	/**
 	 * Method returns the menu, method will be improved later.
 	 *
@@ -203,11 +206,19 @@ public class SocketClientThread implements Runnable {
 		return stringMenu;
 	}
 
-	private void getColoumns(PrintWriter output, String table) {
-
-		output.println(dbhand.getColoumns(table).size());
-
-		dbhand.getColoumns(table).stream().forEach(output::println);
+	/**
+	 *
+	 * @param output needs to get a PrintWriter  to know who to send info too
+	 * @param table Owner of the tables you want.
+	 * @return
+	 */
+	private boolean getColoumns(PrintWriter output, String table) {
+		if (dbhand.getTableNames().contains(table)) {
+			output.println(dbhand.getColoumns(table).size());
+			dbhand.getColoumns(table).stream().forEach(output::println);
+			return true;
+		}
+		return false;
 
 	}
 }
