@@ -101,7 +101,7 @@ public class Main {
 					dbHandler.userAddsCols();
 					break;
 				case "7":
-					dbHandler.addRows();
+					dbHandler.addRow();
 					break;
 				case "0":
 					whileLock = false;

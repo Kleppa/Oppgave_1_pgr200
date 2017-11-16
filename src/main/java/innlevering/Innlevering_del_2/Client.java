@@ -15,6 +15,9 @@ public class Client {
 		setupStreamConnections();
 	}
 
+	/**
+	 * sets up streams to the clientthread
+	 */
 	public void setupStreamConnections() {
 		//We set up the scanner to receive user input
 		Scanner scanner = new Scanner(System.in);
@@ -79,12 +82,14 @@ public class Client {
 	public void sendAndRetrieve(int amountOfQuestions, PrintWriter output, BufferedReader input) throws IOException {
 
 		Scanner scanner = new Scanner(System.in);
-		printTables(input);
 		System.out.println();
+		printTables(input);
 		for (int i = 0; i < amountOfQuestions; i++) {
 			if (i == 1) {
 
+
 				printColoumns(input);
+
 			}
 			try {
 				System.out.println(input.readLine());
@@ -96,14 +101,24 @@ public class Client {
 		}
 
 		try {
-			String inputString = input.readLine();
 
-			while (!inputString.isEmpty()) {
-				if (inputString.equalsIgnoreCase("done"))
+			String respons=input.readLine();
+			String[] resultArray = respons.split(", ");
+			for (String s:resultArray) {
+				if (s.equalsIgnoreCase("done")){
 					break;
-				System.out.println(inputString = input.readLine());
-
+				}
+				System.out.println(s);
 			}
+//
+//			while (!inputString.isEmpty()) {
+//				if (inputString.equalsIgnoreCase("done")||inputString.contains("done"))
+//					break;
+//
+//				System.out.println(inputString = input.readLine());
+//
+//
+//			}
 
 		} catch (IOException e) {
 			System.out.println("The program experienced an IOexception.");
@@ -111,11 +126,13 @@ public class Client {
 	}
 
 	public boolean printColoumns(BufferedReader input) {
-		System.out.println("\t\t\t----Coloumns----");
-		System.out.print("|| ");
 		try {
 
+			System.out.println("\t\t\t----Coloumns----");
+			System.out.print("|| ");
+
 			int amountOfcols = Integer.parseInt(input.readLine());
+
 
 			for (int j = 0; j < amountOfcols; j++) {
 
@@ -131,11 +148,11 @@ public class Client {
 		return true;
 	}
 
-	public boolean printTables(BufferedReader input) {
+	public boolean printTables(BufferedReader input) throws IOException {
 		System.out.println("\t\t\t----Tables----");
 		System.out.print("|| ");
-
-		for (int j = 0; j < 4; j++) {
+		int tableAmount = Integer.parseInt(input.readLine());
+		for (int j = 0; j < tableAmount; j++) {
 			try {
 				System.out.print(input.readLine() + " ||");
 			} catch (IOException e) {

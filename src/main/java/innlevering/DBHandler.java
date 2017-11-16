@@ -65,6 +65,9 @@ public class DBHandler {
 		}
 	}
 
+	/**
+	 * Runs the setup
+	 */
 	public DBHandler() {
 		dbConnector = new DBConnector();
 		readPropertyPathAndSendToInputHandler();
@@ -72,10 +75,12 @@ public class DBHandler {
 		fillDataBaseWithTablesFromContentArray();
 		addColoumns();
 		fillTablesWithRowContent();
-		//Room.OrmUsage();
 		System.out.println("Backend is ready without any issues");
 	}
 
+	/**
+	 * Creates tables from contentArrayList
+	 */
 	private void fillDataBaseWithTablesFromContentArray() {
 		String tableName = "Something went wrong";
 		int i = 0;
@@ -115,29 +120,15 @@ public class DBHandler {
 
 					{
 						System.out.println(tableName + "THIS IS THE TABLENAME");
-//                        String querySql = "SELECT COUNT(*) AS cols\n" +
-//                                "FROM INFORMATION_SCHEMA.COLUMNS\n" +
-//                                "WHERE table_schema = '" + properties.getProperty("databasename") + "'\n" +
-//                                "  AND table_name = '" + tableName + "';";
-//                        gettingColCount = con.prepareStatement(querySql);
-//						System.out.println(gettingColCount);
-//						ResultSet rsCol = gettingColCount.executeQuery();
-//						rsCol.next();
-//
-//
-//						int colsFromDb = rsCol.getInt("cols");
-//
+
+
 						if (getTableNames().contains(tableName)) {
 
 							PreparedStatement preparedStatement = con.prepareStatement(
 									"ALTER TABLE " + tableName + " ADD(" + (contentArrayList.get(i).getColsAndDataTypes() + ");"));
 
-							System.out.println("@@@@@@@@@@@@@@@@@@@@@" + preparedStatement);
 							preparedStatement.execute();
-//							if (tableName=="Room" && hackToFixaBugThatSuddenlyAppereadBeforeDeadline){
-//								hackToFixaBugThatSuddenlyAppereadBeforeDeadline=true;
-//								addColoumns();
-//							}
+
 						} else {
 							if (!dontSpamMsg) {
 								System.out.println("Tried to duplicate columns");
@@ -155,6 +146,9 @@ public class DBHandler {
 		}
 	}
 
+	/**
+	 * Fills database with content from the contentArrayList
+	 */
 	public void fillTablesWithRowContent() {
 		int objectListSize = inputHandler.getObjectList().size();
 
@@ -256,6 +250,7 @@ public class DBHandler {
 								rowCount++;
 								System.out.println(row);
 							}
+							stringBuilder.append("done");
 						} else {
 							while (resultSet.next()) {
 								String row = "";
@@ -266,6 +261,7 @@ public class DBHandler {
 								stringBuilder.append(row);
 								System.out.println(row);
 							}
+							stringBuilder.append("done");
 						}
 					}
 				}
@@ -277,6 +273,12 @@ public class DBHandler {
 		}
 	}
 
+	/**
+	 * Checks if coloumn is part of table
+	 * @param targetName
+	 * @param table
+	 * @return
+	 */
 	private boolean isPartOfTable(String targetName, String table) {
 		if (getColoumns(table).contains(targetName))
 			return true;
@@ -284,6 +286,12 @@ public class DBHandler {
 		return false;
 	}
 
+	/**
+	 * Checks if the identifiers is empty
+	 * @param identifier
+	 * @param coloumnToIdentifyRowWith
+	 * @return
+	 */
 	private boolean isIdentifiersEmpty(String identifier, String coloumnToIdentifyRowWith) {
 		if (identifier.isEmpty() || coloumnToIdentifyRowWith.isEmpty()) {
 			return true;
@@ -291,12 +299,19 @@ public class DBHandler {
 		return false;
 	}
 
+	/**
+	 *  Gets and returns coloumn count for a table
+	 * @param resultSet
+	 * @return number of cols
+	 * @throws SQLException
+	 */
 	private int getColoumnCount(ResultSet resultSet) throws SQLException {
 		ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 		return resultSetMetaData.getColumnCount();
 	}
 
 	/**
+	 * Get from databse
 	 * @param tableName String from what query are you querying
 	 * @param sql       String sql statement to send with the query
 	 */
@@ -335,6 +350,10 @@ public class DBHandler {
 		return null;
 	}
 
+	/**
+	 *
+	 * @return an Arraylst with table names
+	 */
 	public ArrayList<String> getTableNames() {
 		ArrayList<String> tableNameList = new ArrayList<>();
 		try (Connection con = dbConnector.getNewConnection(); PreparedStatement ps =
@@ -348,6 +367,11 @@ public class DBHandler {
 		return tableNameList;
 	}
 
+	/**
+	 * prints the result of a query.
+	 * @param rs Resultset
+	 * @return
+	 */
 	private StringBuilder printContent(ResultSet rs) {
 		stringBuilder = new StringBuilder();
 		ResultSetMetaData rsmd = null;
@@ -363,13 +387,14 @@ public class DBHandler {
 
 					if (i > 1) System.out.print(",  ");
 					String columnValue = rs.getString(i);
-					stringBuilder.append(rsmd.getColumnName(i) + " : " + columnValue + "\n");
+					stringBuilder.append(rsmd.getColumnName(i) + " : " + columnValue +", ");
 
 					System.out.print(rsmd.getColumnName(i) + " : " + columnValue);
 					counter++;
 				}
 				System.out.println("\n----------------------------------------------------------------------------------------------------------");
 			}
+			stringBuilder.append("done");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -445,6 +470,9 @@ public class DBHandler {
 		}
 	}
 
+	/**
+	 * Drops a table that the user chooses.
+	 */
 	public void dropTable() {
 
 		getTableNames().forEach(System.out::println);
@@ -542,7 +570,10 @@ public class DBHandler {
 
 	}
 
-	public void addRows() {
+	/**
+	 * inserts new row to database
+	 */
+	public void addRow() {
 		System.out.println("what table do you want to add rows too");
 		getTableNames().forEach(System.out::println);
 		String table = scanner.nextLine();
@@ -561,6 +592,11 @@ public class DBHandler {
 		}
 	}
 
+	/**
+	 * Preps an ArrayList with cols and values to later add to insert from user
+	 * @param tablename tablename to prep cols and valus too
+	 * @return returns an Arraylist  with size 2 to index 0 is col names to add and 1 is values to add
+	 */
 	private ArrayList<StringBuilder> createColsAndVals(String tablename) {
 		ArrayList<StringBuilder> stringArrayList = new ArrayList<>();
 		getTableNames().forEach(System.out::println);

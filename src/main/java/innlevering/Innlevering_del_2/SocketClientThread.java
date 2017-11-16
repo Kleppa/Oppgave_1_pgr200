@@ -54,8 +54,8 @@ public class SocketClientThread implements Runnable {
 					output.println(info);
 				}
 
-				System.out.println("After menu");
-				System.out.println("Before msg");
+
+				System.out.println("Before msg from user");
 				String msg = input.readLine();
 				System.out.println("after msg");
 
@@ -97,6 +97,7 @@ public class SocketClientThread implements Runnable {
 
 			case "1":
 				getTables(output);
+
 				output.println("Which table do you want to get info from ? ");
 				try {
 					table = input.readLine().toString();
@@ -107,9 +108,9 @@ public class SocketClientThread implements Runnable {
 					dbhand.get(table, sql);
 
 					//gets String builder from dbhandler, with lengts also.
-					output.println(dbhand.getStringBuilderAsString().length());
 					output.println(dbhand.getStringBuilderAsString());
-					;
+					dbhand.setSbNull();
+
 					table = "";
 					sql = "";
 
@@ -134,10 +135,10 @@ public class SocketClientThread implements Runnable {
 					identifier += input.readLine();
 
 					dbhand.get(table, sql, col, identifier);
-					;
-					output.println(dbhand.getStringBuilderAsString().length());
-					output.println(dbhand.getStringBuilderAsString());
 
+
+					output.println(dbhand.getStringBuilderAsString());
+					dbhand.setSbNull();
 
 					table = "";
 					sql = "";
@@ -149,8 +150,10 @@ public class SocketClientThread implements Runnable {
 				}
 				break;
 			case "3":
+				getTables(output);
 				output.println(" What table do you want to delete from?");
 				table += input.readLine();
+				getColoumns(output, table);
 				output.println("What do you want to delete? Coloumn name");
 				sql += input.readLine();
 				output.println("What do you want to delete? row value");
@@ -158,8 +161,8 @@ public class SocketClientThread implements Runnable {
 
 				//+ value + " WHERE " + userChooseRow + " = " + rowValue +
 				dbhand.dropFromDatabase_Assignement2(table, sql, col);
-				output.println(dbhand.getStringBuilderAsString().length());
 
+				output.println(table+" Has been deleted, done");
 				dbhand.setSbNull();
 				table = "";
 				sql = "";
@@ -167,6 +170,7 @@ public class SocketClientThread implements Runnable {
 				identifier = "";
 				break;
 			case "4":
+				getTables(output);
 				dbhand.dropTable();
 				break;
 
@@ -176,7 +180,10 @@ public class SocketClientThread implements Runnable {
 	}
 
 	private void getTables(PrintWriter output) {
+
+		output.println(dbhand.getTableNames().size());
 		dbhand.getTableNames().stream().forEach(output::println);
+
 	}
 
 	/**
@@ -196,11 +203,12 @@ public class SocketClientThread implements Runnable {
 		return stringMenu;
 	}
 
-	private ArrayList<String> getColoumns(PrintWriter output, String table) {
+	private void getColoumns(PrintWriter output, String table) {
+
 		output.println(dbhand.getColoumns(table).size());
 
 		dbhand.getColoumns(table).stream().forEach(output::println);
-		return dbhand.getColoumns(table);
+
 	}
 }
 
